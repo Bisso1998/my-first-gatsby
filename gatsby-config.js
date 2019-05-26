@@ -7,7 +7,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Bisso Machayaega! Time apun ka!!!`,
+    title: `Bisso is great`,
   },
   pathPrefix: "/my-first-gatsby",
 
