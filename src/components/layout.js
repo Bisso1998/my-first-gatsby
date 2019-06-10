@@ -1,17 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import 'bootstrap/dist/css/bootstrap.css';
+import { Container, Row, Col } from 'reactstrap';
+import Header from './header'
 export default ({ children }) => (
-  <div style={{ margin: `4rem auto`, maxWidth: '100%', padding: `0 1rem` }}>
-  My Sweet Site
-  <br/>
-  <Link to="/profile/">profile</Link> 
-  <br/>
-  <Link to="/">home</Link> 
-  <br/>
-  <Link to="/githubInfo">GithubInfo</Link> 
-
-
+ <div>
+    <Header/>
+  <div style={{ margin: `2rem `, maxWidth: '100%', paddingLeft: `1rem` ,paddingRight: '1rem',  }}>
+ 
     {children}
   </div>
+ </div>
 )
