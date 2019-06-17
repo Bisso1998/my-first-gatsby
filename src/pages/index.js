@@ -9,18 +9,46 @@ class FerryActivities extends Component {
         this.state = {
            activities: [],
            loading: true,
+           fromDate: "2019-06-18",
+           toDate: "2019-06-20",
+           location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
+          authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjA2MjMyOTIsImV4cCI6MTU2MDYyNjg5MiwibmJmIjoxNTYwNjIzMjkyLCJqdGkiOiIzRkYxSGhmR3puZ3ZwUUdwIn0.KTFu0OF_uRFUzmhvwe8yjcWJoZ56MTmnxj7Cz9NmVZ4"
         }
+       
+        
       }
       componentDidMount() {
+        this.setValueOfSearch();
+      }
+      setValueOfSearch() {
         this.fetchActivitiesList()
       }
 
-      fetchActivitiesList = () => {
-          console.log("Fetching data...");
+      fetchActivitiesList () {
+        // var data = {
+        //     "searchdata":{
+        //       "fromdate" : this.state.fromDate,
+        //       "todate": this.state.toDate,
+        //       "location" : this.state.location
+        //       }
+        // }
+        var data = {"searchdata":{
+          "fromdate":"2019-06-18",
+          "todate":"2019-06-20",
+          "location":[{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}]
+          }
+          }
+          data = JSON.stringify(data);
+        console.log("Body of data is " ,  data);
+
+        var  headers = {
+          'Content-Type': 'application/json',
+          'Authorization': this.state.authToken
+      }
         this.setState({ loading: true })
         axios
-          .get(`https://www.mocky.io/v2/5cec369633000092726d79fb`)
-          .then(data => {
+        .post(`https://travelcheckins.com/apitest/api/booking/search/activity`, data,  {headers: headers} )
+        .then(data => {
             console.log(data);
             this.setState({
               loading: false,
