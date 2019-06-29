@@ -1,27 +1,37 @@
 import React, { Component } from "react"
 import axios from "axios"
 import Layout from "../components/layout"
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Spinner } from 'reactstrap';
 import { Link } from "gatsby"
+
 class FerryActivities extends Component {
     constructor (props) {
         super(props);
         this.state = {
            activities: [],
+          listOfActivityDetails: [],
            loading: true,
            fromDate: "2019-06-18",
            toDate: "2019-06-20",
+          rawData: null,
            location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-          authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjA2MjMyOTIsImV4cCI6MTU2MDYyNjg5MiwibmJmIjoxNTYwNjIzMjkyLCJqdGkiOiIzRkYxSGhmR3puZ3ZwUUdwIn0.KTFu0OF_uRFUzmhvwe8yjcWJoZ56MTmnxj7Cz9NmVZ4"
+          authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjE4MTEwMTYsImV4cCI6MTU2MTgxNDYxNiwibmJmIjoxNTYxODExMDE2LCJqdGkiOiJuM2NiMExXdHFReGI4ODZXIn0.hG022l0SGy1VkDzQs1bRJOUG53Ljz2fSV7RK_nItbyU"
         }
-       
-        
-      }
+      this.setValueOfSearch();
+
+
+    }
       componentDidMount() {
-        this.setValueOfSearch();
       }
       setValueOfSearch() {
-        this.fetchActivitiesList()
+        this.fetchActivitiesList();
+        // this.state.rawData.data.map((eachPlace) => {
+        //     eachPlace.data.map((eachDate) => {
+        //       eachDate.data.map((activityDetails)=> {
+        //         console.log(activityDetails.description);
+        //       })
+        //     })
+        // })
       }
 
       fetchActivitiesList () {
@@ -32,16 +42,15 @@ class FerryActivities extends Component {
         //       "location" : this.state.location
         //       }
         // }
-        var data = {"searchdata":{
+        let data = {"searchdata":{
           "fromdate":"2019-06-18",
           "todate":"2019-06-20",
           "location":[{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}]
           }
           }
           data = JSON.stringify(data);
-        console.log("Body of data is " ,  data);
 
-        var  headers = {
+        let  headers = {
           'Content-Type': 'application/json',
           'Authorization': this.state.authToken
       }
@@ -49,11 +58,44 @@ class FerryActivities extends Component {
         axios
         .post(`https://travelcheckins.com/apitest/api/booking/search/activity`, data,  {headers: headers} )
         .then(data => {
-            console.log(data);
-            this.setState({
-              loading: false,
-              activities: data.data,
+          console.log(Object.keys(data.data.data));
+          Object.keys(data.data.data).map((eachPlace)=>{
+            Object.keys(data.data.data[eachPlace].data).map((eachDate)=> {
+              console.log('Activity date' , eachDate);
+              data.data.data[eachPlace].data[eachDate].map((eachDetail, index)=> {
+                console.log("eachDetail" , eachDetail.name + " index " + index);
+                this.setState(prevState => ({
+                  listOfActivityDetails: [...prevState.listOfActivityDetails, eachDetail],
+                  loading: false,
+
+                }))
+              })
+
             })
+
+          })
+
+
+
+          // Object.keys(data.data).map(function(eachPlace,index) {
+          //   console.log(eachPlace);
+          // })
+          // let dataForDate = null;
+
+          // Object.keys(data.data)
+          //   .map(function(key,index){
+          //     console.log('location',data.data[key].name)
+          //     Object.keys(data.data[key].data).map(function(innerLoopKey,innerLoopIndex){
+          //       dataForDate = data.data[key].data[innerLoopKey]
+          //       console.log("dataForDate" , dataForDate[0].id)
+          //     })
+          //   })
+            this.setState({
+
+               rawData: data.data,
+              activities: [1,2,3,4,5,6,7],
+            })
+
           })
           .catch(error => {
             this.setState({ loading: false, error })
@@ -61,6 +103,29 @@ class FerryActivities extends Component {
         }
 
         render() {
+      let listOfContent;
+      if(this.state.loading) {
+        listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
+      } else {
+        listOfContent =  this.state.listOfActivityDetails.map((eachActivity)=> (
+          <Col sm={{ size: 3}} style={{marginBottom: '40px'}} >
+            <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+              <Link to="/activity-details">
+
+                <div style={{backgroundImage:  `url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Surfer_at_the_Cayucos_Pier%2C_Cayucos%2C_CA.jpg/1200px-Surfer_at_the_Cayucos_Pier%2C_Cayucos%2C_CA.jpg)` , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
+                </div>
+              </Link>
+              <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
+                <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px',}}>{eachActivity.description}</p>
+                <p style={{ fontFamily: 'Times', fontSize: '14px', color: '#554944', padding: '0px', margin: '0px',}}><b>{eachActivity.name}</b></p>
+                <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>3,900 INR per person - 1.5 </span>
+              </div>
+            </div>
+
+          </Col>
+        ))
+
+      }
             return(
                 <Layout>
                       <p><b>Explore experiences</b></p>
@@ -85,23 +150,11 @@ class FerryActivities extends Component {
   </Row>
                    <Container>
                     <Row>
-                        {this.state.activities.map((eachActivity) => (
-                              <Col sm={{ size: 3}} style={{marginBottom: '40px'}} >
-                            {/* <div style={{backgroundImage:  `url(${eachActivity.url})` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}> */}
-                            <Link to="/activity-details">
 
-                            <div style={{backgroundImage:  `url(https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Surfer_at_the_Cayucos_Pier%2C_Cayucos%2C_CA.jpg/1200px-Surfer_at_the_Cayucos_Pier%2C_Cayucos%2C_CA.jpg)` , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
-                            </div>
-                            </Link>
-                        <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
-                                <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px',}}>Snorkelling - Elephant Beach</p>
-                                <p style={{ fontFamily: 'Times', fontSize: '14px', color: '#554944', padding: '0px', margin: '0px',}}><b>Snorkelling at Elephant Beach</b></p>
-                                <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>3,900 INR per person - 1.5 hours</span>
-                        </div>
 
-                            </Col>
-
-                        ))}
+                      {
+                        listOfContent
+                      }
                 
                     </Row>
                    </Container>
