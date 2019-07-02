@@ -83,26 +83,21 @@ class Header extends Component {
                   </Collapse>
                 </Navbar>
                 
-                <Row style={{borderBottom: '1px solid grey', marginBottom: '20px', }}>
-                <Col sm={{ size: 2}} >
-                </Col> 
-                <Col sm={{ size: 3}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
+                <Row style={{borderBottom: '1px solid grey', marginBottom: '40px', }}>
+              
+                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
                     FERRY BOOKING  
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
                 </Col>
-                <Col sm={{ size: 3}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
+                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
                     BOAT BOOKING 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
                 </Col>
-                <Col sm={{ size: 3}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
+                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
                     ACTIVITIES 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
                 </Col>
-                <Col sm={{ size: 1}} >
-                </Col>
-                
-                
-                
+              
                 </Row>
               </div>
             )
