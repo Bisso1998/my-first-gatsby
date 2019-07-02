@@ -83,7 +83,7 @@ class Header extends Component {
                   </Collapse>
                 </Navbar>
                 
-                <Row style={{borderBottom: '1px solid grey', marginBottom: '40px', }}>
+                <Row style={{borderTop: '1px solid grey', borderBottom: '1px solid grey', marginBottom: '40px', }}>
               
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
                     FERRY BOOKING  
