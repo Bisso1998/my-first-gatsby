@@ -38,7 +38,7 @@ class Header extends Component {
         render() {
             return(
                 <div>
-                <Navbar color="white" style={{borderBottom: '1px solid grey', paddingRight: '150px'}} light expand="md">
+                <Navbar color="white" style={{paddingRight: '150px'}} light expand="md">
                   <NavbarBrand href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', paddingLeft: '100px'}}>FerryBooking.in</NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>
