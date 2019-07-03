@@ -1,9 +1,9 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  
+  <a href="https://www.ferrybooking.in">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  
-</p>
+  </a>
+  </p>
 <h1 align="center">
   FerryBooking.in activites module
 </h1>
