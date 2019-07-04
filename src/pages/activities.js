@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import axios from "axios"
+// import axios from "axios"
 import Layout from "../components/layout"
 import { Container, Row, Col } from 'reactstrap';
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import Recommendation from '../components/recommended'
 class FerryActivities extends Component {
     constructor (props) {

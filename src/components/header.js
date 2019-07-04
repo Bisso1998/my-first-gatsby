@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 // import { graphql } from "gatsby"
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import axios from "axios"
+// import axios from "axios"
 import {
     Collapse,
     Navbar,
