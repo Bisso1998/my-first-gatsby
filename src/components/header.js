@@ -45,7 +45,7 @@ class Header extends Component {
                     <Nav className="ml-auto" navbar>
                      
                       <NavItem>
-                        <NavLink href="/">Home</NavLink>
+                        <NavLink href="https://ferrybooking.in/">Home</NavLink>
                       </NavItem>
                       <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav caret>
@@ -65,19 +65,19 @@ class Header extends Component {
                         </DropdownMenu>
                       </UncontrolledDropdown>
                       <NavItem>
-                        <NavLink href="/components/">Book Tickets Now</NavLink>
+                        <NavLink href="https://ferrybooking.in/book">Book Tickets Now</NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href="/components/">Cabs</NavLink>
+                        <NavLink href="https://ferrybooking.in/cab-booking-for-andaman-tour-trip/">Cabs</NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href="/activities/">Scuba</NavLink>
+                        <NavLink href="https://ferrybooking.in/scuba-diving-booking-andaman/">Scuba</NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href="/components/">Cancel Tiket</NavLink>
+                        <NavLink href="https://ferrybooking.in/cancel-ticket-for-ferry-cruise-boat/">Cancel Tiket</NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink href="/components/">Contact Us</NavLink>
+                        <NavLink href="https://ferrybooking.in/contact-us/">Contact Us</NavLink>
                       </NavItem>
                     </Nav>
                   </Collapse>
@@ -87,11 +87,11 @@ class Header extends Component {
               
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
                     FERRY BOOKING  
-                    <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
+                    <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}> FOR HAVELOCK & NEIL</span>
                 </Col>
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
                     BOAT BOOKING 
-                    <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
+                    <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>ROSS,NORTH,ELEPHANTA</span>
                 </Col>
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
                     ACTIVITIES 
