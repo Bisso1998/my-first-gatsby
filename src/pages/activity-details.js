@@ -22,9 +22,9 @@ class ActivityDetail extends Component {
 
                             </div>
                             
-                            <div style={{width: '100%', fontFamily: 'Montserrat', border: '2px solid #d8d2d2' ,  color: '#938f8f',padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
+                            <div style={{width: '100%', fontFamily: 'Montserrat',   color: 'rgb(72, 72, 72)',padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
                                 <p style={{fontSize: '26px',}}> Inclusions </p>
-                                <div style={{fontSize: '16px'}}>
+                                <div style={{fontSize: '14px'}}>
                                     Facilities  : Well maintained washroom and changing room<br/>
                                     Equipment :<br/>
                                     Photography :<br/>
@@ -33,7 +33,7 @@ class ActivityDetail extends Component {
                 
                                 <hr/>
                                 <p style={{fontSize: '26px',}}> Information to participants </p>
-                                <div style={{fontSize: '16px'}}>
+                                <div style={{fontSize: '14px'}}>
                                     Age  : Min 7 years<br/>
                                     Physical Requirement :<br/>
                                     Medical Condition :<br/>
@@ -43,11 +43,11 @@ class ActivityDetail extends Component {
                             </div>
                         </Col>
                         <Col sm={{ size: 7}}  >
-                            <div style={{width: '100%', fontFamily: 'Montserrat',  color: '#938f8f',  boxSizing: 'border-box', }}>
-                                <p style={{fontSize: '22px',}}> Scuba Diving Night waters</p>
-                                <p style={{fontSize: '26px', marginTop: '-20px'}}> Night Scuba Diving Night at Havelock Island</p>
+                            <div style={{width: '100%', fontFamily: 'Montserrat', color: 'rgb(72, 72, 72)', boxSizing: 'border-box', }}>
+                                <p style={{fontSize: '13px',}}> Scuba Diving Night waters</p>
+                                <p style={{fontSize: '26px', marginTop: '-20px',fontWeight: 'bold'}}> Night Scuba Diving Night at Havelock Island</p>
                             </div>
-                            <div style={{backgroundColor: '#1D62B1', boxSizing: 'border-box', color: 'white', padding: '15px'}}>
+                            <div style={{fontWeight: 100,backgroundColor: '#1D62B1', boxSizing: 'border-box', color: 'white', padding: '15px'}}>
                                 <Row>
                                     <Col sm={{ size: 6}}  >
                                         Location: <b>Havelock Island</b> <br/>
@@ -63,13 +63,13 @@ class ActivityDetail extends Component {
                                     </Col>
                                 </Row>
                             </div>
-                            <div style={{width: '100%', fontFamily: 'Montserrat', border: '2px solid #d8d2d2' ,  color: '#938f8f',padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
+                            <div style={{width: '100%', color: 'rgb(72, 72, 72)',fontFamily: 'Montserrat', padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
                                 <p style={{fontSize: '26px',}}> About </p>
                                 <div style={{fontSize: '16px'}}>
                                     Scuba diving is a mode of underwater diving where the diver uses a self-contained underwater breathing apparatus (scuba), which is completely independent of surface supply, to breathe underwater.
                                 </div>
                             </div>
-                            <div style={{padding: '10px' , color: '#938f8f',  fontFamily: 'Montserrat', fontSize: '16px' }}>
+                            <div style={{padding: '10px' , color: 'rgb(72, 72, 72)',  fontFamily: 'Montserrat', fontSize: '16px' }}>
                                 <p style={{fontSize: '26px', color: '#CC4263'}}> Why you will love this activity? </p>
                                 <ul>
                                     <li>
