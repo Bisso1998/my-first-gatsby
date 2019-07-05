@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { Container, Row, Col, Spinner } from 'reactstrap';
 import { Link } from "gatsby"
 import "../styles/global.css"
+var striptags = require('striptags');
 
 
 class FerryActivities extends Component {
@@ -17,10 +18,10 @@ class FerryActivities extends Component {
            toDate: "2019-06-20",
           rawData: null,
            location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
+
           authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjIyMjM0NjQsImV4cCI6MTU2MjIyNzA2NCwibmJmIjoxNTYyMjIzNDY0LCJqdGkiOiJ6VDI1eDlITDJEMWVPdGtrIn0.FTq9CVJ-guTo-4kAoi7PBa2dRMKsz2z5xjyC5pNGAMM"
         }
       this.setValueOfSearch();
-
 
     }
       componentDidMount() {
@@ -69,11 +70,12 @@ class FerryActivities extends Component {
                 this.setState(prevState => ({
                   listOfActivityDetails: [...prevState.listOfActivityDetails, eachDetail],
                   loading: false,
-
                 }))
+                return eachDetail
               })
-
+              return eachDate
             })
+            return eachPlace
 
           })
 
@@ -110,7 +112,7 @@ class FerryActivities extends Component {
         listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
       } else {
         listOfContent =  this.state.listOfActivityDetails.map((eachActivity)=> (
-          <Col sm={{ size: 3}} style={{marginBottom: '40px'}} >
+          <Col sm={{ size: 3}} style={{marginBottom: '140px'}} >
             <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
               <Link to="/activity-details">
 
@@ -118,9 +120,9 @@ class FerryActivities extends Component {
                 </div>
               </Link>
               <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
-                <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px',}}>{eachActivity.description}</p>
+                <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px',}}>{striptags(eachActivity.description)}</p>
                 <p style={{ fontFamily: 'Times', fontSize: '14px', color: '#554944', padding: '0px', margin: '0px',}}><b>{eachActivity.name}</b></p>
-                <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>3,900 INR per person - 1.5 </span>
+                <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>₹3,900/pax - 1.5 Hours </span>
               </div>
             </div>
 

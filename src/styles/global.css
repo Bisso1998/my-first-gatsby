@@ -1,15 +1,16 @@
-html {
-    background-color: lavenderblush;
-  }
-  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-  .header-select {
-      font-family: 'Montserrat';
-      font-size: '22px';
-      text-align: 'center';
-      color: '#1F69B0' !important;
-  }
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+.header-select {
+  font-family: 'Montserrat';
+  font-size: '22px';
+  text-align: 'center' ;
+  color: '#1F69B0' !important;
+}
 
 body {
   font-family: 'Montserrat';
-  
+}
+
+.row {
+margin:0
 }
