@@ -2,10 +2,14 @@ html {
     background-color: lavenderblush;
   }
   @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://use.fontawesome.com/releases/v5.7.0/css/all.css');
   .header-select {
-    font-family: 'Montserrat';
-    font-size: '22px';
-    text-align: 'center' ;
-     color: '#1F69B0' !important;
+      font-family: 'Montserrat';
+      font-size: '22px';
+      text-align: 'center';
+      color: '#1F69B0' !important;
   }
+
+body {
+  font-family: 'Montserrat';
+  
+}

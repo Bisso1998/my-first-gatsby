@@ -38,8 +38,8 @@ class Header extends Component {
         render() {
             return(
                 <div>
-                <Navbar color="white" style={{borderBottom: '1px solid grey', paddingRight: '150px'}} light expand="md">
-                  <NavbarBrand href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', paddingLeft: '100px'}}>FerryBooking.in</NavbarBrand>
+                <Navbar color="white" style={{margin:'10px', paddingRight: '150px'}} light expand="md">
+                  <NavbarBrand href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', fontWeight:'bold', paddingLeft: '100px'}}>FerryBooking.in</NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
@@ -83,26 +83,21 @@ class Header extends Component {
                   </Collapse>
                 </Navbar>
                 
-                <Row style={{borderBottom: '1px solid grey', marginBottom: '20px', }}>
-                <Col sm={{ size: 2}} >
-                </Col> 
-                <Col sm={{ size: 3}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
+                <Row style={{borderTop: '1px solid #ddd', borderBottom: '1px solid #ddd', marginBottom: '40px', }}>
+              
+                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
                     FERRY BOOKING  
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
                 </Col>
-                <Col sm={{ size: 3}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
+                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
                     BOAT BOOKING 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
                 </Col>
-                <Col sm={{ size: 3}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
+                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
                     ACTIVITIES 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
                 </Col>
-                <Col sm={{ size: 1}} >
-                </Col>
-                
-                
-                
+              
                 </Row>
               </div>
             )

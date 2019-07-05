@@ -3,6 +3,8 @@ import axios from "axios"
 import Layout from "../components/layout"
 import { Container, Row, Col, Spinner } from 'reactstrap';
 import { Link } from "gatsby"
+import "../styles/global.css"
+
 
 class FerryActivities extends Component {
     constructor (props) {
