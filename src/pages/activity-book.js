@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { Container, Row, Col } from 'reactstrap';
 import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
 import { Button } from 'reactstrap';
+import { Link } from "gatsby"
 class ActivityBook extends Component {
   constructor (props) {
     super(props);
@@ -17,8 +18,9 @@ class ActivityBook extends Component {
     }
 
   }
+
   updateNumberOfAdults = e => {
-    this.setState({ numberOfAdults: e.target.value })
+    this.setState({ numberOfAdultGuest: e.target.value });
   }
   updateNumberOfChildren = e => {
     this.setState({ numberOfChildren: e.target.value })
@@ -151,16 +153,16 @@ class ActivityBook extends Component {
                 <hr/>
                 <div style={{fontSize: '14px', }}>
                   <p style={{display: 'inline'}}>
-                    {this.state.costForAdult} X {this.state.numberOfAdults} adult(s)
+                    {this.state.costForAdult} X {this.state.numberOfAdultGuest || 0} adult(s)
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    {this.state.costForAdult * this.state.numberOfAdults}
+                    {this.state.costForAdult * this.state.numberOfAdultGuest}
                   </p>
                 </div>
                 <br/>
                 <div style={{fontSize: '14px', }}>
                   <p style={{display: 'inline'}}>
-                    {this.state.costForChildren} X {this.state.numberOfChildren} children(s)
+                    {this.state.costForChildren} X {this.state.numberOfChildren || 0} children(s)
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
                     {this.state.costForChildren * this.state.numberOfChildren}
@@ -173,7 +175,8 @@ class ActivityBook extends Component {
                     <b>TOTAL (INR) </b>
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    <b>{this.state.totalCost} </b>
+                    {/*<b>{this.state.totalCost} </b>*/}
+                    {( ( this.state.numberOfAdultGuest * this.state.costForAdult) + (this.state.numberOfChildren * this.state.costForChildren))}
                   </p>
                 </div>
                 <hr/>
@@ -199,6 +202,9 @@ class ActivityBook extends Component {
             </Col>
           </Row>
           <br/>
+          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '30px'}}>
+            <Button  style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}} block>Proceed to pay </Button>
+          </div>
         </Container>
       </Layout>
     )

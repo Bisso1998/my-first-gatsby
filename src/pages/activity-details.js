@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col } from 'reactstrap';
 import Recommendation from '../components/recommended'
+import { Link } from "gatsby"
 
 class ActivityDetail extends Component {
     constructor (props) {
@@ -89,7 +90,9 @@ class ActivityDetail extends Component {
                                     </li>
                                 </ul>
                                 <br/>
-                                <button style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}>Book Now </button>
+                              <Link to="/activity-book">
+                              <button style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}>Book Now </button>
+                              </Link>
                             </div>
                         </Col>
                     </Row>
