@@ -18,7 +18,8 @@ class FerryActivities extends Component {
            toDate: "2019-06-20",
           rawData: null,
            location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-          authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjIzMDg1NTEsImV4cCI6MTU2MjMxMjE1MSwibmJmIjoxNTYyMzA4NTUxLCJqdGkiOiJOam8yeEZHSUtzWG10MU0xIn0.wM7x-SrmuPctRTStq3P9CX6HeEDrmW4kGaaXzJOZkAo"
+
+          authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjIyMjM0NjQsImV4cCI6MTU2MjIyNzA2NCwibmJmIjoxNTYyMjIzNDY0LCJqdGkiOiJ6VDI1eDlITDJEMWVPdGtrIn0.FTq9CVJ-guTo-4kAoi7PBa2dRMKsz2z5xjyC5pNGAMM"
         }
       this.setValueOfSearch();
 
