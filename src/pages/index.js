@@ -1,7 +1,25 @@
 import React, { Component } from "react"
 import axios from "axios"
+import InputRange from 'react-input-range';
+// Using an ES6 transpiler like Babel
+import Slider from 'react-rangeslider'
+
+// To include the default styles
+import 'react-rangeslider/lib/index.css'
 import Layout from "../components/layout"
-import { Container, Row, Col, Spinner } from 'reactstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Spinner,
+  Button,
+  Popover,
+  PopoverHeader,
+  PopoverBody,
+  UncontrolledPopover,
+  Input,
+  Badge
+} from "reactstrap"
 import { Link } from "gatsby"
 import "../styles/global.css"
 var striptags = require('striptags');
@@ -11,19 +29,37 @@ class FerryActivities extends Component {
     constructor (props) {
         super(props);
         this.state = {
-           activities: [],
+           allActivities: [],
           listOfActivityDetails: [],
            loading: true,
-           fromDate: "2019-06-18",
-           toDate: "2019-06-20",
+          fromDate: "2019-06-22",
+          toDate: "2020-06-25",
           rawData: null,
            location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
 
-          authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjIzMzM5MDgsImV4cCI6MTU2MjMzNzUwOCwibmJmIjoxNTYyMzMzOTA4LCJqdGkiOiJYc1d3alZvVHlkOUUwY0thIn0.rQNWHKfuH70xd3dDidkSuMRzBjUfVH7MjPlLVzTWRRo"
+          authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjI1MDA3ODUsImV4cCI6MTU2MjUwNDM4NSwibmJmIjoxNTYyNTAwNzg1LCJqdGkiOiJoSWJsbmRQVFM0cE5FeURzIn0._rraxmSFgimWJh2GR2GNOY97WAlH4gm8P8F1c8exNEw",
+
+          priceValue: 1000,
         }
       this.setValueOfSearch();
 
     }
+  updateValueOfPriceFilter = e => {
+
+    let valueOfPrice = e.target.value;
+    valueOfPrice= parseInt(valueOfPrice);
+
+
+    this.setState({ priceValue: valueOfPrice });
+    console.log("FILTERING...." , e.target.value);
+  }
+   filterList = () => {
+     console.log("Calling filter from filter list....");
+
+     this.state.allActivities = this.state.listOfActivityDetails.filter(eachActivity => {
+      return eachActivity.adult_ticket <= this.state.priceValue
+    })
+  }
       componentDidMount() {
       }
       setValueOfSearch() {
@@ -46,8 +82,8 @@ class FerryActivities extends Component {
         //       }
         // }
         let data = {"searchdata":{
-          "fromdate":"2019-06-18",
-          "todate":"2019-06-20",
+          "fromdate":"2019-06-22",
+          "todate":"2019-07-25",
           "location":[{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}]
           }
           }
@@ -64,12 +100,15 @@ class FerryActivities extends Component {
           console.log(Object.keys(data.data.data));
           Object.keys(data.data.data).map((eachPlace)=>{
             Object.keys(data.data.data[eachPlace].data).map((eachDate)=> {
-              console.log('Activity date' , eachDate);
+              console.log('Activity date' , eachDate)
+
+              ;
               data.data.data[eachPlace].data[eachDate].map((eachDetail, index)=> {
                 console.log("eachDetail" , eachDetail.name + " index " + index);
                 this.setState(prevState => ({
                   listOfActivityDetails: [...prevState.listOfActivityDetails, eachDetail],
                   loading: false,
+                  allActivities: [...prevState.listOfActivityDetails, eachDetail],
                 }))
                 return eachDetail
               })
@@ -111,7 +150,7 @@ class FerryActivities extends Component {
       if(this.state.loading) {
         listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
       } else {
-        listOfContent =  this.state.listOfActivityDetails.map((eachActivity)=> (
+        listOfContent =  this.state.allActivities.map((eachActivity)=> (
           <Col sm={{ size: 3}} style={{marginBottom: '140px'}} >
             <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
               <Link to="/activity-details">
@@ -132,6 +171,75 @@ class FerryActivities extends Component {
       }
             return(
                 <Layout>
+                  <div style={{width: '100', padding: '20px', backgroundColor: '#F9F9F9' }}>
+                    <Row>
+                     <Col sm={{size: 4}} >
+
+                   </Col>
+                      <Col sm={{size: 4}} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+                        <div >
+                          <p  style={{paddingTop: '16px', color: 'rgba(0, 0, 0, 0.5)' }}>
+                            <b>Filters:</b>
+                          </p>
+                        </div>
+
+                        <Button id="filterByDate" type="button" outline color="secondary" size="sm">
+                          Dates
+                        </Button>
+                        <Button id="filterByPrice" type="button" outline color="secondary" size="sm">
+                          Price
+                        </Button>
+                        <Button id="filterByGuest" type="button" outline color="secondary" size="sm">
+                          Guest
+                        </Button>
+                        <Button id="filterByTime" type="button" outline color="secondary" size="sm">
+                          Time of Day
+                        </Button>
+                      </Col>
+                      <Col sm={{size: 4}}>
+                      </Col>
+
+                   </Row>
+
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByDate">
+                      <PopoverHeader>Filter by date</PopoverHeader>
+                      <PopoverBody>
+                        Legacy is a reactstrap special trigger value (outside of bootstrap's spec/standard). Before reactstrap correctly supported click and focus, it had a hybrid which was very useful and has been brought back as trigger="legacy". One advantage of the legacy trigger is that it allows the popover text to be selected while also closing when clicking outside the triggering element and popover itself.</PopoverBody>
+                    </UncontrolledPopover>
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByPrice">
+                      <PopoverHeader>Filter by Pricez</PopoverHeader>
+                      <PopoverBody>
+                        {/*<input type="range" name="points" min="100" max="1000"  step="100" value={this.state.priceValue}*/}
+                               {/*onChange={e => this.updateValueOfPriceFilter(e)}*/}
+                               {/*/!*onFocus={this.filterList}/>*!/*/}
+                        {/*<InputRange*/}
+                          {/*maxValue={1000}*/}
+                          {/*minValue={100}*/}
+                          {/*value={300}*/}
+                          {/*onChange={value => this.setState({ priceValue: value })}*/}
+                        {/*/>*/}
+                        <Slider
+                          value={this.state.priceValue}
+                          orientation="horizontal"
+                          onChange={value => this.setState({ priceValue: value })}
+                        />
+
+                      <h5 style={{textAlign: 'center',  }}>
+                          <Badge href="#" color="light">0 to {this.state.priceValue} INR</Badge>
+                      </h5>
+                      </PopoverBody>
+                    </UncontrolledPopover>
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByGuest">
+                      <PopoverHeader>Filter by Guests</PopoverHeader>
+                      <PopoverBody>
+                        Legacy is a reactstrap special trigger value (outside of bootstrap's spec/standard). Before reactstrap correctly supported click and focus, it had a hybrid which was very useful and has been brought back as trigger="legacy". One advantage of the legacy trigger is that it allows the popover text to be selected while also closing when clicking outside the triggering element and popover itself.</PopoverBody>
+                    </UncontrolledPopover>
+                    <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByTime">
+                      <PopoverHeader>Filter by Time of Day</PopoverHeader>
+                      <PopoverBody>
+                        Legacy is a reactstrap special trigger value (outside of bootstrap's spec/standard). Before reactstrap correctly supported click and focus, it had a hybrid which was very useful and has been brought back as trigger="legacy". One advantage of the legacy trigger is that it allows the popover text to be selected while also closing when clicking outside the triggering element and popover itself.</PopoverBody>
+                    </UncontrolledPopover>
+                  </div>
                       <p><b>Explore experiences</b></p>
 
                       <Row style={{marginBottom: '50px'}}>
