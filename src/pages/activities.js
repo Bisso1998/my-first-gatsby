@@ -17,7 +17,7 @@ class FerryActivities extends Component {
         render() {
             return(
                 <Layout>
-                      <p><b>Explore experiences</b></p>
+                      <p><b>Explore activities</b></p>
 
                       <Row style={{marginBottom: '50px'}}>
 {['Nightlife', 'Sports' , 'Entertaintment' , 'Nature'].map( eachExperience => (
