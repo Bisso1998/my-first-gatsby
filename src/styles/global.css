@@ -4,7 +4,7 @@
   font-family: 'Montserrat';
   font-size: '22px';
   text-align: 'center' ;
-  color: '#1F69B0' !important;
+  color: '#1F69B0' ;
 }
 
 body {
@@ -14,3 +14,27 @@ body {
 .row {
   margin:0
 }
+
+.popover {
+  max-width: 400px;
+}
+.header-select a { 
+  /* background: #fff; */
+  color: #1F69B0 ;
+}
+.header-select:hover { 
+  background: rgb(31, 105, 176);
+  color: #fff !important ;
+}
+.header-select:hover a{ 
+  background: rgb(31, 105, 176);
+  color: #fff !important ;
+}
+.header-selected a{ 
+  background: rgb(31, 105, 176);
+  color: #fff !important ;
+}
+/* .header-select a { 
+
+  color: #fff !important ;
+} */

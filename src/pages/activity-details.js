@@ -13,13 +13,13 @@ class ActivityDetail extends Component {
             loading: true,
         }
     }
-    render() {
+    render() {   
         return(
             <Layout>
-                <Container>
+                <Container style={{marginTop:'4rem'}}>
                     <Row>
                         <Col sm={{ size: 4}}  >
-                            <div style={{width: '100%' , height: '600px' ,  backgroundImage:  `url(http://getwallpapers.com/wallpaper/full/c/1/2/1136197-cool-scuba-diving-wallpaper-3159x2106-for-hd.jpg)` , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
+                            <div style={{width: '100%' , height: '600px' ,  backgroundImage:  'url()' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
 
                             </div>
                             

@@ -86,16 +86,19 @@ class Header extends Component {
                 <Row style={{borderTop: '1px solid #ddd', borderBottom: '1px solid #ddd', marginBottom: '10px', }}>
               
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
-                    FERRY BOOKING  
+                    <a href="https://ferrybooking.in">FERRY BOOKING  
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}> FOR HAVELOCK & NEIL</span>
+                    </a>
                 </Col>
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
-                    BOAT BOOKING 
+                    <a href="https://ferrybooking.in/book/boat-booking.html">BOAT BOOKING 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>ROSS,NORTH,ELEPHANTA</span>
+                  </a>
                 </Col>
-                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
-                    ACTIVITIES 
+                <Col sm={{ size: 4}}  className="header-selected" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
+                <a href="/">ACTIVITIES 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
+                   </a>
                 </Col>
               
                 </Row>

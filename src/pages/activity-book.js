@@ -1,10 +1,13 @@
 import React, { Component } from "react"
-import axios from "axios"
+// import axios from "axios"
 import Layout from "../components/layout"
 import { Container, Row, Col } from 'reactstrap';
-import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
+import { InputGroup, 
+  // InputGroupText, 
+  // InputGroupAddon, 
+  Input } from 'reactstrap';
 import { Button } from 'reactstrap';
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 class ActivityBook extends Component {
   constructor (props) {
     super(props);
@@ -133,7 +136,7 @@ class ActivityBook extends Component {
 
                   </Col>
                   <Col sm={{ size: 2}}  >
-                    <img src={"http://getwallpapers.com/wallpaper/full/c/1/2/1136197-cool-scuba-diving-wallpaper-3159x2106-for-hd.jpg"} style={{height: "80px", width: "80px", borderRadius: '2px'}}/>
+                    <img alt="" src={"http://getwallpapers.com/wallpaper/full/c/1/2/1136197-cool-scuba-diving-wallpaper-3159x2106-for-hd.jpg"} style={{height: "80px", width: "80px", borderRadius: '2px'}}/>
                   </Col>
 
                   <Col sm={{ size: 4}}  >
