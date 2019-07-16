@@ -8,7 +8,7 @@ fromDate = "2019-06-22",
 toDate = "2020-06-25",
 rawData = null,
 location = [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-authToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyMDA1MzIsImV4cCI6MTU2MzIwNDEzMiwibmJmIjoxNTYzMjAwNTMyLCJqdGkiOiJ4aFIwaEJkbkZrbDkxcWZXIn0.ZlIGk6HLORbkpdzMf5B_RyigIOKCP_POC1B1PW_Zqz4"
+authToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyNzg4MzEsImV4cCI6MTU2MzI4MjQzMSwibmJmIjoxNTYzMjc4ODMxLCJqdGkiOiJuME9wcVdhYkhRZXp4MmRSIn0.wFbLEDNmgg97UFZ6cEVY68NwyTzBlicwZWEF6IWllfI"
 let data = {"searchdata":{
     "fromdate":"2019-06-22",
     "todate":"2019-07-25",
