@@ -12,6 +12,8 @@ class ActivityDetail extends Component {
             activities: [],
             loading: true,
         }
+        console.log("Id for activity is ", this.props.location.state.activityId);
+
     }
     render() {
         return(
@@ -27,7 +29,7 @@ class ActivityDetail extends Component {
                                 <p style={{fontSize: '26px',}}> Inclusions </p>
                                 <div style={{fontSize: '14px'}}>
                                     Facilities  : Well maintained washroom and changing room<br/>
-                                    Equipment :<br/>
+                                    Equipments :<br/>
                                     Photography :<br/>
                                     Certificate :<br/>
                                 </div>
@@ -71,7 +73,7 @@ class ActivityDetail extends Component {
                                 </div>
                             </div>
                             <div style={{padding: '10px' , color: 'rgb(72, 72, 72)',  fontFamily: 'Montserrat', fontSize: '16px' }}>
-                                <p style={{fontSize: '26px', color: '#CC4263'}}> Why you will love this activity? </p>
+                                <p style={{fontSize: '26px', color: '#CC4263'}}> Why you will love this activity? ID IS  { this.props.location.state.activityId} </p>
                                 <ul>
                                     <li>
                                         Scuba diving is a mode of underwater diving where the diver uses a self-contained underwater breathing apparatus (scuba).

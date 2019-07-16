@@ -39,7 +39,7 @@ class FerryActivities extends Component {
       toDate: "2020-06-25",
       rawData: null,
       location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyNTY2NzMsImV4cCI6MTU2MzI2MDI3MywibmJmIjoxNTYzMjU2NjczLCJqdGkiOiJxcU5vdmJNQjJ2OWdNSEFqIn0.oFxAisZilseJeXvl5lcKWkk8TLU5yvusaR95fDtn6J8",
+      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyNzc3NDcsImV4cCI6MTU2MzI4MTM0NywibmJmIjoxNTYzMjc3NzQ3LCJqdGkiOiJlSHdzUU9TSjRqd1Z0THZtIn0.pXCUicwj7NWHdqmxggLYvpUIrabd1FzS4EB3AW8g4GA",
            filterPriceValue: [0,1000],
       filterDateStart: null,
       filterDateEnd: null,
@@ -105,7 +105,21 @@ class FerryActivities extends Component {
     'Authorization': this.state.authToken
   }
 
-  this.setState({ loading: true })
+  this.setState({ loading: true });
+    function slugify(string) {
+      const a = 'àáäâãåăæąçćčđďèéěėëêęǵḧìíïîįłḿǹńňñòóöôœøṕŕřßśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;'
+      const b = 'aaaaaaaaacccddeeeeeeeghiiiiilmnnnnooooooprrssssttuuuuuuuuuwxyyzzz------'
+      const p = new RegExp(a.split('').join('|'), 'g')
+      string = striptags(string)
+      return string.toString().toLowerCase()
+        .replace(/\s+/g, '-') // Replace spaces with -
+        .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+        .replace(/&/g, '-and-') // Replace & with 'and'
+        .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+        .replace(/\-\-+/g, '-') // Replace multiple - with single -
+        .replace(/^-+/, '') // Trim - from start of text
+        .replace(/-+$/, '') // Trim - from end of text
+    }
   axios
   .post(`https://travelcheckins.com/apitest/api/booking/search/activity`, data,  {headers: headers} )
   .then(data => {
@@ -118,12 +132,15 @@ class FerryActivities extends Component {
           // add date to the flat array
           eachDetail.date = eachDate
           // make sure activity is not a duplicate.
+          eachDetail.url = slugify(eachDetail.small_description)
+
           if( ! this.state.allActivities.find(x => x.id === eachDetail.id) ){
             this.setState(prevState => ({
               listOfActivityDetails: [...prevState.listOfActivityDetails, eachDetail],
               loading: false,
               allActivities: [...prevState.listOfActivityDetails, eachDetail],
-            }))
+
+          }))
             
           }else{
             // if duplicate add date to activity available dates 
@@ -158,7 +175,9 @@ render() {
     listOfContent =  this.state.allActivities.map((eachActivity)=> (
       <Col sm={{ size: 3}} style={{marginBottom: '140px'}} >
       <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-      <Link to="/activity-details">
+      <Link to={`/${eachActivity.url}`}
+            state={{ activityId: eachActivity.id }}
+      >
       
       <div style={{backgroundImage: 'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
       </div>

@@ -15,6 +15,9 @@ class ActivityDetail extends Component {
             activities: [],
             loading: true,
         }
+      console.log("HEYA2");
+      console.log("HEEYAAA", this.props.location.state);
+
     }
     render() {  
         console.log(this.state.data)
@@ -92,8 +95,9 @@ class ActivityDetail extends Component {
                                     </li>
                                 </ul>
                                 <br/>
-                              <Link to="/activity-book">
-                              <button style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}>Book Now </button>
+                              <Link to="/activity-book"   state={{ activityId: this.props.location.state.activityId , activityToBook: this.state.data }} >
+                              <button style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}
+                              >Book Now </button>
                               </Link>
                             </div>
                         </Col>

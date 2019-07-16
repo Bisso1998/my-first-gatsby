@@ -18,7 +18,10 @@ class ActivityBook extends Component {
       costForAdult: 1800,
       costForChildren: 1400,
       totalCost: 0,
-    }
+      activityToBookDetails: this.props.location.state.activityToBook,
+  }
+  console.log("activityToBookId  " , this.props.location.state.activityId);
+    console.log("I am booking for this activity: " , this.state.activityToBookDetails);
 
   }
 
@@ -34,8 +37,8 @@ class ActivityBook extends Component {
         <Container>
           <Row>
             <Col sm={{ size: 7}}  >
-              <div style={{width: '100%', fontFamily: 'Montserrat',  color: '#938f8f',  boxSizing: 'border-box', }}>
-                <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay</b></p>
+              <div style={{width: '100%', fontFamily: 'Montserrat',  color: '#938f8f',  boxSizing: 'border-box', marginTop: '50px' }}>
+                <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay for {this.state.activityToBookDetails.name}</b></p>
                 <p style={{fontSize: '16px',  marginTop: '-10px'}}> Scuba Diving Night waters</p>
               </div>
               <div style={{width: '100%', fontFamily: 'Montserrat',  color: '#938f8f',  boxSizing: 'border-box', }}>
