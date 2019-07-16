@@ -39,7 +39,7 @@ class FerryActivities extends Component {
       toDate: "2020-06-25",
       rawData: null,
       location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMwODczOTIsImV4cCI6MTU2MzA5MDk5MiwibmJmIjoxNTYzMDg3MzkyLCJqdGkiOiJ0OXZmd0lhc1ZNajJub0V0In0.k9UB6EQdGA7pmHZPh-ap4lZ2jox9s_7_j5oqSwndi0Q",      
+      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyMDA1MzIsImV4cCI6MTU2MzIwNDEzMiwibmJmIjoxNTYzMjAwNTMyLCJqdGkiOiJ4aFIwaEJkbkZrbDkxcWZXIn0.ZlIGk6HLORbkpdzMf5B_RyigIOKCP_POC1B1PW_Zqz4",
       filterPriceValue: [0,1000],
       filterDateStart: null,
       filterDateEnd: null,
@@ -167,9 +167,9 @@ render() {
       </div>
       </Link>
       <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
-      <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px',}}>{striptags(eachActivity.description)}</p>
+      <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px',}}>{striptags(eachActivity.small_description)}</p>
       <p style={{ fontFamily: 'Times', fontSize: '14px', color: '#554944', padding: '0px', margin: '0px',}}><b>{eachActivity.name}</b></p>
-      <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>₹{eachActivity.adult_ticket}/pax - 1.5 Hours </span>
+      <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>₹{eachActivity.adult_ticket}/pax </span>
       </div>
       </div>
       

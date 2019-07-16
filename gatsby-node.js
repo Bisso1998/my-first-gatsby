@@ -5,7 +5,7 @@ exports.createPages = ({ boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
   // Your component that should be rendered for every item in JSON.
-  const template = path.resolve(`src/pages/activity-details.js`);
+  const template = path.resolve(`src/pages/activity-details-template.js`);
 
   // Create pages for each JSON entry.
   data.forEach(( page ) => {
@@ -16,7 +16,7 @@ exports.createPages = ({ boundActionCreators }) => {
       path,
       component: template,
       // Send additional data to page from JSON (or query inside template)
-      context: page
+      context: {page}
     });
   });
 };
