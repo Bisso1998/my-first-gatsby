@@ -40,14 +40,14 @@ class ActivityBook extends Component {
   render() {
     return(
       <Layout>
-        <Container>
+        <Container style={{marginTop:"4rem"}}>
           <Row>
             <Col sm={{ size: 7}}  >
-              <div style={{width: '100%', fontFamily: 'Montserrat',  color: '#938f8f',  boxSizing: 'border-box', marginTop: '50px' }}>
+              <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', marginTop: '50px' }}>
                 <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay for {this.state.activityName}</b></p>
                 <p style={{fontSize: '16px',  marginTop: '-10px'}}> Scuba Diving Night waters</p>
               </div>
-              <div style={{width: '100%', fontFamily: 'Montserrat',  color: '#938f8f',  boxSizing: 'border-box', }}>
+              <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
                 <p style={{fontSize: '28px', marginTop: '40px'}}><b>Who's coming?</b></p>
 
 
@@ -84,7 +84,7 @@ class ActivityBook extends Component {
                     </InputGroup>
                   </Col>
                 </Row>
-                <div style={{width: '100%', fontFamily: 'Montserrat',  color: '#938f8f',  boxSizing: 'border-box', }}>
+                <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
                   <p style={{fontSize: '26px', marginTop: '40px'}}><b>Guest Details</b></p>
                 </div>
                 <br/>
@@ -108,15 +108,15 @@ class ActivityBook extends Component {
 
               </div>
               <br/>
-              <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: '#938f8f', }}> <b>Additional Services</b> </p>
+              <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)', }}> <b>Additional Services</b> </p>
               <Row>
                 {
                   [1,2,3].map((eachElement) => (
                     <Col sm={{ size: 4}}  >
-                      <div style={{fontSize: '16px' , color: '#938f8f'}}>
+                      <div style={{fontSize: '16px' , color: 'rgb(85, 73, 68)'}}>
                         AIRPORT PORT BLAIR
                       </div>
-                      <div style={{fontSize: '14px' , color: '#767676', marginTop: "10px", marginBottom: "10px"}}>
+                      <div style={{fontSize: '14px' , color: 'rgb(85, 73, 68)', marginTop: "10px", marginBottom: "10px"}}>
                         <b>AIRPORT PICK UP SERVICES</b>
                       </div>
                       <div style={{fontSize: '14px' , color: '#938f8f'}}>
@@ -134,7 +134,7 @@ class ActivityBook extends Component {
             </Col>
             <Col sm={{ size: 5}}  >
               <div style={{width: '100%', fontFamily: 'Montserrat', border: '2px solid #d8d2d2' ,  color: '#938f8f',padding: '20px' ,  boxSizing: 'border-box',  marginTop : '0px'}}>
-                <p style={{fontSize: '16px',color: '#767676'}}> <b>Scuba Diving Night waters </b> </p>
+                <p style={{fontSize: '16px',color: 'rgb(85, 73, 68)'}}> <b>Scuba Diving Night waters </b> </p>
 
 
                 <Row>
