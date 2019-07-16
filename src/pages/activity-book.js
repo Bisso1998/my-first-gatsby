@@ -29,7 +29,12 @@ class ActivityBook extends Component {
     if (typeof window === 'undefined') {
       return;
     }
-    this.setState(() => ({ activityName: this.props.location.state.activityToBook.name }));
+    if (this.props.location.state != null) {
+      this.setState(() => ({ activityName: this.props.location.state.activityToBook.name }));
+    } else {
+      alert("Please select an activity from homepage to book the activity. No activity selected");
+    }
+
   }
   updateNumberOfAdults = e => {
     this.setState({ numberOfAdultGuest: e.target.value });
