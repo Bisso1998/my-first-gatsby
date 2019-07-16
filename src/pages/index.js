@@ -39,8 +39,8 @@ class FerryActivities extends Component {
       toDate: "2020-06-25",
       rawData: null,
       location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyMDA1MzIsImV4cCI6MTU2MzIwNDEzMiwibmJmIjoxNTYzMjAwNTMyLCJqdGkiOiJ4aFIwaEJkbkZrbDkxcWZXIn0.ZlIGk6HLORbkpdzMf5B_RyigIOKCP_POC1B1PW_Zqz4",
-      filterPriceValue: [0,1000],
+      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyNTY2NzMsImV4cCI6MTU2MzI2MDI3MywibmJmIjoxNTYzMjU2NjczLCJqdGkiOiJxcU5vdmJNQjJ2OWdNSEFqIn0.oFxAisZilseJeXvl5lcKWkk8TLU5yvusaR95fDtn6J8",
+           filterPriceValue: [0,1000],
       filterDateStart: null,
       filterDateEnd: null,
       filterDateFocusedInput: null,
@@ -53,7 +53,7 @@ class FerryActivities extends Component {
     this.setState({ filterPriceValue: e });
     // filter out activities that are not within price range
     var x = this.state.listOfActivityDetails.filter(eachActivity => {
-      return (eachActivity.adult_ticket <= e[1]) 
+      return (eachActivity.adult_ticket >= e[0] && eachActivity.adult_ticket <= e[1]) 
     })
     this.setState({allActivities:x})
     console.log(this.state.allActivities)
@@ -76,10 +76,7 @@ class FerryActivities extends Component {
       let moments = eachActivity.dates.map(d => moment(d)),
       maxDate = moment.max(moments),
       minDate = moment.min(moments)
-      console.log(minDate)
-      console.log(startDate)
-      console.log(endDate)
-      console.log(maxDate)
+      
       return (startDate>=minDate && endDate <= maxDate  ) 
     })
     this.setState({allActivities:x})
