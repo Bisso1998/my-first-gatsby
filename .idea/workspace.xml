@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/recommended.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/recommended.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/activity-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/activity-details.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -72,21 +71,22 @@
     <session id="315232474">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.closed" value="15" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="5" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="15" />
+          <entry key="ESLintLanguageService" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -103,12 +103,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1645" />
+          <entry key="js" value="1987" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1645" />
+          <entry key="JavaScript" value="1987" />
         </counts>
       </usages-collector>
     </session>
@@ -121,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+            <state relative-caret-position="364">
+              <caret line="185" column="131" selection-start-line="185" selection-start-column="131" selection-end-line="185" selection-end-column="174" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#105#139#0" expanded="true" />
@@ -145,7 +145,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
+            <state relative-caret-position="930">
               <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
               <folding>
                 <element signature="e#70#111#0" expanded="true" />
@@ -157,7 +157,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/activity-details.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
+            <state relative-caret-position="1620">
               <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
               <folding>
                 <element signature="e#70#111#0" expanded="true" />
@@ -169,10 +169,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="69" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
+            <state relative-caret-position="407">
+              <caret line="66" column="183" selection-start-line="66" selection-start-column="183" selection-end-line="66" selection-end-column="183" />
               <folding>
-                <marker date="1563364169349" expanded="true" signature="520:526" ph="..." />
+                <element signature="e#112#161#0" expanded="true" />
+                <marker date="1563389401993" expanded="true" signature="2080:2085" ph="..." />
               </folding>
             </state>
           </provider>
@@ -182,9 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>link</find>
-      <find>this.state.data</find>
-      <find>review</find>
       <find>dateFilterUpdated</find>
       <find>updateValueOfPriceFilter</find>
       <find>allActivities</find>
@@ -192,7 +190,6 @@
       <find>filterByTime</find>
       <find>review and</find>
       <find>.jpg</find>
-      <find>travel</find>
       <find>striptags</find>
       <find>book now</find>
       <find>small_</find>
@@ -212,6 +209,10 @@
       <find>console</find>
       <find>location</find>
       <find>Link</find>
+      <find>slugify</find>
+      <find>fetchActivitiesList</find>
+      <find>ferry</find>
+      <find>travel</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -231,8 +232,8 @@
         <option value="$PROJECT_DIR$/src/pages/activity-details-template.js" />
         <option value="$PROJECT_DIR$/src/pages/activity-details.js" />
         <option value="$PROJECT_DIR$/src/pages/activity-book.js" />
-        <option value="$PROJECT_DIR$/src/pages/index.js" />
         <option value="$PROJECT_DIR$/src/templates/activity-details.js" />
+        <option value="$PROJECT_DIR$/src/pages/index.js" />
         <option value="$PROJECT_DIR$/src/components/recommended.js" />
       </list>
     </option>
@@ -389,11 +390,13 @@
       <workItem from="1563356795891" duration="579000" />
       <workItem from="1563359879934" duration="442000" />
       <workItem from="1563363672840" duration="629000" />
+      <workItem from="1563387184287" duration="1730000" />
+      <workItem from="1563388989804" duration="404000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56340000" />
+    <option name="totallyTimeSpent" value="58474000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -408,7 +411,7 @@
     <frame x="0" y="23" width="1440" height="839" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49584487" visible="true" weight="0.19054441" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49584487" visible="true" weight="0.19627507" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5041551" side_tool="true" weight="0.1812321" />
@@ -429,28 +432,6 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Nativescript Palette" order="3" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49584487" visible="true" weight="7.163324E-4" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.5041551" side_tool="true" weight="0.1812321" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32920793" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32923833" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="NativeScript" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Nativescript Palette" order="3" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -524,20 +505,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/activity-details.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
+        <state relative-caret-position="930">
+          <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
           <folding>
             <element signature="e#70#111#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
+    <entry file="file://$PROJECT_DIR$/src/templates/activity-details.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+        <state relative-caret-position="1620">
+          <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="111" selection-end-column="36" />
           <folding>
             <element signature="e#70#111#0" expanded="true" />
           </folding>
@@ -546,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+        <state relative-caret-position="364">
+          <caret line="185" column="131" selection-start-line="185" selection-start-column="131" selection-end-line="185" selection-end-column="174" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#105#139#0" expanded="true" />
@@ -559,10 +540,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="69" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
+        <state relative-caret-position="407">
+          <caret line="66" column="183" selection-start-line="66" selection-start-column="183" selection-end-line="66" selection-end-column="183" />
           <folding>
-            <marker date="1563364169349" expanded="true" signature="520:526" ph="..." />
+            <element signature="e#112#161#0" expanded="true" />
+            <marker date="1563389401993" expanded="true" signature="2080:2085" ph="..." />
           </folding>
         </state>
       </provider>
