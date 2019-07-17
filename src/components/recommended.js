@@ -12,6 +12,7 @@ class RecommendedActivities extends Component {
         }
       }
       componentDidMount() {
+      console.log("myData props " , this.props.listOfRecommendation[0])  ;
         this.fetchActivitiesList()
       }
 
@@ -36,7 +37,7 @@ class RecommendedActivities extends Component {
             return(
                    <Container>
                     <Row>
-                        {this.state.activities.map((eachActivity) => (
+                        {this.props.listOfRecommendation.map((eachActivity) => (
                               <Col sm={{ size: 3}} style={{marginBottom: '40px'}} >
                             {/* <div style={{backgroundImage:  `url(${eachActivity.url})` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}> */}
                             <Link to="/activity-details">
