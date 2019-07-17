@@ -39,7 +39,7 @@ class FerryActivities extends Component {
       toDate: "2020-06-25",
       rawData: null,
       location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyODc2MzAsImV4cCI6MTU2MzI5MTIzMCwibmJmIjoxNTYzMjg3NjMwLCJqdGkiOiJWRmwwbWRHMFFzT1dtUnc1In0.KwEAJzyCCCDXFExveWWhEfmAqNc69uXJaW5m0xizVf8",
+      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMzMzcwNzcsImV4cCI6MTU2MzM0MDY3NywibmJmIjoxNTYzMzM3MDc3LCJqdGkiOiJhVFRLdFRhZ0dTbDd0b0loIn0.8lfn4dzlE1WjU2KFuMomX_UBGaChp5l9HUOSjfdQIlc",
       filterPriceValue: [0,1000],
       filterDateStart: null,
       filterDateEnd: null,
