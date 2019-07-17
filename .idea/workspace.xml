@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f388088-e938-46e5-8618-ea586fb99f86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/recommended.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/recommended.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -69,44 +70,46 @@
     <session id="315232474">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="15" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.closed" value="18" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="3" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="5" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="17" />
+          <entry key="ESLintLanguageService" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="8" />
-          <entry key="json" value="3" />
+          <entry key="html" value="1" />
+          <entry key="js" value="11" />
+          <entry key="json" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="8" />
+          <entry key="HTML" value="1" />
+          <entry key="JSON" value="4" />
+          <entry key="JavaScript" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1987" />
+          <entry key="js" value="2493" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1987" />
+          <entry key="JavaScript" value="2493" />
         </counts>
       </usages-collector>
     </session>
@@ -116,17 +119,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="185" column="131" selection-start-line="185" selection-start-column="131" selection-end-line="185" selection-end-column="174" />
+            <state relative-caret-position="443">
+              <caret line="69" column="12" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#105#139#0" expanded="true" />
                 <element signature="e#191#223#0" expanded="true" />
                 <element signature="e#465#506#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pre-build.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="810">
+              <caret line="54" column="49" selection-start-line="54" selection-end-line="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../JS_practice/todo-Es6.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="110" column="31" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -164,11 +185,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="47" column="83" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
+            <state relative-caret-position="300">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
               <folding>
                 <element signature="e#112#161#0" expanded="true" />
                 <marker date="1563389633625" expanded="true" signature="1669:1674" ph="..." />
@@ -181,36 +202,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dateFilterUpdated</find>
-      <find>updateValueOfPriceFilter</find>
-      <find>allActivities</find>
-      <find>Location</find>
-      <find>filterByTime</find>
-      <find>review and</find>
-      <find>.jpg</find>
-      <find>striptags</find>
-      <find>book now</find>
-      <find>small_</find>
-      <find>updateNumberOfAdults</find>
-      <find>costForAdult</find>
-      <find>adults</find>
-      <find>Scuba Diving Night waters</find>
       <find>travelcheckins</find>
       <find>strip</find>
       <find>moment</find>
       <find>renderDateInString</find>
-      <find>listOfContent</find>
       <find>09:00 - 11:00</find>
       <find>costForChildren</find>
       <find>totalCost</find>
       <find>this.s</find>
       <find>console</find>
-      <find>location</find>
       <find>Link</find>
       <find>slugify</find>
       <find>fetchActivitiesList</find>
       <find>ferry</find>
       <find>travel</find>
+      <find>snorke</find>
+      <find>Location</find>
+      <find>filterByTime</find>
+      <find>filterByLocation</find>
+      <find>updateValueOfPriceFilter</find>
+      <find>update</find>
+      <find>deleteValue</find>
+      <find>updateValueOfLocationFilter</find>
+      <find>Dates</find>
+      <find>filterByDate</find>
+      <find>filterDateFocusedInput</find>
+      <find>dateFilterUpdated</find>
+      <find>listOfContent</find>
+      <find>slugi</find>
+      <find>location</find>
+      <find>filter</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -231,8 +252,8 @@
         <option value="$PROJECT_DIR$/src/pages/activity-details.js" />
         <option value="$PROJECT_DIR$/src/pages/activity-book.js" />
         <option value="$PROJECT_DIR$/src/templates/activity-details.js" />
-        <option value="$PROJECT_DIR$/src/pages/index.js" />
         <option value="$PROJECT_DIR$/src/components/recommended.js" />
+        <option value="$PROJECT_DIR$/src/pages/index.js" />
       </list>
     </option>
   </component>
@@ -389,12 +410,15 @@
       <workItem from="1563359879934" duration="442000" />
       <workItem from="1563363672840" duration="629000" />
       <workItem from="1563387184287" duration="1730000" />
-      <workItem from="1563388989804" duration="573000" />
+      <workItem from="1563388989804" duration="1209000" />
+      <workItem from="1563390805981" duration="1549000" />
+      <workItem from="1563392619600" duration="1495000" />
+      <workItem from="1563394431450" duration="469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58643000" />
+    <option name="totallyTimeSpent" value="62792000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -409,7 +433,7 @@
     <frame x="0" y="23" width="1440" height="839" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49584487" visible="true" weight="0.19627507" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49584487" visible="true" weight="0.20487106" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5041551" side_tool="true" weight="0.1812321" />
@@ -474,20 +498,6 @@
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pre-build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret column="4011" lean-forward="true" selection-start-column="4011" selection-end-column="4011" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -495,6 +505,34 @@
     <entry file="file://$PROJECT_DIR$/src/pages/activity-details-template.js" />
     <entry file="file://$PROJECT_DIR$/src/pages/githubInfo.js">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/Input.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dates/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret column="3422" selection-end-column="10555" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pre-build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="49" selection-start-line="54" selection-end-line="55" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/activities.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -523,26 +561,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="e#112#161#0" expanded="true" />
+            <marker date="1563389633625" expanded="true" signature="1669:1674" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../JS_practice/todo-Es6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="110" column="31" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="185" column="131" selection-start-line="185" selection-start-column="131" selection-end-line="185" selection-end-column="174" />
+        <state relative-caret-position="443">
+          <caret line="69" column="12" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#105#139#0" expanded="true" />
             <element signature="e#191#223#0" expanded="true" />
             <element signature="e#465#506#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="47" column="83" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
-          <folding>
-            <element signature="e#112#161#0" expanded="true" />
-            <marker date="1563389633625" expanded="true" signature="1669:1674" ph="..." />
           </folding>
         </state>
       </provider>
