@@ -30,20 +30,13 @@ class RecommendedActivities extends Component {
             .replace(/^-+/, '') // Trim - from start of text
             .replace(/-+$/, '') // Trim - from end of text
         }
-        // let recommendationList = JSON.parse(this.props.listOfRecommendation);
-        // console.log("recommendationList " , JSON.parse(this.props.listOfRecommendation);
         let newRecommendation = this.props.listOfRecommendation.map((eachRecommendation) => {
-          // eachRecommendation = JSON.parse(eachRecommendation);
-          // console.log()
-          console.log("eachRecommendation : " ,eachRecommendation );
           eachRecommendation = JSON.parse(eachRecommendation);
           return {...eachRecommendation, url: slugify(eachRecommendation.small_description)};
         });
         this.setState({
           recommendations: newRecommendation,
         })
-
-      console.log("myData props " , this.props.listOfRecommendation[0])  ;
      }
 
 
@@ -53,7 +46,6 @@ class RecommendedActivities extends Component {
                     <Row>
                         {this.state.recommendations.map((eachActivity) => (
                               <Col sm={{ size: 3}} style={{marginBottom: '40px'}} >
-                            {/* <div style={{backgroundImage:  `url(${eachActivity.url})` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}> */}
                                 <Link to={`/${eachActivity.url}`}
                                       state={{ activityId: eachActivity.id }}
                                 >

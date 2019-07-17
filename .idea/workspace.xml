@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f388088-e938-46e5-8618-ea586fb99f86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/recommended.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/recommended.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -169,11 +167,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="66" column="183" selection-start-line="66" selection-start-column="183" selection-end-line="66" selection-end-column="183" />
+            <state relative-caret-position="403">
+              <caret line="47" column="83" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
               <folding>
                 <element signature="e#112#161#0" expanded="true" />
-                <marker date="1563389401993" expanded="true" signature="2080:2085" ph="..." />
+                <marker date="1563389633625" expanded="true" signature="1669:1674" ph="..." />
               </folding>
             </state>
           </provider>
@@ -391,12 +389,12 @@
       <workItem from="1563359879934" duration="442000" />
       <workItem from="1563363672840" duration="629000" />
       <workItem from="1563387184287" duration="1730000" />
-      <workItem from="1563388989804" duration="404000" />
+      <workItem from="1563388989804" duration="573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58474000" />
+    <option name="totallyTimeSpent" value="58643000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -540,11 +538,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="66" column="183" selection-start-line="66" selection-start-column="183" selection-end-line="66" selection-end-column="183" />
+        <state relative-caret-position="403">
+          <caret line="47" column="83" selection-start-line="47" selection-start-column="83" selection-end-line="47" selection-end-column="83" />
           <folding>
             <element signature="e#112#161#0" expanded="true" />
-            <marker date="1563389401993" expanded="true" signature="2080:2085" ph="..." />
+            <marker date="1563389633625" expanded="true" signature="1669:1674" ph="..." />
           </folding>
         </state>
       </provider>
