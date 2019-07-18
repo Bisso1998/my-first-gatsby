@@ -7,6 +7,7 @@ import { InputGroup,
   // InputGroupAddon, 
   Input } from 'reactstrap';
 import { Button } from 'reactstrap';
+import axios from "axios"
 var striptags = require('striptags');
 
 // import { Link } from "gatsby"
@@ -19,6 +20,13 @@ class ActivityBook extends Component {
       numberOfChildren: "",
       totalCost: 0,
       activityToBookDetails: '',
+
+        userName: '',
+        userAge: null,
+        userGender: '',
+        userEmailId: '',
+        userPhoneNumber: null
+
   }
   // console.log("activityToBookId  " , this.props.location.state.activityId);
   //   console.log("I am booking for this activity: " , this.state.activityToBookDetails);
@@ -44,6 +52,81 @@ class ActivityBook extends Component {
   updateNumberOfChildren = e => {
     this.setState({ numberOfChildren: e.target.value })
   }
+
+
+  updateUsername = e => {
+    this.setState({
+      userName: e.target.value
+    })
+  }
+
+  updateGender = e => {
+    this.setState({
+      userGender: e.target.value
+    })
+  }
+  updateAge = e => {
+    this.setState({
+      userAge: e.target.value
+    })
+  }
+  updateEmailId = e => {
+    this.setState({
+      userEmailId: e.target.value
+    })
+  }
+  updateContactNumber = e => {
+    this.setState({
+      userPhoneNumber: e.target.value
+    })
+  }
+
+
+
+   bookActivityTemporarily = () => {
+    // console.log("The data we have are: " , this.state.activityToBookDetails);
+    let tmpActivityDetails = this.state.activityToBookDetails;
+    let totalBookingCost = ( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket));
+    let data = {"activitydata":{
+        "activitycart": [
+          {
+            "_activityDate": tmpActivityDetails.date,
+            "_activityid": tmpActivityDetails.id,
+            "_adultquantity": this.state.numberOfAdultGuest,
+            "_childquantity": this.state.numberOfChildren,
+          }],
+        "age": "28",
+        "booking_amount": totalBookingCost,
+        "contact_no": this.state.userPhoneNumber,
+        "email": this.state.userEmailId,
+        "gender": this.state.userGender,
+        "name": this.state.userName
+      },
+      "agent_id":2,
+      "user_id":38
+    }
+
+    console.log("Data I am sending is: " , data);
+    data = JSON.stringify(data);
+
+
+    let  headers = {
+      'Content-Type': 'application/json',
+    }
+
+    this.setState({ loading: true });
+    axios
+      .post(`https://travelcheckins.com/apitest/api/booking/book/tempbookactivity`, data,  {headers: headers} )
+      .then(data => {
+        console.log(data);
+
+      })
+      .catch(error => {
+        this.setState({ loading: false, error })
+      })
+  }
+
+
   render() {
 let dateToString = new Date(this.state.activityToBookDetails.date);
      return(
@@ -64,17 +147,23 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                 <Row>
                   <Col sm={{ size: 4}}  >
                     <InputGroup>
-                      <Input placeholder="Name"/>
+                      <Input placeholder="Name"
+                             value={this.state.userName}
+                             onChange={e => this.updateUsername(e)}/>
                   </InputGroup>
                   </Col>
                   <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
                     <InputGroup>
-                      <Input type="number" placeholder="Age"/>
+                      <Input type="number" placeholder="Age"
+                             value={this.state.userAge}
+                             onChange={e => this.updateAge(e)}/>
                     </InputGroup>
                   </Col>
                   <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
                     <InputGroup>
-                      <Input placeholder="Gender"/>
+                      <Input placeholder="Gender"
+                             value={this.state.userGender}
+                             onChange={e => this.updateGender(e)}/>
                     </InputGroup>
                   </Col>
                 </Row>
@@ -83,12 +172,14 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
 
                   <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
                     <InputGroup>
-                      <Input placeholder="Contact Number"/>
+                      <Input placeholder="Contact Number" value={this.state.userPhoneNumber}
+                             onChange={e => this.updateContactNumber(e)}/>
                     </InputGroup>
                   </Col>
                   <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
                     <InputGroup>
-                      <Input placeholder="Email"/>
+                      <Input placeholder="Email" value={this.state.userEmailId}
+                             onChange={e => this.updateEmailId(e)}/>
                     </InputGroup>
                   </Col>
                 </Row>
@@ -230,7 +321,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
           </Row>
           <br/>
           <div style={{display: 'flex', justifyContent: 'center', marginBottom: '30px'}}>
-            <Button  style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}} block>Proceed to pay </Button>
+            <Button  style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}} onClick={this.bookActivityTemporarily} block>Proceed to pay </Button>
           </div>
         </Container>
       </Layout>
