@@ -295,10 +295,11 @@ render() {
       
       <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByPrice">
         <PopoverBody style={{'paddingTop':'18%'}}>
-          <Range min={0} max={1000} defaultValue={this.state.filterPriceValue} onChange={this.updateValueOfPriceFilter}/>
-          <h5 style={{textAlign: 'center',  }}>
+        <h4 style={{textAlign: 'center',  }}>
             <Badge href="#" color="light">{this.state.filterPriceValue[0]} to {this.state.filterPriceValue[1]} INR</Badge>
-          </h5>
+          </h4>
+          <Range min={0} max={1000} defaultValue={this.state.filterPriceValue} onChange={this.updateValueOfPriceFilter}/>
+          
         </PopoverBody>
       </UncontrolledPopover>
       {/* <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByGuest">
