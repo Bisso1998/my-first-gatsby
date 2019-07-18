@@ -227,7 +227,7 @@ render() {
     listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
   } else {
     listOfContent =  this.state.allActivities.map((eachActivity)=> (
-      <Col sm={{ size: 3}} style={{marginBottom: '140px'}} >
+      <Col sm={{ size: 3}} style={{marginBottom: '160px'}} >
       <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
       <BrowserView>
       <Link to={`/${eachActivity.url}`}
@@ -248,9 +248,9 @@ render() {
       </Link>
       </MobileView>
       <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
-      <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px', minHeight:'30px'}}>{striptags(eachActivity.small_description)}</p>
-      <p style={{ fontFamily: 'Times', fontSize: '14px', color: '#554944', padding: '0px', margin: '0px',}}><b>{eachActivity.name}</b></p>
-      <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>₹{eachActivity.adult_ticket}/pax  at {eachActivity.location}</span>
+      <p style={{ fontFamily: 'Open Sans', color:'rgb(118, 118, 118)', fontSize: '12px', padding: '0px', marginBottom: '5px', minHeight:'20px'}}><b>{eachActivity.name.toUpperCase()}</b></p>
+      <p style={{ fontFamily: 'Open Sans', fontSize: '12px', color: 'rgb(72,72,72)', minHeight:'35px',marginBottom:'0px'}}><b>{striptags(eachActivity.small_description)}</b></p>
+      <span style={{ fontFamily: 'Open Sans', fontSize: '12px', color: 'rgb(118, 118, 118)'}}><b>₹{eachActivity.adult_ticket} per person - {eachActivity.location}</b> </span>
       </div>
       </div>
       
@@ -340,7 +340,7 @@ render() {
         <Col sm={{ size: 3}} style={{backgroundImage:  `url(https://cdn.prod-carehubs.net/n1/802899ec472ea3d8/uploads/2015/05/shutterstock_36013711.jpg)` , height: '70px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center',  }}>
         </Col>
         <Col sm={{ size: 9}} style={{marginTop: '5%'}}>
-        <p style={{ fontFamily: 'Times', fontSize: '16px', color: '#554944', }}><b>{eachExperience}</b></p>
+        <p style={{ fontFamily: 'Open Sans', fontSize: '14px', color: '#554944', }}><b>{eachExperience}</b></p>
         </Col>
         </Row>
         </div>
