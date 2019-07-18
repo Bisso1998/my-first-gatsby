@@ -11,6 +11,7 @@ import { Input } from 'reactstrap';
 import * as moment from 'moment'
 import {
   BrowserView,
+  MobileView
 } from "react-device-detect";
 import Layout from "../components/layout"
 import {
@@ -228,6 +229,16 @@ render() {
     listOfContent =  this.state.allActivities.map((eachActivity)=> (
       <Col sm={{ size: 3}} style={{marginBottom: '140px'}} >
       <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+      <BrowserView>
+      <Link to={`/${eachActivity.url}`}
+            state={{ activityId: eachActivity.id }}
+      >
+      
+      <div style={{backgroundImage: 'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
+      </div>
+      </Link>
+      </BrowserView>
+      <MobileView>
       <Link to={`/${eachActivity.url}#activity-info`}
             state={{ activityId: eachActivity.id }}
       >
@@ -235,6 +246,7 @@ render() {
       <div style={{backgroundImage: 'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
       </div>
       </Link>
+      </MobileView>
       <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
       <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px', minHeight:'30px'}}>{striptags(eachActivity.small_description)}</p>
       <p style={{ fontFamily: 'Times', fontSize: '14px', color: '#554944', padding: '0px', margin: '0px',}}><b>{eachActivity.name}</b></p>
