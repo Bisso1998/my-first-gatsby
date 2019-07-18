@@ -2,7 +2,10 @@ import React, { Component } from "react"
 // import { graphql } from "gatsby"
 import { Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import {
+  BrowserView,
+  MobileView
+} from "react-device-detect";
 // import axios from "axios"
 import {
     Collapse,
@@ -82,7 +85,7 @@ class Header extends Component {
                     </Nav>
                   </Collapse>
                 </Navbar>
-                
+                <BrowserView>
                 <Row style={{borderTop: '1px solid #ddd', borderBottom: '1px solid #ddd', marginBottom: '10px', }}>
               
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
@@ -102,6 +105,7 @@ class Header extends Component {
                 </Col>
               
                 </Row>
+                </BrowserView>
               </div>
             )
 

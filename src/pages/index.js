@@ -249,7 +249,7 @@ render() {
       </MobileView>
       <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
       <p style={{ fontFamily: 'Open Sans', color:'rgb(118, 118, 118)', fontSize: '12px', padding: '0px', marginBottom: '5px', minHeight:'20px'}}><b>{eachActivity.name.toUpperCase()}</b></p>
-      <p style={{ fontFamily: 'Open Sans', fontSize: '12px', color: 'rgb(72,72,72)', minHeight:'35px',marginBottom:'0px'}}><b>{striptags(eachActivity.small_description)}</b></p>
+      <p style={{ fontFamily: 'Open Sans', fontSize: '14px', color: 'rgb(72,72,72)', minHeight:'35px',marginBottom:'0px'}}><b>{striptags(eachActivity.small_description)}</b></p>
       <span style={{ fontFamily: 'Open Sans', fontSize: '12px', color: 'rgb(118, 118, 118)'}}><b>₹{eachActivity.adult_ticket} per person - {eachActivity.location}</b> </span>
       </div>
       </div>
@@ -348,7 +348,7 @@ render() {
         ))}
         </Row>
         </BrowserView>
-        <Container>
+        <Container fluid={false}>
         <Row>
         
         
