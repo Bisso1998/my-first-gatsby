@@ -32,7 +32,7 @@ class ActivityDetail extends Component {
                 <Container style={{marginTop:'4rem'}}>
                     <Row>
                         <Col sm={{ size: 4}}  >
-                            <div style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/apitest/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
+                            <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/apitest/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
 
                             </div>
                             
@@ -52,7 +52,7 @@ class ActivityDetail extends Component {
                                     <b>Physical Requirement</b> :{this.state.data.physical_requirements}<br/>
                                     <b>Medical Condition</b> :{this.state.data.medical_requirements}<br/>
                                     <b>What to carry</b> :{this.state.data.what_to_carry}<br/>
-                                    
+
                                     {/* <b>Pre activity guidelines</b> :{this.state.data.pre_activity_guidelines}<br/>
                                     <b>Post activity guidelines</b> :{this.state.data.post_activity_guidelines}<br/> */}
                                 </div>
