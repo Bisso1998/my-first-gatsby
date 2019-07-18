@@ -39,7 +39,7 @@ class Header extends Component {
             return(
                 <div>
                 <Navbar color="white" style={{margin:'10px'}} light expand="md">
-                  <NavbarBrand href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', fontWeight:'bold', paddingLeft: '100px'}}>FerryBooking.in</NavbarBrand>
+                  <NavbarBrand href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', fontWeight:'bold'}}>FerryBooking.in</NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>

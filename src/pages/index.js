@@ -90,7 +90,7 @@ class FerryActivities extends Component {
       
       // Getting all activities for this location
       newActivitiesList = this.state.listOfActivityDetails.filter(eachActivity => {
-          return (value == eachActivity.location);
+          return (value === eachActivity.location);
       })
       // creating temporary clone of rendered actities (array of objects) so that we don't accidentally mess up react states
       var tmp = this.state.allActivities.slice(0)
@@ -102,7 +102,7 @@ class FerryActivities extends Component {
       console.log('removed activity for '+value)
       // remove activities AT this location FROM currently rendered activities list
       newActivitiesList = this.state.allActivities.filter(eachActivity => {
-          return (value != eachActivity.location);
+          return (value !== eachActivity.location);
       })
       // update state
       this.setState({allActivities:newActivitiesList})
