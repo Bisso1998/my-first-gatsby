@@ -44,7 +44,9 @@ class FerryActivities extends Component {
       filterDateStart: null,
       filterDateEnd: null,
       filterDateFocusedInput: null,
-      listOfPlacesToFilter: [],
+      listOfPlacesToFilter: {'Havelock':true,
+      'Port Blair':true,
+      'Niel':true},
     }
     // this.setValueOfSearch();
   }
@@ -72,23 +74,38 @@ class FerryActivities extends Component {
   }
 
   updateValueOfLocationFilter = e => {
-    console.log(e.target.value);
     let value  = e.target.value;
-    if(this.state.listOfPlacesToFilter.indexOf(value) === -1) {
-      this.setState({
-        listOfPlacesToFilter: [...this.state.listOfPlacesToFilter , value]
-      })
-    } else {
-      let locations = [...this.state.listOfPlacesToFilter];
-      let index = this.state.listOfPlacesToFilter.indexOf(value);
-      locations.splice(index, 1);
-      this.setState({listOfPlacesToFilter: locations});
-    }
-    var x = this.state.listOfActivityDetails.filter(eachActivity => {
-      return (this.state.listOfPlacesToFilter.indexOf(eachActivity.location));
-    })
-    this.setState({allActivities:x})
+    
+    // toggle checkbox
+    let tmpPlacesToFilter = Object.assign({},this.state.listOfPlacesToFilter)
+    tmpPlacesToFilter[value] = !tmpPlacesToFilter[value]
+    this.setState({listOfPlacesToFilter:tmpPlacesToFilter})
 
+    // filter out activities
+    var newActivitiesList = []
+    if (tmpPlacesToFilter[value]){
+      // Following code will attempt to add the activity for selected location
+      
+      // Getting all activities for this location
+      newActivitiesList = this.state.listOfActivityDetails.filter(eachActivity => {
+          return (value == eachActivity.location);
+      })
+      // creating temporary clone of rendered actities (array of objects) so that we don't accidentally mess up react states
+      var tmp = this.state.allActivities.slice(0)
+      // Merge list of rendered activies with New list of matched activites based on checked location 
+      Array.prototype.push.apply(tmp,newActivitiesList)
+      // update state
+      this.setState({allActivities:tmp})
+    }else{
+      console.log('removed activity for '+value)
+      // remove activities AT this location FROM currently rendered activities list
+      newActivitiesList = this.state.allActivities.filter(eachActivity => {
+          return (value != eachActivity.location);
+      })
+      // update state
+      this.setState({allActivities:newActivitiesList})
+    }
+    
   }
   
   filterList = () => {
@@ -290,9 +307,9 @@ render() {
       <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByLocation">
         <PopoverBody>
       <div onChange={this.updateValueOfLocationFilter}>
-        <div><Input addon value = "Havelock" type="checkbox" aria-label="Show all activities at Havelock" /> Havelock</div>
-        <div><Input addon value = "PortBlair" type="checkbox" aria-label="Show all activities at Havelock" /> PortBlair</div>
-        <div><Input addon value = "Niel" type="checkbox" aria-label="Show all activities at Havelock" /> Niel</div>
+        <div><Input addon value = "Havelock" type="checkbox" checked={this.state.listOfPlacesToFilter['Havelock']} aria-label="Show all activities at Havelock" /> Havelock</div>
+        <div><Input addon value = "Port Blair" type="checkbox" checked={this.state.listOfPlacesToFilter['Port Blair']} aria-label="Show all activities at Havelock" /> Port Blair</div>
+        <div><Input addon value = "Niel" type="checkbox" checked={this.state.listOfPlacesToFilter['Niel']} default="checked" aria-label="Show all activities at Havelock" /> Niel</div>
       </div>
         </PopoverBody>
       </UncontrolledPopover>
