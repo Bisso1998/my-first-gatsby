@@ -9,7 +9,9 @@ import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import { Input } from 'reactstrap';
 import * as moment from 'moment'
- 
+import {
+  BrowserView,
+} from "react-device-detect";
 import Layout from "../components/layout"
 import {
   Container,
@@ -105,7 +107,7 @@ class FerryActivities extends Component {
       // update state
       this.setState({allActivities:newActivitiesList})
     }
-    
+
   }
   
   filterList = () => {
@@ -314,6 +316,7 @@ render() {
         </PopoverBody>
       </UncontrolledPopover>
       </div>
+      <BrowserView>
       <p><b>Explore experiences</b></p>
       
       <Row style={{marginBottom: '50px'}}>
@@ -330,10 +333,8 @@ render() {
         </div>
         </Col>
         ))}
-        
-        
-        
         </Row>
+        </BrowserView>
         <Container>
         <Row>
         
