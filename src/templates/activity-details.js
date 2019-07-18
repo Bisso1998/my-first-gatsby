@@ -109,7 +109,7 @@ class ActivityDetail extends Component {
                         </Col>
                     </Row>
                     <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: '#938f8f',  margin: '10px'}}> <b>Recommended</b> </p>
-                    <Recommendation/>
+                    <Recommendation  listOfRecommendation = {this.state.data.related_activities}/>
                 </Container>
             </Layout>
             )

@@ -7,6 +7,8 @@ import { InputGroup,
   // InputGroupAddon, 
   Input } from 'reactstrap';
 import { Button } from 'reactstrap';
+var striptags = require('striptags');
+
 // import { Link } from "gatsby"
 class ActivityBook extends Component {
   constructor (props) {
@@ -15,9 +17,8 @@ class ActivityBook extends Component {
       loading: true,
       numberOfAdultGuest: "",
       numberOfChildren: "",
-      costForAdult: 1800,
-      costForChildren: 1400,
       totalCost: 0,
+      activityToBookDetails: '',
   }
   // console.log("activityToBookId  " , this.props.location.state.activityId);
   //   console.log("I am booking for this activity: " , this.state.activityToBookDetails);
@@ -30,7 +31,8 @@ class ActivityBook extends Component {
       return;
     }
     if (this.props.location.state != null) {
-      this.setState(() => ({ activityName: this.props.location.state.activityToBook.name }));
+      this.setState(() => ({ activityToBookDetails: this.props.location.state.activityToBook }));
+      console.log("activityToBookDetails " , this.state.activityToBookDetails);
     } else {
       alert("Please select an activity from homepage to book the activity. No activity selected");
     }
@@ -43,14 +45,15 @@ class ActivityBook extends Component {
     this.setState({ numberOfChildren: e.target.value })
   }
   render() {
-    return(
+let dateToString = new Date(this.state.activityToBookDetails.date);
+     return(
       <Layout>
         <Container style={{marginTop:"4rem"}}>
           <Row>
             <Col sm={{ size: 7}}  >
               <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', marginTop: '50px' }}>
-                <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay for {this.state.activityName}</b></p>
-                <p style={{fontSize: '16px',  marginTop: '-10px'}}> Scuba Diving Night waters</p>
+                <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay for {this.state.activityToBookDetails.name}</b></p>
+                <p style={{fontSize: '16px',  marginTop: '-10px'}}> { striptags(this.state.activityToBookDetails.small_description)}</p>
               </div>
               <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
                 <p style={{fontSize: '28px', marginTop: '40px'}}><b>Who's coming?</b></p>
@@ -139,18 +142,18 @@ class ActivityBook extends Component {
             </Col>
             <Col sm={{ size: 5}}  >
               <div style={{width: '100%', fontFamily: 'Montserrat', border: '2px solid #d8d2d2' ,  color: '#938f8f',padding: '20px' ,  boxSizing: 'border-box',  marginTop : '0px'}}>
-                <p style={{fontSize: '16px',color: 'rgb(85, 73, 68)'}}> <b>Scuba Diving Night waters </b> </p>
+                <p style={{fontSize: '16px',color: 'rgb(85, 73, 68)'}}> <b> {striptags(this.state.activityToBookDetails.description)} </b> </p>
 
 
                 <Row>
                   <Col sm={{ size: 6}}  >
-                    <p style={{fontSize: '14px',color: '#767676'}}> <b>Havelock Island</b> </p>
+                    <p style={{fontSize: '14px',color: '#767676'}}> <b>{this.state.activityToBookDetails.location}</b> </p>
                     <p style={{fontSize: '14px',color: '#767676', marginTop: '10px'}}> <b>3.5 hours</b> </p>
                     <i className="fas fa-band-aid"></i>
 
                   </Col>
                   <Col sm={{ size: 2}}  >
-                    <img alt="" src={"http://getwallpapers.com/wallpaper/full/c/1/2/1136197-cool-scuba-diving-wallpaper-3159x2106-for-hd.jpg"} style={{height: "80px", width: "80px", borderRadius: '2px'}}/>
+                    <img alt="" src={"https://travelcheckins.com/apitest/public/activity_images/"+this.state.activityToBookDetails.image} style={{height: "80px", width: "80px", borderRadius: '2px'}}/>
                   </Col>
 
                   <Col sm={{ size: 4}}  >
@@ -159,30 +162,33 @@ class ActivityBook extends Component {
                 </Row>
   <hr/>
                 <div style={{fontSize: '14px', }}>
-                 Sunday , 26th MAY
+                  {dateToString.toDateString()}
                   <br/>
-                  09:00 - 11:00
+                  {this.state.activityToBookDetails.start_time} - {this.state.activityToBookDetails.end_time}
                 </div>
                 <hr/>
                 <div style={{fontSize: '14px', }}>
                  Provided Equipments
+                  <br/>
+                  {this.state.activityToBookDetails.equipment}
                 </div>
+
                 <hr/>
                 <div style={{fontSize: '14px', }}>
                   <p style={{display: 'inline'}}>
-                    {this.state.costForAdult} X {this.state.numberOfAdultGuest || 0} adult(s)
+                    {this.state.activityToBookDetails.adult_ticket} X {this.state.numberOfAdultGuest || 0} adult(s)
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    {this.state.costForAdult * this.state.numberOfAdultGuest}
+                    {this.state.activityToBookDetails.adult_ticket * this.state.numberOfAdultGuest}
                   </p>
                 </div>
                 <br/>
                 <div style={{fontSize: '14px', }}>
                   <p style={{display: 'inline'}}>
-                    {this.state.costForChildren} X {this.state.numberOfChildren || 0} children(s)
+                    {this.state.activityToBookDetails.child_ticket} X {this.state.numberOfChildren || 0} children(s)
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    {this.state.costForChildren * this.state.numberOfChildren}
+                    {this.state.activityToBookDetails.child_ticket * this.state.numberOfChildren}
                   </p>
                 </div>
 
@@ -192,8 +198,7 @@ class ActivityBook extends Component {
                     <b>TOTAL (INR) </b>
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    {/*<b>{this.state.totalCost} </b>*/}
-                    {( ( this.state.numberOfAdultGuest * this.state.costForAdult) + (this.state.numberOfChildren * this.state.costForChildren))}
+                    {( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket))}
                   </p>
                 </div>
                 <hr/>
@@ -208,12 +213,17 @@ class ActivityBook extends Component {
                 <hr/>
                 <p>
                   <b>Review Guest Requirements</b>
+                  <br/>
+                  {this.state.activityToBookDetails.physical_requirements}
                 </p>
                 <p>
-                  <b>Who can come</b>
+                  <b>Guidelines</b>
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea in inventore iusto similique vitae! A alias aliquid assumenda consequatur debitis earum explicabo fuga illo libero, maiores odio placeat porro saepe.
+                  <b>Pre Activity Guidelines </b> {this.state.activityToBookDetails.pre_activity_guidelines}
+                </p>
+                <p>
+                  <b>Post Activity Guidelines </b> {this.state.activityToBookDetails.post_activity_guidelines}
                 </p>
               </div>
             </Col>

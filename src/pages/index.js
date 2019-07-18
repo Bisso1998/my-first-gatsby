@@ -39,11 +39,12 @@ class FerryActivities extends Component {
       toDate: "2020-06-25",
       rawData: null,
       location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyODc2MzAsImV4cCI6MTU2MzI5MTIzMCwibmJmIjoxNTYzMjg3NjMwLCJqdGkiOiJWRmwwbWRHMFFzT1dtUnc1In0.KwEAJzyCCCDXFExveWWhEfmAqNc69uXJaW5m0xizVf8",
+      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMzOTMxNTgsImV4cCI6MTU2MzM5Njc1OCwibmJmIjoxNTYzMzkzMTU4LCJqdGkiOiIyMndIV2pzVERGenpIS1VLIn0.hjCnUkYEs_aF294i5ZuULLB5-0YR05mTGkSkARkScJE",
       filterPriceValue: [0,1000],
       filterDateStart: null,
       filterDateEnd: null,
       filterDateFocusedInput: null,
+      listOfPlacesToFilter: [],
     }
     this.setValueOfSearch();
   }
@@ -58,6 +59,25 @@ class FerryActivities extends Component {
     this.setState({allActivities:x})
     console.log(this.state.allActivities)
     console.log(this.state.filterDateStart)
+  }
+  updateValueOfLocationFilter = e => {
+    console.log(e.target.value);
+    let value  = e.target.value;
+    if(this.state.listOfPlacesToFilter.indexOf(value) === -1) {
+      this.setState({
+        listOfPlacesToFilter: [...this.state.listOfPlacesToFilter , value]
+      })
+    } else {
+      let locations = [...this.state.listOfPlacesToFilter];
+      let index = this.state.listOfPlacesToFilter.indexOf(value);
+      locations.splice(index, 1);
+      this.setState({listOfPlacesToFilter: locations});
+    }
+    var x = this.state.listOfActivityDetails.filter(eachActivity => {
+      return (this.state.listOfPlacesToFilter.indexOf(eachActivity.location));
+    })
+    this.setState({allActivities:x})
+
   }
   
   filterList = () => {
@@ -132,6 +152,8 @@ class FerryActivities extends Component {
           // add date to the flat array
           eachDetail.date = eachDate
           // make sure activity is not a duplicate.
+          eachDetail.location = data.data.data[eachPlace].name;
+
           eachDetail.url = slugify(eachDetail.small_description)
 
           if( ! this.state.allActivities.find(x => x.id === eachDetail.id) ){
@@ -145,6 +167,7 @@ class FerryActivities extends Component {
           }else{
             // if duplicate add date to activity available dates 
             if (!this.state.allActivities.find(x => x.id === eachDetail.id).dates){
+
               this.state.allActivities.find(x => x.id === eachDetail.id).dates = []
             }
             this.state.allActivities.find(x => x.id === eachDetail.id).dates.push(eachDate)
@@ -185,7 +208,7 @@ render() {
       <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
       <p style={{ fontFamily: 'Helvetica', fontSize: '11px', color: 'grey', letterSpacing: '1px', padding: '0px', margin: '0px',}}>{striptags(eachActivity.small_description)}</p>
       <p style={{ fontFamily: 'Times', fontSize: '14px', color: '#554944', padding: '0px', margin: '0px',}}><b>{eachActivity.name}</b></p>
-      <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>₹{eachActivity.adult_ticket}/pax </span>
+      <span style={{ fontFamily: 'Times', fontSize: '13px', color: '#3F4A4A', padding: '5px' , backgroundColor: '#DFE6E6' , boxSizing: 'border-box'}}>₹{eachActivity.adult_ticket}/pax  at {eachActivity.location}</span>
       </div>
       </div>
       
@@ -216,7 +239,7 @@ render() {
       {/* <Button id="filterByGuest" type="button" outline color="secondary" size="sm">
       Guest
       </Button> */}
-      <Button id="filterByTime" type="button" outline color="secondary" size="sm">
+      <Button id="filterByLocation" type="button" outline color="secondary" size="sm">
       Location
       </Button>
       </Col>
@@ -253,11 +276,13 @@ render() {
       <PopoverBody>
       Legacy is a reactstrap special trigger value (outside of bootstrap's spec/standard). Before reactstrap correctly supported click and focus, it had a hybrid which was very useful and has been brought back as trigger="legacy". One advantage of the legacy trigger is that it allows the popover text to be selected while also closing when clicking outside the triggering element and popover itself.</PopoverBody>
       </UncontrolledPopover> */}
-      <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByTime">
+      <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByLocation">
         <PopoverBody>
-        <div><Input addon type="checkbox" aria-label="Show all activities at Havelock" /> Havelock</div>
-        <div><Input addon type="checkbox" aria-label="Show all activities at Havelock" /> PortBlair</div>
-        <div><Input addon type="checkbox" aria-label="Show all activities at Havelock" /> Niel</div>
+      <div onChange={this.updateValueOfLocationFilter}>
+        <div><Input addon value = "Havelock" type="checkbox" aria-label="Show all activities at Havelock" /> Havelock</div>
+        <div><Input addon value = "PortBlair" type="checkbox" aria-label="Show all activities at Havelock" /> PortBlair</div>
+        <div><Input addon value = "Niel" type="checkbox" aria-label="Show all activities at Havelock" /> Niel</div>
+      </div>
         </PopoverBody>
       </UncontrolledPopover>
       </div>
