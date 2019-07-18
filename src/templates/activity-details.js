@@ -29,7 +29,7 @@ class ActivityDetail extends Component {
         console.log(this.state.data)
         return(
             <Layout>
-                <Container style={{marginTop:'4rem'}}>
+                <Container id="activity-info" style={{marginTop:'4rem'}}>
                     <Row>
                         <Col sm={{ size: 4}}  >
                             <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/apitest/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
