@@ -49,12 +49,9 @@ fetchData= () =>{
 axios
   .post(`https://travelcheckins.com/apitest/api/booking/search/activity`, data,  {headers: headers} )
   .then(data => {
-    // console.log(Object.keys(data.data.data));
     Object.keys(data.data.data).map((eachPlace)=>{
       Object.keys(data.data.data[eachPlace].data).map((eachDate)=> {
-        // console.log('Activity date' , eachDate);
         data.data.data[eachPlace].data[eachDate].map((eachDetail, index)=> {
-          // console.log("eachDetail" , eachDetail.name + " index " + index);
           // add date to the flat array
           eachDetail.date = eachDate
           // make sure activity is not a duplicate.
@@ -66,7 +63,7 @@ axios
             eachDetail.url = slugify(eachDetail.small_description)
               listOfActivityDetails.push(eachDetail) 
                allActivities.push(eachDetail)
-               console.log(eachDetail.duration)
+              //  console.log(eachDetail.duration)
             //   console.log(allActivities,listOfActivityDetails)
           }else{
             // if duplicate add date to activity available dates 
