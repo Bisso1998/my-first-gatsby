@@ -228,7 +228,7 @@ render() {
     listOfContent =  this.state.allActivities.map((eachActivity)=> (
       <Col sm={{ size: 3}} style={{marginBottom: '140px'}} >
       <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-      <Link to={`/${eachActivity.url}`}
+      <Link to={`/${eachActivity.url}#activityImage`}
             state={{ activityId: eachActivity.id }}
       >
       
