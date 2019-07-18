@@ -52,8 +52,9 @@ class ActivityDetail extends Component {
                                     <b>Physical Requirement</b> :{this.state.data.physical_requirements}<br/>
                                     <b>Medical Condition</b> :{this.state.data.medical_requirements}<br/>
                                     <b>What to carry</b> :{this.state.data.what_to_carry}<br/>
-                                    <b>Pre activity guidelines</b> :{this.state.data.pre_activity_guidelines}<br/>
-                                    <b>Post activity guidelines</b> :{this.state.data.post_activity_guidelines}<br/>
+                                    
+                                    {/* <b>Pre activity guidelines</b> :{this.state.data.pre_activity_guidelines}<br/>
+                                    <b>Post activity guidelines</b> :{this.state.data.post_activity_guidelines}<br/> */}
                                 </div>
                             </div>
                         </Col>
