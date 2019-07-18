@@ -39,27 +39,28 @@ class ActivityDetail extends Component {
                             <div style={{width: '100%', fontFamily: 'Montserrat',   color: 'rgb(72, 72, 72)',padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
                                 <p style={{fontSize: '26px',}}> Inclusions </p>
                                 <div style={{fontSize: '14px'}}>
-                                    Facilities  : {this.state.data.facilities}<br/>
-                                    Equipment : {this.state.data.equipment}<br/>
-                                    Photography : {this.state.data.photography}<br/>
-                                    Certificate : {this.state.data.certificate_provided}<br/>
+                                    <b>Facilities</b>  : {this.state.data.facilities}<br/>
+                                    <b>Equipment</b> : {this.state.data.equipment}<br/>
+                                    <b>Photography</b> : {this.state.data.photography}<br/>
+                                    <b>Certificate</b> : {this.state.data.certificate_provided}<br/>
                                 </div>
                 
                                 <hr/>
                                 <p style={{fontSize: '26px',}}> Information to participants </p>
                                 <div style={{fontSize: '14px'}}>
-                                    Age  : {this.state.data.participants_age}<br/>
-                                    Physical Requirement :{this.state.data.physical_requirements}<br/>
-                                    Medical Condition :{this.state.data.medical_requirements}<br/>
-                                    What to carry :{this.state.data.what_to_carry}<br/>
-                                    Post activity guidelines :{this.state.data.pre_activity_guidelines}<br/>
+                                    <b>Minimum Age</b>  : <br/>
+                                    <b>Physical Requirement</b> :{this.state.data.physical_requirements}<br/>
+                                    <b>Medical Condition</b> :{this.state.data.medical_requirements}<br/>
+                                    <b>What to carry</b> :{this.state.data.what_to_carry}<br/>
+                                    <b>Pre activity guidelines</b> :{this.state.data.pre_activity_guidelines}<br/>
+                                    <b>Post activity guidelines</b> :{this.state.data.post_activity_guidelines}<br/>
                                 </div>
                             </div>
                         </Col>
                         <Col sm={{ size: 7}}  >
                             <div style={{width: '100%', fontFamily: 'Montserrat', color: 'rgb(72, 72, 72)', boxSizing: 'border-box', }}>
                                 <p style={{fontSize: '13px',}}> {this.state.data.name}</p>
-                                <p style={{fontSize: '26px', marginTop: '-20px',fontWeight: 'bold'}}> {striptags(this.state.data.description)}</p>
+                                <p style={{fontSize: '26px', marginTop: '-20px',fontWeight: 'bold'}}> {striptags(this.state.data.small_description)}</p>
                             </div>
                             <div style={{fontWeight: 100,backgroundColor: '#1D62B1', boxSizing: 'border-box', color: 'white', padding: '15px'}}>
                                 <Row>
@@ -71,15 +72,14 @@ class ActivityDetail extends Component {
                                     <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
                                         Code: <b>Havelock Island</b> <br/>
                                         Rating: <b>6 to 8am</b> <br/>
-                                        Age Type: <b>Private</b> <br/>
+                                        Min Age: <b>{this.state.data.participants_age}</b> <br/>
                                     </Col>
                                 </Row>
                             </div>
                             <div style={{width: '100%', color: 'rgb(72, 72, 72)',fontFamily: 'Montserrat', padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
                                 <p style={{fontSize: '26px',}}> About </p>
                                 <div style={{fontSize: '16px'}}>
-                                    Scuba diving is a mode of underwater diving where the diver uses a self-contained underwater breathing apparatus (scuba), which is completely independent of surface supply, to breathe underwater.
-                                </div>
+                                    {striptags(this.state.data.description)}</div>
                             </div>
                             <div style={{padding: '10px' , color: 'rgb(72, 72, 72)',  fontFamily: 'Montserrat', fontSize: '16px' }}>
                                 <p style={{fontSize: '26px', color: '#CC4263'}}> Why you will love this activity? </p>
