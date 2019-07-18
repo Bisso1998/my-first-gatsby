@@ -15,12 +15,17 @@ let data = {"searchdata":{
     "location":[{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}]
   }
 }
-
+login = () => {
+  axios
+  .post(`https://travelcheckins.com/apitest/api/authenticate`, '{"username":"ferrybooking","password":"ferrybooking"}',  {headers: {'Content-Type': 'application/json'}} )
+  .then(data => {
+    authToken = "Bearer "+data.data.token
+    fetchData()
+  })
+}
+login()
 data = JSON.stringify(data);
-let  headers = {
-    'Content-Type': 'application/json',
-    'Authorization': authToken
-  }
+
 
   function slugify(string) {
     const a = 'àáäâãåăæąçćčđďèéěėëêęǵḧìíïîįłḿǹńňñòóöôœøṕŕřßśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;'
@@ -36,7 +41,11 @@ let  headers = {
       .replace(/^-+/, '') // Trim - from start of text
       .replace(/-+$/, '') // Trim - from end of text
   }
-
+fetchData= () =>{
+  let  headers = {
+    'Content-Type': 'application/json',
+    'Authorization': authToken
+  }
 axios
   .post(`https://travelcheckins.com/apitest/api/booking/search/activity`, data,  {headers: headers} )
   .then(data => {
@@ -82,3 +91,4 @@ axios
     })
     
 
+}
