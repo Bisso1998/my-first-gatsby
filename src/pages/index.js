@@ -10,8 +10,6 @@ import 'react-dates/lib/css/_datepicker.css';
 import { Input } from 'reactstrap';
 import * as moment from 'moment'
  
-// To include the default styles
-// import 'react-rangeslider/lib/index.css'
 import Layout from "../components/layout"
 import {
   Container,
@@ -25,12 +23,14 @@ import {
 } from "reactstrap"
 import { Link } from "gatsby"
 import "../styles/global.css"
+// to strip any html tags that may appear in api response data
 var striptags = require('striptags');
 
 
 class FerryActivities extends Component {
   constructor (props) {
     super(props);
+    this.login()
     this.state = {
       allActivities: [],
       listOfActivityDetails: [],
@@ -46,9 +46,19 @@ class FerryActivities extends Component {
       filterDateFocusedInput: null,
       listOfPlacesToFilter: [],
     }
-    this.setValueOfSearch();
+    // this.setValueOfSearch();
   }
-  
+
+  // temporary login function to get the bearer token
+  login = () => {
+    axios
+    .post(`https://travelcheckins.com/apitest/api/authenticate`, '{"username":"ferrybooking","password":"ferrybooking"}',  {headers: {'Content-Type': 'application/json'}} )
+    .then(data => {
+      this.setState({authToken:"Bearer "+data.data.token})
+      this.fetchActivitiesList()
+    })
+  }
+
   // updates price when price filter range slider is moved 
   updateValueOfPriceFilter = e => {
     this.setState({ filterPriceValue: e });
@@ -60,6 +70,7 @@ class FerryActivities extends Component {
     console.log(this.state.allActivities)
     console.log(this.state.filterDateStart)
   }
+
   updateValueOfLocationFilter = e => {
     console.log(e.target.value);
     let value  = e.target.value;
