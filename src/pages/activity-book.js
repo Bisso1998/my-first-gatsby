@@ -6,9 +6,15 @@ import { InputGroup,
   // InputGroupText, 
   // InputGroupAddon, 
   Input } from 'reactstrap';
-import { Button } from 'reactstrap';
-import axios from "axios"
+import { Button, Label } from 'reactstrap';
+import axios from "axios";
+import 'react-dates/initialize';
+import { DateRangePicker, SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import * as moment from 'moment';
 var striptags = require('striptags');
+
+
 
 // import { Link } from "gatsby"
 class ActivityBook extends Component {
@@ -25,11 +31,24 @@ class ActivityBook extends Component {
         userAge: null,
         userGender: '',
         userEmailId: '',
-        userPhoneNumber: null
+        userDate: '',
+        userPhoneNumber: null,
+      date: null,
+      focused: null,
 
   }
   // console.log("activityToBookId  " , this.props.location.state.activityId);
   //   console.log("I am booking for this activity: " , this.state.activityToBookDetails);
+
+  }
+
+
+  isBlocked = day => {
+day = day.format("YYYY-MM-DD");
+// const availableDates = ["2020-01-01", "2020-02-04", "2020-02-05", "2020-02-06", "2020-02-07", "2020-02-11", "2020-02-12", "2020-02-13", "2020-02-14", "2020-02-15", "2020-02-19", "2020-02-20", "2020-02-21", "2020-02-22", "2020-02-23", "2020-02-25", "2020-02-26", "2020-02-27", "2020-02-28", "2020-03-01", "2020-03-04", "2020-03-05", "2020-03-06", "2020-03-07", "2020-03-08", "2020-03-09", "2020-03-11", "2020-03-12"];
+    const  availableDates = this.props.location.state.activityToBook.dates;
+    console.log(availableDates);
+    return (availableDates.includes(day)) ? 0 : 1;
 
   }
   componentDidMount(){
@@ -40,11 +59,10 @@ class ActivityBook extends Component {
     }
     if (this.props.location.state != null) {
       this.setState(() => ({ activityToBookDetails: this.props.location.state.activityToBook }));
-      console.log("activityToBookDetails " , this.state.activityToBookDetails);
+      console.log("activityToBookDetails " , this.props.location.state.activityToBook );
     } else {
       alert("Please select an activity from homepage to book the activity. No activity selected");
     }
-
   }
   updateNumberOfAdults = e => {
     this.setState({ numberOfAdultGuest: e.target.value });
@@ -81,16 +99,29 @@ class ActivityBook extends Component {
     })
   }
 
+  updateDate = e => {
+    this.setState({
+      userDate: e.target.value
+    })
+  }
 
 
-   bookActivityTemporarily = () => {
+  handleDateChange = (date) => {
+    alert("CHANGIG TO  "  + date);
+    this.setState({
+      date: date,
+    })
+
+  }
+  bookActivityTemporarily = () => {
     // console.log("The data we have are: " , this.state.activityToBookDetails);
     let tmpActivityDetails = this.state.activityToBookDetails;
+    debugger
     let totalBookingCost = ( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket));
     let data = {"activitydata":{
         "activitycart": [
           {
-            "_activityDate": tmpActivityDetails.date,
+            "_activityDate": this.state.userDate,
             "_activityid": tmpActivityDetails.id,
             "_adultquantity": this.state.numberOfAdultGuest,
             "_childquantity": this.state.numberOfChildren,
@@ -170,17 +201,58 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                 <br/>
                 <Row>
 
-                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
                     <InputGroup>
                       <Input placeholder="Contact Number" value={this.state.userPhoneNumber}
                              onChange={e => this.updateContactNumber(e)}/>
                     </InputGroup>
                   </Col>
-                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
                     <InputGroup>
                       <Input placeholder="Email" value={this.state.userEmailId}
                              onChange={e => this.updateEmailId(e)}/>
                     </InputGroup>
+                  </Col>
+                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
+                    <SingleDatePicker
+                      // date={moment()}
+                      // showClearDate={true}
+                      minDate="2019-06-23"
+                      maxDate="2019-07-25"
+                      inputIconPosition="after"
+                      small={true}
+                      block={false}
+                      numberOfMonths={2}
+                      date={this.state.date}
+                      onDateChange={date => this.handleDateChange(date)}
+                      focused={this.state.focused}
+                      onFocusChange={({ focused }) =>
+                        this.setState({ focused })
+                      }
+                      id="singleDatePicker"
+                      openDirection="up"
+                      hideKeyboardShortcutsPanel={true}
+                      isDayBlocked={this.isBlocked}
+                      isOutsideRange={day => !((moment().diff(day) < 0) || (moment().diff(day) >= 0) )}
+
+                    />
+
+
+
+
+                    {/*<Input type="select"  id="exampleSelect" placeholder="Date" value={this.state.userDate}*/}
+                    {/*onChange={e => this.updateDate(e)}   list="datesAvailable">*/}
+                      {/*<option value="null" selected="selected" hidden="hidden">Select Date</option>*/}
+                      {/*{*/}
+                        {/*this.props.location.state.activityToBook.dates.map((eachDate) => (*/}
+                          {/*<option value={eachDate}>{eachDate}</option>*/}
+                        {/*))*/}
+                      {/*}*/}
+                      {/*<option>{this.state.activityToBookDetails.id}</option>*/}
+
+
+                    {/*</Input>*/}
+
                   </Col>
                 </Row>
                 <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>

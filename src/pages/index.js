@@ -64,6 +64,23 @@ class FerryActivities extends Component {
     })
   }
 
+  updateValueOfStyleFilter = value => {
+    if(value == "All") {
+      let allActivity = this.state.listOfActivityDetails;
+      this.setState({allActivities: allActivity})
+
+    } else {
+      // // filter out activities that are not within price range
+      var x = this.state.listOfActivityDetails.filter(eachActivity => {
+        return (eachActivity.style === value )
+      })
+      this.setState({allActivities:x})
+    }
+
+    // console.log(this.state.allActivities)
+    // console.log(this.state.filterDateStart)
+  }
+
   // updates price when price filter range slider is moved 
   updateValueOfPriceFilter = e => {
     this.setState({ filterPriceValue: e });
@@ -144,7 +161,7 @@ class FerryActivities extends Component {
   fetchActivitiesList () {
     let data = {"searchdata":{
       "fromdate":"2019-06-22",
-      "todate":"2019-07-25",
+      "todate":"2020-06-25",
       "location":[{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}]
     }
   }
@@ -333,11 +350,11 @@ render() {
       <p><b>Explore experiences</b></p>
       
       <Row style={{marginBottom: '50px'}}>
-      {['Nightlife', 'Sports' , 'Entertaintment' , 'Nature'].map( eachExperience => (
-        <Col sm={{ size: 3}} >
-        <div style={{margin: '10px'}}>
-        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}>
-        <Col sm={{ size: 3}} style={{backgroundImage:  `url(https://cdn.prod-carehubs.net/n1/802899ec472ea3d8/uploads/2015/05/shutterstock_36013711.jpg)` , height: '70px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center',  }}>
+      {['style', 'underwater' , 'Entertaintment' , 'All'].map( eachExperience => (
+        <Col sm={{ size: 3}}  >
+        <div style={{margin: '10px'}} >
+        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}  onClick={() => this.updateValueOfStyleFilter(eachExperience)}>
+        <Col sm={{ size: 3}} style={{backgroundImage:  `url(https://cdn.prod-carehubs.net/n1/802899ec472ea3d8/uploads/2015/05/shutterstock_36013711.jpg)` , height: '70px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center',  }} >
         </Col>
         <Col sm={{ size: 9}} style={{marginTop: '5%'}}>
         <p style={{ fontFamily: 'Open Sans', fontSize: '14px', color: '#554944', }}><b>{eachExperience}</b></p>
