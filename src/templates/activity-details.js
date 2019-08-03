@@ -121,12 +121,12 @@ class ActivityDetail extends Component {
                       <Row className="">
                         <Col sm={{ size: 7}}  >
                           <div style={{width: '100%', fontFamily: 'Montserrat', color: 'rgb(72, 72, 72)', boxSizing: 'border-box', }}>
-                            <p style={{fontSize: '13px',}}> {this.state.data.name}</p>
+                            {/*<p style={{fontSize: '13px',}}> {this.state.data.name}</p>*/}
                             <p style={{fontSize: '26px', marginTop: '-20px',fontWeight: 'bold'}}> {striptags(this.state.data.small_description)}</p>
                           </div>
 
                           <div style={{width: '100%', color: 'rgb(72, 72, 72)',fontFamily: 'Montserrat', padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
-                            <p style={{fontSize: '26px',}}> About </p>
+                            <p style={{fontSize: '26px',}}> {this.state.data.name}</p>
                             <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/apitest/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
 
                             </div>
