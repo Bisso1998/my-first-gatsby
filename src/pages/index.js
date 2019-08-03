@@ -310,7 +310,7 @@ render() {
     }
     return(
       <Layout>
-      <div style={{width: '100', padding: '20px' }}>
+      <div className="filter-container" style={{width: '100', padding: '20px' }}>
       <Row>
       <Col sm={{size: 4}} >
       

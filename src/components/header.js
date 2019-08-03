@@ -2,6 +2,8 @@ import React, { Component } from "react"
 // import { graphql } from "gatsby"
 import { Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import "../styles/global.css"
+
 import {
   BrowserView,
   MobileView
@@ -42,7 +44,7 @@ class Header extends Component {
             return(
                 <div>
                 <Navbar color="white" style={{margin:'10px'}} light expand="md">
-                  <NavbarBrand href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', fontWeight:'bold'}}>FerryBooking.in</NavbarBrand>
+                  <NavbarBrand className="navbar-heading-top" href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', fontWeight:'bold'}}>FerryBooking.in</NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
