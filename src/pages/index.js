@@ -271,7 +271,7 @@ render() {
     // listOfContent = <h1>LOADING......</h1>
     if (isMobile) {
       // listOfContent = <Spinner type="grow" color="primary" style={{ width: '2rem', height: '2rem' , marginTop: '5rem' }} />;
-      listOfContent = <h4 style={{color: 'blue',  marginTop: '40%', marginLeft: '40%'}}><Spinner type="grow" color="primary" style={{ width: '3rem', height: '3rem' , marginTop: '3rem' }} /> </h4>
+      listOfContent = <h4 style={{color: 'blue',  marginTop: '20%', marginLeft: '40%'}}><Spinner type="grow" color="primary" style={{ width: '4rem', height: '4rem' , marginTop: '3rem' }} /> </h4>
 
     } else {
       listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
