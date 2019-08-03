@@ -220,8 +220,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                       maxDate="2019-07-25"
                       inputIconPosition="after"
                       small={true}
-                      block={false}
-                      numberOfMonths={2}
+                      numberOfMonths={1}
                       date={this.state.date}
                       onDateChange={date => this.handleDateChange(date)}
                       focused={this.state.focused}
@@ -229,6 +228,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                         this.setState({ focused })
                       }
                       id="singleDatePicker"
+                      block={true}
                       openDirection="up"
                       hideKeyboardShortcutsPanel={true}
                       isDayBlocked={this.isBlocked}
