@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f388088-e938-46e5-8618-ea586fb99f86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/activity-book.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/activity-book.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/activity-details.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/activity-details.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -135,11 +132,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="271" column="128" selection-start-line="271" selection-start-column="128" selection-end-line="271" selection-end-column="128" />
+            <state relative-caret-position="235">
+              <caret line="275" column="10" lean-forward="true" selection-start-line="275" selection-start-column="10" selection-end-line="275" selection-end-column="10" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
                 <element signature="e#105#139#0" expanded="true" />
@@ -170,11 +167,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1858">
-              <caret line="304" column="18" lean-forward="true" selection-start-line="304" selection-start-column="18" selection-end-line="304" selection-end-column="18" />
+            <state relative-caret-position="215">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
               <folding>
                 <element signature="e#70#111#0" expanded="true" />
               </folding>
@@ -191,8 +188,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.map</find>
-      <find>filter</find>
       <find>Underwa</find>
       <find>under</find>
       <find>Underwater</find>
@@ -221,6 +216,8 @@
       <find>Spinner</find>
       <find>mobile</find>
       <find>Long Description</find>
+      <find>listofcon</find>
+      <find>alert</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -241,8 +238,8 @@
         <option value="$PROJECT_DIR$/src/styles/global.css" />
         <option value="$PROJECT_DIR$/pre-build.js" />
         <option value="$PROJECT_DIR$/src/templates/activity-details.js" />
-        <option value="$PROJECT_DIR$/src/pages/activity-book.js" />
         <option value="$PROJECT_DIR$/src/pages/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/activity-book.js" />
       </list>
     </option>
   </component>
@@ -430,12 +427,12 @@
       <workItem from="1564819948036" duration="494000" />
       <workItem from="1564822924625" duration="903000" />
       <workItem from="1564825330200" duration="1641000" />
-      <workItem from="1564831333359" duration="807000" />
+      <workItem from="1564831333359" duration="900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87972000" />
+    <option name="totallyTimeSpent" value="88065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -612,24 +609,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1858">
-          <caret line="304" column="18" lean-forward="true" selection-start-line="304" selection-start-column="18" selection-end-line="304" selection-end-column="18" />
-          <folding>
-            <element signature="e#70#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="271" column="128" selection-start-line="271" selection-start-column="128" selection-end-line="271" selection-end-column="128" />
+        <state relative-caret-position="235">
+          <caret line="275" column="10" lean-forward="true" selection-start-line="275" selection-start-column="10" selection-end-line="275" selection-end-column="10" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
             <element signature="e#105#139#0" expanded="true" />
             <element signature="e#191#223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="e#70#111#0" expanded="true" />
           </folding>
         </state>
       </provider>

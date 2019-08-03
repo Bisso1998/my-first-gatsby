@@ -107,7 +107,6 @@ day = day.format("YYYY-MM-DD");
 
 
   handleDateChange = (date) => {
-    alert("CHANGIG TO  "  + date);
     this.setState({
       date: date,
     })
