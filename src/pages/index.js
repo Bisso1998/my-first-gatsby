@@ -50,6 +50,7 @@ class FerryActivities extends Component {
       listOfPlacesToFilter: {'Havelock':true,
       'Port Blair':true,
       'Niel':true},
+      filterExperienceValue : ''
     }
     // this.setValueOfSearch();
   }
@@ -63,19 +64,44 @@ class FerryActivities extends Component {
       this.fetchActivitiesList()
     })
   }
-
+  showAllActivities() {
+    let allActivity = this.state.listOfActivityDetails;
+    this.setState({allActivities: allActivity})
+  }
   updateValueOfStyleFilter = value => {
-    if(value == "All") {
-      let allActivity = this.state.listOfActivityDetails;
-      this.setState({allActivities: allActivity})
-
+    // document.getElementById(value).backgroundColor = "red";
+    ['underwater', 'Water sports' , 'Romantic'  ,'Tour'].map( eachExperience => document.getElementById(eachExperience).style.backgroundColor = "white"
+  )
+    if(value == this.state.filterExperienceValue ) {
+      document.getElementById(value).style.backgroundColor = "white";
+      this.showAllActivities();
+      this.setState({
+        filterExperienceValue: ''
+      })
     } else {
-      // // filter out activities that are not within price range
+      this.setState({
+        filterExperienceValue: value
+      })
+      document.getElementById(value).style.backgroundColor = "#e1e3fa";
+
       var x = this.state.listOfActivityDetails.filter(eachActivity => {
         return (eachActivity.style === value )
       })
-      this.setState({allActivities:x})
+      this.setState({allActivities:x});
     }
+
+    // if(value == "All") {
+    //   // let allActivity = this.state.listOfActivityDetails;
+    //   // this.setState({allActivities: allActivity})
+    //   this.showAllActivities();
+    //
+    // } else {
+    //   // // filter out activities that are not within price range
+    //   var x = this.state.listOfActivityDetails.filter(eachActivity => {
+    //     return (eachActivity.style === value )
+    //   })
+    //   this.setState({allActivities:x})
+    // }
 
     // console.log(this.state.allActivities)
     // console.log(this.state.filterDateStart)
@@ -350,10 +376,10 @@ render() {
       <p><b>Explore experiences</b></p>
       
       <Row style={{marginBottom: '50px'}}>
-      {['style', 'underwater' , 'Entertaintment' , 'All'].map( eachExperience => (
+      {['underwater', 'Water sports' , 'Romantic'  ,'Tour'].map( eachExperience => (
         <Col sm={{ size: 3}}  >
         <div style={{margin: '10px'}} >
-        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}  onClick={() => this.updateValueOfStyleFilter(eachExperience)}>
+        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}  onClick={() => this.updateValueOfStyleFilter(eachExperience)} id={eachExperience}>
         <Col sm={{ size: 3}} style={{backgroundImage:  `url(https://cdn.prod-carehubs.net/n1/802899ec472ea3d8/uploads/2015/05/shutterstock_36013711.jpg)` , height: '70px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center',  }} >
         </Col>
         <Col sm={{ size: 9}} style={{marginTop: '5%'}}>
