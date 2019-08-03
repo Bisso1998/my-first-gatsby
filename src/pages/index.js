@@ -268,12 +268,16 @@ class FerryActivities extends Component {
 render() {
   let listOfContent;
   if(this.state.loading) {
-    listOfContent = <h1>LOADING......</h1>
-    // if (isMobile) {
-    //   listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-3rem' , position: 'fixed'}} />;
-    // } else {
-    //   listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
-    // }
+    // listOfContent = <h1>LOADING......</h1>
+    if (isMobile) {
+      // listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-3rem' , position: 'fixed'}} />;
+      listOfContent = <h1>LOADING In MOBILE......</h1>
+
+    } else {
+      // listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
+      listOfContent = <h1>LOADING   in DESKTOP......</h1>
+
+    }
   } else {
     listOfContent =  this.state.allActivities.map((eachActivity)=> (
       <Col sm={{ size: 3}} style={{marginBottom: '160px'}} >
