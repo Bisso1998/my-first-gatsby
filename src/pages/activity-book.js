@@ -1,5 +1,9 @@
 import React, { Component } from "react"
 // import axios from "axios"
+import {
+  BrowserView,
+  MobileView
+} from "react-device-detect";
 import Layout from "../components/layout"
 import { Container, Row, Col } from 'reactstrap';
 import { InputGroup, 
@@ -163,7 +167,11 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
      return(
       <Layout>
         <Container style={{marginTop:"4rem"}}>
+          <BrowserView>
           <Row>
+            <h1>HELLLLLOOOOOWhy you will love this activity?
+
+            </h1>
             <Col sm={{ size: 7}}  >
               <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', marginTop: '50px' }}>
                 <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay for {this.state.activityToBookDetails.name}</b></p>
@@ -391,6 +399,10 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
               </div>
             </Col>
           </Row>
+          </BrowserView>
+          <MobileView>
+            HELLO
+          </MobileView>
           <br/>
           <div style={{display: 'flex', justifyContent: 'center', marginBottom: '30px'}}>
             <Button  style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}} onClick={this.bookActivityTemporarily} block>Proceed to pay </Button>
