@@ -28,12 +28,12 @@ class ActivityBook extends Component {
       activityToBookDetails: '',
 
         userName: '',
-        userAge: null,
+        userAge: '',
         userGender: '',
         userEmailId: '',
         userDate: '',
-        userPhoneNumber: null,
-      date: null,
+        userPhoneNumber: '',
+      date: '',
       focused: null,
 
   }
@@ -44,10 +44,8 @@ class ActivityBook extends Component {
 
 
   isBlocked = day => {
-day = day.format("YYYY-MM-DD");
-// const availableDates = ["2020-01-01", "2020-02-04", "2020-02-05", "2020-02-06", "2020-02-07", "2020-02-11", "2020-02-12", "2020-02-13", "2020-02-14", "2020-02-15", "2020-02-19", "2020-02-20", "2020-02-21", "2020-02-22", "2020-02-23", "2020-02-25", "2020-02-26", "2020-02-27", "2020-02-28", "2020-03-01", "2020-03-04", "2020-03-05", "2020-03-06", "2020-03-07", "2020-03-08", "2020-03-09", "2020-03-11", "2020-03-12"];
+    day = day.format("YYYY-MM-DD");
     const  availableDates = this.props.location.state.activityToBook.dates;
-    console.log(availableDates);
     return (availableDates.includes(day)) ? 0 : 1;
 
   }
@@ -99,23 +97,22 @@ day = day.format("YYYY-MM-DD");
     })
   }
 
-  updateDate = e => {
-    this.setState({
-      userDate: e.target.value
-    })
-  }
+  // updateDate = e => {
+  //   this.setState({
+  //     userDate: e.target.value
+  //   })
+  // }
 
 
   handleDateChange = (date) => {
     this.setState({
-      date: date,
+      userDate: date,
     })
 
   }
   bookActivityTemporarily = () => {
     // console.log("The data we have are: " , this.state.activityToBookDetails);
     let tmpActivityDetails = this.state.activityToBookDetails;
-    debugger
     let totalBookingCost = ( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket));
     let data = {"activitydata":{
         "activitycart": [
@@ -221,7 +218,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                       inputIconPosition="after"
                       small={true}
                       numberOfMonths={1}
-                      date={this.state.date}
+                      date={this.state.userDate}
                       onDateChange={date => this.handleDateChange(date)}
                       focused={this.state.focused}
                       onFocusChange={({ focused }) =>
@@ -392,10 +389,16 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
           </Row>
           <br/>
           <div style={{display: 'flex', justifyContent: 'center', marginBottom: '30px'}}>
-            <Button  style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}} onClick={this.bookActivityTemporarily} block>Proceed to pay </Button>
+            <Button
+              style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}
+              onClick={this.bookActivityTemporarily}
+              disabled={!this.state.userAge || !this.state.userGender || !this.state.userName || !this.state.userEmailId || !this.state.userDate || !this.state.userPhoneNumber || !this.state.numberOfAdultGuest || !this.state.numberOfChildren}
+              block>Proceed to pay </Button>
           </div>
         </Container>
       </Layout>
+
+
     )
 
   }
