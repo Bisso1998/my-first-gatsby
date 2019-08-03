@@ -227,14 +227,14 @@ render() {
     listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
   } else {
     listOfContent =  this.state.allActivities.map((eachActivity)=> (
-      <Col sm={{ size: 3}} style={{marginBottom: '160px'}} >
-      <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', margin: '5px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+      <Col sm={{ size: 12}} md={{size:4}} lg={{size:3}} style={{marginBottom: '160px'}} >
+      <div style={{backgroundImage:  `https://www.algarvefun.com/wp-content/uploads/2017/02/albufeira-snorkeling-algarve-fun-1.jpg` , height: '300px', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
       <BrowserView>
       <Link to={`/${eachActivity.url}`}
             state={{ activityId: eachActivity.id }}
       >
       
-      <div style={{backgroundImage: 'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
+      <div style={{backgroundImage: 'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image+')' , height: '300px', marginLeft: '10px', marginRight: '10px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
       </div>
       </Link>
       </BrowserView>
@@ -247,7 +247,7 @@ render() {
       </div>
       </Link>
       </MobileView>
-      <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>
+      <div style ={{marginLeft: '10px' , marginTop: '5px' , paddingTop: '5px'}}>
       <p style={{ fontFamily: 'Open Sans', color:'rgb(118, 118, 118)', fontSize: '12px', padding: '0px', marginBottom: '5px', minHeight:'20px'}}><b>{eachActivity.name.toUpperCase()}</b></p>
       <p style={{ fontFamily: 'Open Sans', fontSize: '14px', color: 'rgb(72,72,72)', minHeight:'35px',marginBottom:'0px'}}><b>{striptags(eachActivity.small_description)}</b></p>
       <span style={{ fontFamily: 'Open Sans', fontSize: '12px', color: 'rgb(118, 118, 118)'}}><b>₹{eachActivity.adult_ticket} per person - {eachActivity.location}</b> </span>
