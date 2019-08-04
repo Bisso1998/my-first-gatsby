@@ -38,6 +38,14 @@ body {
   background: rgb(31, 105, 176);
   color: #fff !important ;
 }
+@media screen and (max-width: 375px){
+  .navbar-heading-top{
+    font-size: 22px !important;
+  }
+  .filter-container {
+    padding: 0px !important;
+  }
+}
 /* .header-select a { 
 
   color: #fff !important ;

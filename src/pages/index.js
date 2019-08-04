@@ -11,7 +11,8 @@ import { Input } from 'reactstrap';
 import * as moment from 'moment'
 import {
   BrowserView,
-  MobileView
+  MobileView,
+  isMobile,
 } from "react-device-detect";
 import Layout from "../components/layout"
 import {
@@ -50,6 +51,7 @@ class FerryActivities extends Component {
       listOfPlacesToFilter: {'Havelock':true,
       'Port Blair':true,
       'Niel':true},
+      filterExperienceValue : ''
     }
     // this.setValueOfSearch();
   }
@@ -63,19 +65,44 @@ class FerryActivities extends Component {
       this.fetchActivitiesList()
     })
   }
-
+  showAllActivities() {
+    let allActivity = this.state.listOfActivityDetails;
+    this.setState({allActivities: allActivity})
+  }
   updateValueOfStyleFilter = value => {
-    if(value == "All") {
-      let allActivity = this.state.listOfActivityDetails;
-      this.setState({allActivities: allActivity})
-
+    // document.getElementById(value).backgroundColor = "red";
+    ['underwater', 'Water sports' , 'Romantic'  ,'Tour'].map( eachExperience => document.getElementById(eachExperience).style.backgroundColor = "white"
+  )
+    if(value == this.state.filterExperienceValue ) {
+      document.getElementById(value).style.backgroundColor = "white";
+      this.showAllActivities();
+      this.setState({
+        filterExperienceValue: ''
+      })
     } else {
-      // // filter out activities that are not within price range
+      this.setState({
+        filterExperienceValue: value
+      })
+      document.getElementById(value).style.backgroundColor = "#e1e3fa";
+
       var x = this.state.listOfActivityDetails.filter(eachActivity => {
         return (eachActivity.style === value )
       })
-      this.setState({allActivities:x})
+      this.setState({allActivities:x});
     }
+
+    // if(value == "All") {
+    //   // let allActivity = this.state.listOfActivityDetails;
+    //   // this.setState({allActivities: allActivity})
+    //   this.showAllActivities();
+    //
+    // } else {
+    //   // // filter out activities that are not within price range
+    //   var x = this.state.listOfActivityDetails.filter(eachActivity => {
+    //     return (eachActivity.style === value )
+    //   })
+    //   this.setState({allActivities:x})
+    // }
 
     // console.log(this.state.allActivities)
     // console.log(this.state.filterDateStart)
@@ -241,7 +268,13 @@ class FerryActivities extends Component {
 render() {
   let listOfContent;
   if(this.state.loading) {
-    listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
+    // listOfContent = <h1>LOADING......</h1>
+    if (isMobile) {
+      listOfContent = <p style={{color: 'blue',  marginTop: '20%', marginLeft: '40%'}}><Spinner type="grow" color="primary" style={{ width: '4rem', height: '4rem' , marginTop: '3rem' }} /> </p>
+
+    } else {
+      listOfContent = <Spinner type="grow" color="primary" style={{ width: '6rem', height: '6rem' , left: "50%", marginLeft: '-6rem' , position: 'fixed'}} />;
+    }
   } else {
     listOfContent =  this.state.allActivities.map((eachActivity)=> (
       <Col sm={{ size: 12}} md={{size:4}} lg={{size:3}} style={{marginBottom: '160px'}} >
@@ -277,7 +310,7 @@ render() {
     }
     return(
       <Layout>
-      <div style={{width: '100', padding: '20px' }}>
+      <div className="filter-container" style={{width: '100', padding: '20px' }}>
       <Row>
       <Col sm={{size: 4}} >
       
@@ -345,10 +378,10 @@ render() {
       <p><b>Explore experiences</b></p>
       
       <Row style={{marginBottom: '50px'}}>
-      {['style', 'underwater' , 'Entertaintment' , 'All'].map( eachExperience => (
+      {['underwater', 'Water sports' , 'Romantic'  ,'Tour'].map( eachExperience => (
         <Col sm={{ size: 3}}  >
         <div style={{margin: '10px'}} >
-        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}  onClick={() => this.updateValueOfStyleFilter(eachExperience)}>
+        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}  onClick={() => this.updateValueOfStyleFilter(eachExperience)} id={eachExperience}>
         <Col sm={{ size: 3}} style={{backgroundImage:  `url(https://cdn.prod-carehubs.net/n1/802899ec472ea3d8/uploads/2015/05/shutterstock_36013711.jpg)` , height: '70px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center',  }} >
         </Col>
         <Col sm={{ size: 9}} style={{marginTop: '5%'}}>
