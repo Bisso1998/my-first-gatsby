@@ -47,7 +47,7 @@ class ActivityBook extends Component {
 
   isBlocked = day => {
     day = day.format("YYYY-MM-DD");
-    const  availableDates = this.props.location.state.activityToBook.dates;
+    const  availableDates = this.state.activityToBookDetails.dates;
     return (availableDates.includes(day)) ? 0 : 1;
 
   }
