@@ -42,7 +42,7 @@ class FerryActivities extends Component {
       toDate: "2020-06-25",
       rawData: null,
       location: [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
-      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMzOTMxNTgsImV4cCI6MTU2MzM5Njc1OCwibmJmIjoxNTYzMzkzMTU4LCJqdGkiOiIyMndIV2pzVERGenpIS1VLIn0.hjCnUkYEs_aF294i5ZuULLB5-0YR05mTGkSkARkScJE",
+      authToken: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjM0NTc2NjAsImV4cCI6MTU2MzQ2MTI2MCwibmJmIjoxNTYzNDU3NjYwLCJqdGkiOiI3RlZ2QXdjNUdXTXNlbU1nIn0.Ucnf_zIQvooZyB1IP-IKsxrW9sLAoeAx98-xQvKcL2E",
       filterPriceValue: [0,1000],
       filterDateStart: null,
       filterDateEnd: null,
@@ -62,6 +62,23 @@ class FerryActivities extends Component {
       this.setState({authToken:"Bearer "+data.data.token})
       this.fetchActivitiesList()
     })
+  }
+
+  updateValueOfStyleFilter = value => {
+    if(value == "All") {
+      let allActivity = this.state.listOfActivityDetails;
+      this.setState({allActivities: allActivity})
+
+    } else {
+      // // filter out activities that are not within price range
+      var x = this.state.listOfActivityDetails.filter(eachActivity => {
+        return (eachActivity.style === value )
+      })
+      this.setState({allActivities:x})
+    }
+
+    // console.log(this.state.allActivities)
+    // console.log(this.state.filterDateStart)
   }
 
   // updates price when price filter range slider is moved 
@@ -144,7 +161,7 @@ class FerryActivities extends Component {
   fetchActivitiesList () {
     let data = {"searchdata":{
       "fromdate":"2019-06-22",
-      "todate":"2019-07-25",
+      "todate":"2020-06-25",
       "location":[{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}]
     }
   }
@@ -234,7 +251,7 @@ render() {
             state={{ activityId: eachActivity.id }}
       >
       
-      <div style={{backgroundImage: 'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image+')' , height: '300px', marginLeft: '10px', marginRight: '10px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
+      <div className="activity-select"  style={{backgroundImage: 'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
       </div>
       </Link>
       </BrowserView>
@@ -266,11 +283,6 @@ render() {
       
       </Col>
       <Col sm={{size: 4}} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-      <div >
-      <p  style={{paddingTop: '16px', color: 'rgba(0, 0, 0, 0.5)' }}>
-      <b>Filters:</b>
-      </p>
-      </div>
       
       <Button id="filterByDate" type="button" outline color="secondary" size="sm">
       Dates
@@ -333,11 +345,11 @@ render() {
       <p><b>Explore experiences</b></p>
       
       <Row style={{marginBottom: '50px'}}>
-      {['Nightlife', 'Sports' , 'Entertaintment' , 'Nature'].map( eachExperience => (
-        <Col sm={{ size: 3}} >
-        <div style={{margin: '10px'}}>
-        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}>
-        <Col sm={{ size: 3}} style={{backgroundImage:  `url(https://cdn.prod-carehubs.net/n1/802899ec472ea3d8/uploads/2015/05/shutterstock_36013711.jpg)` , height: '70px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center',  }}>
+      {['style', 'underwater' , 'Entertaintment' , 'All'].map( eachExperience => (
+        <Col sm={{ size: 3}}  >
+        <div style={{margin: '10px'}} >
+        <Row style={{boxShadow: ' 0px 4px 32px rgba(189, 189, 189, 0.24)', border: '1px solid #F2F2F2', cursor: 'pointer'}}  onClick={() => this.updateValueOfStyleFilter(eachExperience)}>
+        <Col sm={{ size: 3}} style={{backgroundImage:  `url(https://cdn.prod-carehubs.net/n1/802899ec472ea3d8/uploads/2015/05/shutterstock_36013711.jpg)` , height: '70px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center',  }} >
         </Col>
         <Col sm={{ size: 9}} style={{marginTop: '5%'}}>
         <p style={{ fontFamily: 'Open Sans', fontSize: '14px', color: '#554944', }}><b>{eachExperience}</b></p>
@@ -365,4 +377,3 @@ render() {
     }
     
     export default FerryActivities
-    

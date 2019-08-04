@@ -23,6 +23,9 @@ body {
   /* background: #fff; */
   color: #1F69B0 ;
 }
+.activity-select:hover {
+  opacity: 0.5;
+}
 .header-select:hover { 
   background: rgb(31, 105, 176);
   color: #fff !important ;
