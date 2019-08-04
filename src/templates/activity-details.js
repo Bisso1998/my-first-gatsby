@@ -6,8 +6,14 @@ import {
   BrowserView,
   MobileView
 } from "react-device-detect";
-import Recommendation from '../components/recommended'
-import { Link } from "gatsby"
+import {
+  faMapMarkerAlt,
+  faClock,
+} from '@fortawesome/free-solid-svg-icons';
+// library.add(fab, faCheckSquare, faCoffee)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Recommendation from '../components/recommended';
+import { Link } from "gatsby";
 var striptags = require('striptags');
 
 class ActivityDetail extends Component {
@@ -71,14 +77,19 @@ class ActivityDetail extends Component {
                             <div style={{fontWeight: 100,backgroundColor: '#1D62B1', boxSizing: 'border-box', color: 'white', padding: '15px'}}>
                                 <Row>
                                     <Col sm={{ size: 6}}  >
-                                        Location: <b>{this.state.data.location}</b> <br/>
-                                        Timing: <b>6 to 8am</b> <br/>
-                                        Activity Type: <b>{this.state.data.type}</b> <br/>
+                                    <FontAwesomeIcon
+                  icon={faMapMarkerAlt}
+                  style={{ fontSize: '18px', color: 'white', marginRight:'10px' }}
+                /> <b>{this.state.data.location}</b> <br/>
+                                        <FontAwesomeIcon
+                  icon={faClock}
+                  style={{ fontSize: '16px', color: 'white', marginRight:'10px' }}
+                /><b>45 Mins</b> <br/>
+                                        
                                     </Col>
                                     <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
-                                        Code: <b>Havelock Island</b> <br/>
-                                        Rating: <b>6 to 8am</b> <br/>
                                         Min Age: <b>{this.state.data.participants_age}</b> <br/>
+                                        Activity Type: <b>{this.state.data.style}</b> <br/>
                                     </Col>
                                 </Row>
                             </div>
@@ -204,7 +215,8 @@ class ActivityDetail extends Component {
 
                       </Row>
                     </MobileView>
-                    <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: '#938f8f',  margin: '10px'}}> <b>Recommended</b> </p>
+                    <hr />
+                    <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: '#938f8f',  marginTop: '10px'}}> <b>Recommended</b> </p>
                     <Recommendation  listOfRecommendation = {this.state.data.related_activities}/>
                 </Container>
             </Layout>

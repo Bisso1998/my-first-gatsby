@@ -62,6 +62,8 @@ class GuestsSelector extends React.Component {
     if ((this.state.childCount + this.state.adultCount) < this.state.maxTotalCount) {
       let newAdultCount = this.state.adultCount + 1;
       this.setState({ adultCount: newAdultCount });
+    }else{
+      alert("max allowed guests is "+ this.state.maxTotalCount)
     }
   };
 
@@ -70,6 +72,8 @@ class GuestsSelector extends React.Component {
     if ((this.state.childCount + this.state.adultCount) < this.state.maxTotalCount) {
       let newChildCount = this.state.childCount + 1;
       this.setState({ childCount: newChildCount });
+    }else{
+      alert("max allowed guests is "+ this.state.maxTotalCount)
     }
   };
 
