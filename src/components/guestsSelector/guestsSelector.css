@@ -1,0 +1,99 @@
+#roomsGuestsInput{
+    width:100%;
+}
+#roomsGuestsInput .btn-secondary{
+    /* width:100%; */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #dbdbdb;
+    border-radius:2px;
+    color: #484848;
+    /* height: 24px; */
+    /* padding:9px 11px 9px; */
+    /* font-size:19px; */
+    /* font-weight: 200; */
+    /* font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; */
+}
+
+#roomsGuestsInput .btn-secondary:hover{
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius:2px;
+    color: #484848;
+}
+#roomsGuestsInput .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle{
+    /* background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius:2px;
+    color:#484848;
+    padding:9px 11px 9px; */
+    /* box-shadow:0px -2px 0px 0px #231c19 inset; */
+}
+.roomGuestsSelectorItem{
+    padding:0rem 1rem;
+}
+
+.btn-group{
+    /* width:286px; */
+}
+
+#roomsGuestsDropDownContainer{
+    width: 100%;
+}
+#roomsGuestsDropDownContainer .btn-secondary{
+    color:black;
+    padding:.375rem .75rem;
+}
+.IncrementDecrement{
+    margin-right:10%;
+}
+
+@media screen and (max-width: 320px) {
+    .IncrementDecrement{
+        margin-right:0%;
+    }
+}
+
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .IncrementDecrement{
+        margin-right:10%;
+    }
+    .roomGuestsSelectorItem{
+        padding:0rem 2rem;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .IncrementDecrement{
+        margin-right:10%;
+    }
+    .roomGuestsSelectorItem{
+        padding:0rem 2rem;
+    }
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .IncrementDecrement{
+        /* margin-right:10%; */
+    }
+    .roomGuestsSelectorItem{
+        padding:0rem 2rem;
+    }
+
+}

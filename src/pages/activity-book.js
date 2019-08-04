@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 // import axios from "axios"
 import Layout from "../components/layout"
+
+import GuestsSelector from "../components/guestsSelector/guestsSelector"
 import { Container, Row, Col } from 'reactstrap';
 import { InputGroup, 
   // InputGroupText, 
@@ -26,22 +28,22 @@ class ActivityBook extends Component {
       numberOfChildren: "",
       totalCost: 0,
       activityToBookDetails: '',
-
-        userName: '',
-        userAge: '',
-        userGender: '',
-        userEmailId: '',
-        userDate: '',
-        userPhoneNumber: '',
+      userName: '',
+      userAge: '',
+      userGender: '',
+      userEmailId: '',
+      userDate: '',
+      userPhoneNumber: '',
       date: '',
       focused: null,
-
-  }
+    }
   // console.log("activityToBookId  " , this.props.location.state.activityId);
   //   console.log("I am booking for this activity: " , this.state.activityToBookDetails);
-
   }
 
+  guestCountHandler = (adultCount, childCount)=>{
+    this.setState({numberOfAdultGuest:adultCount,numberOfChildren:childCount})
+  }
 
   isBlocked = day => {
     day = day.format("YYYY-MM-DD");
@@ -160,59 +162,70 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
       <Layout>
         <Container style={{marginTop:"4rem"}}>
           <Row>
-            <Col sm={{ size: 7}}  >
+            <Col sm={{ size: 7}} style={{padding:'0'}} >
               <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', marginTop: '50px' }}>
                 <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay for {this.state.activityToBookDetails.name}</b></p>
                 <p style={{fontSize: '16px',  marginTop: '-10px'}}> { striptags(this.state.activityToBookDetails.small_description)}</p>
               </div>
               <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
-                <p style={{fontSize: '28px', marginTop: '40px'}}><b>Who's coming?</b></p>
-
-
+                <p style={{fontSize: '28px', marginTop: '40px'}}><b>Contact details</b></p>
               </div>
-              <div>
+             
                 <Row>
-                  <Col sm={{ size: 4}}  >
+                  <Col sm={{ size: 6}}  >
+                    <span>Name</span>
                     <InputGroup>
-                      <Input placeholder="Name"
+                      <Input placeholder="First and last name"
                              value={this.state.userName}
                              onChange={e => this.updateUsername(e)}/>
                   </InputGroup>
                   </Col>
-                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <span>Age</span>
                     <InputGroup>
                       <Input type="number" placeholder="Age"
                              value={this.state.userAge}
                              onChange={e => this.updateAge(e)}/>
                     </InputGroup>
                   </Col>
-                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
+                  {/* <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white', marginTop:'20px'}} >
                     <InputGroup>
                       <Input placeholder="Gender"
                              value={this.state.userGender}
                              onChange={e => this.updateGender(e)}/>
                     </InputGroup>
-                  </Col>
+                  </Col> */}
                 </Row>
                 <br/>
                 <Row>
 
-                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                    <span>Contact Number</span>
                     <InputGroup>
-                      <Input placeholder="Contact Number" value={this.state.userPhoneNumber}
+                      <Input placeholder="9312341234" value={this.state.userPhoneNumber}
                              onChange={e => this.updateContactNumber(e)}/>
                     </InputGroup>
                   </Col>
-                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                    <span>Email</span>
                     <InputGroup>
-                      <Input placeholder="Email" value={this.state.userEmailId}
+                      <Input placeholder="name@gmail.com" value={this.state.userEmailId}
                              onChange={e => this.updateEmailId(e)}/>
                     </InputGroup>
                   </Col>
-                  <Col sm={{ size: 4}}  style={{borderLeft: '1px solid white'}} >
+                  
+                </Row>
+                <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
+                  <p style={{fontSize: '26px', marginTop: '40px'}}><b>Booking Details</b></p>
+                </div>
+                
+                <Row>
+                <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <span>Date</span>
                     <SingleDatePicker
                       // date={moment()}
                       // showClearDate={true}
+                      placeholder="Date of activity"
                       minDate="2019-06-23"
                       maxDate="2019-07-25"
                       inputIconPosition="after"
@@ -250,30 +263,26 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                     {/*</Input>*/}
 
                   </Col>
-                </Row>
-                <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
-                  <p style={{fontSize: '26px', marginTop: '40px'}}><b>Guest Details</b></p>
-                </div>
-                <br/>
-                <Row>
                   <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
-                    <InputGroup>
+                    <span>Number of guests</span>
+                    <GuestsSelector handler={this.guestCountHandler} maxTotalCount={this.state.activityToBookDetails.maxcapacity} />
+                    {/* <InputGroup>
                       <Input type="number"
-                             placeholder="Number of adults"
+                             placeholder="Adult attending"
                              value={this.state.numberOfAdultGuest}
                              onChange={e => this.updateNumberOfAdults(e)}/>
-                    </InputGroup>
+                    </InputGroup> */}
                   </Col>
-                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  {/* <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
                     <InputGroup>
                       <Input type="number" placeholder="Number of children"
                              value={this.state.numberOfChildren}
                              onChange={e => this.updateNumberOfChildren(e)}/>
                     </InputGroup>
-                  </Col>
+                  </Col> */}
                 </Row>
-
-              </div>
+                <br/>
+              <hr />
               <br/>
               <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)', }}> <b>Additional Services</b> </p>
               <Row>
@@ -392,7 +401,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
             <Button
               style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}
               onClick={this.bookActivityTemporarily}
-              disabled={!this.state.userAge || !this.state.userGender || !this.state.userName || !this.state.userEmailId || !this.state.userDate || !this.state.userPhoneNumber || !this.state.numberOfAdultGuest || !this.state.numberOfChildren}
+              disabled={!this.state.userAge || !this.state.userName || !this.state.userEmailId || !this.state.userDate || !this.state.userPhoneNumber || !this.state.numberOfAdultGuest || !this.state.numberOfChildren}
               block>Proceed to pay </Button>
           </div>
         </Container>
