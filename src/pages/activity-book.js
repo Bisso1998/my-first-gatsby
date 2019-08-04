@@ -60,8 +60,13 @@ class ActivityBook extends Component {
     if (this.props.location.state != null) {
       this.setState(() => ({ activityToBookDetails: this.props.location.state.activityToBook }));
       console.log("activityToBookDetails " , this.props.location.state.activityToBook );
+      let savedState =  JSON.stringify(this.props.location.state)
+      localStorage.setItem('activityBookingState', savedState);
     } else {
-      alert("Please select an activity from homepage to book the activity. No activity selected");
+      let retrievedState = JSON.parse(localStorage.getItem('activityBookingState'));
+      this.setState(() => ({ activityToBookDetails: retrievedState.activityToBook }));
+      if(retrievedState==null)
+        alert("Please select an activity from homepage to book the activity. No activity selected");
     }
   }
   updateNumberOfAdults = e => {
