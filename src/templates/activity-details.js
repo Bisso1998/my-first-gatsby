@@ -130,7 +130,7 @@ class ActivityDetail extends Component {
 
                     <MobileView>
                       <Row className="">
-                        <Col sm={{ size: 7}}  >
+                        <Col sm={{ size: 6}} style={{padding:'0'}}  >
                           <div style={{width: '100%', fontFamily: 'Montserrat', color: 'rgb(72, 72, 72)', boxSizing: 'border-box', }}>
                             {/*<p style={{fontSize: '13px',}}> {this.state.data.name}</p>*/}
                             <p style={{fontSize: '26px', marginTop: '-20px',fontWeight: 'bold'}}> {striptags(this.state.data.small_description)}</p>
@@ -142,24 +142,29 @@ class ActivityDetail extends Component {
 
                             </div>
 
-                            <div style={{fontSize: '16px'}}>
+                            <div style={{fontSize: '16px',marginTop:'15px'}}>
                               {striptags(this.state.data.description)}</div>
                           </div>
                           <div style={{fontWeight: 100,backgroundColor: '#1D62B1', boxSizing: 'border-box', color: 'white', padding: '15px'}}>
-                            <Row>
-                              <Col sm={{ size: 6}}  >
-                                Location: <b>{this.state.data.location}</b> <br/>
-                                Timing: <b>6 to 8am</b> <br/>
-                                Activity Type: <b>{this.state.data.type}</b> <br/>
-                              </Col>
-                              <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
-                                Code: <b>Havelock Island</b> <br/>
-                                Rating: <b>6 to 8am</b> <br/>
-                                Min Age: <b>{this.state.data.participants_age}</b> <br/>
-                              </Col>
-                            </Row>
+                          <Row>
+                                    <Col sm={{ size: 6}}  >
+                                    <FontAwesomeIcon
+                  icon={faMapMarkerAlt}
+                  style={{ fontSize: '18px', color: 'white', marginRight:'10px' }}
+                /> <b>{this.state.data.location}</b> <br/>
+                                        <FontAwesomeIcon
+                  icon={faClock}
+                  style={{ fontSize: '16px', color: 'white', marginRight:'10px' }}
+                /><b>45 Mins</b> <br/>
+                                        
+                                    </Col>
+                                    <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                                        Min Age: <b>{this.state.data.participants_age}</b> <br/>
+                                        Activity Type: <b>{this.state.data.style}</b> <br/>
+                                    </Col>
+                                </Row>
                           </div>
-                          <div style={{padding: '10px' , color: 'rgb(72, 72, 72)',  fontFamily: 'Montserrat', fontSize: '16px' }}>
+                          <div style={{padding: '10px' , color: 'rgb(72, 72, 72)',  fontFamily: 'Montserrat', fontSize: '16px',marginTop:'15px' }}>
                               <p style={{fontSize: '26px', color: '#CC4263'}}> Why you will love this activity? </p>
 
                             <ul>
