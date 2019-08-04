@@ -45,6 +45,9 @@ body {
   .filter-container {
     padding: 0px !important;
   }
+  .navbar-light .navbar-toggler{
+    border-color:#fff ;
+  }
 }
 /* .header-select a { 
 

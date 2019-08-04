@@ -315,7 +315,7 @@ render() {
       <Col sm={{size: 4}} >
       
       </Col>
-      <Col sm={{size: 4}} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+      <Col sm={{size: 4}} style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom:"20px"}}>
       
       <Button id="filterByDate" type="button" outline color="secondary" size="sm">
       Dates
