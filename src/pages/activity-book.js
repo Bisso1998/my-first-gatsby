@@ -24,8 +24,8 @@ class ActivityBook extends Component {
     super(props);
     this.state = {
       loading: true,
-      numberOfAdultGuest: "",
-      numberOfChildren: "",
+      numberOfAdultGuest: 1,
+      numberOfChildren: 0,
       totalCost: 0,
       activityToBookDetails: '',
       userName: '',
@@ -207,14 +207,14 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                   <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
                     <span>Contact Number</span>
                     <InputGroup>
-                      <Input placeholder="9312341234" value={this.state.userPhoneNumber}
+                      <Input placeholder="" value={this.state.userPhoneNumber}
                              onChange={e => this.updateContactNumber(e)}/>
                     </InputGroup>
                   </Col>
                   <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
                     <span>Email</span>
                     <InputGroup>
-                      <Input placeholder="name@gmail.com" value={this.state.userEmailId}
+                      <Input placeholder="" value={this.state.userEmailId}
                              onChange={e => this.updateEmailId(e)}/>
                     </InputGroup>
                   </Col>
