@@ -124,7 +124,7 @@ class ActivityBook extends Component {
     let data = {"activitydata":{
         "activitycart": [
           {
-            "_activityDate": this.state.userDate,
+            "_activityDate": moment(this.state.userDate).format("YYYY-MM-DD"),
             "_activityid": tmpActivityDetails.id,
             "_adultquantity": this.state.numberOfAdultGuest,
             "_childquantity": this.state.numberOfChildren,
@@ -163,6 +163,7 @@ class ActivityBook extends Component {
 
   render() {
 let dateToString = new Date(this.state.activityToBookDetails.date);
+    let showDateOfActivity = this.state.userDate ?  <p>{moment(this.state.userDate).format("YYYY-MM-DD") } </p> :  <p><b>No Date Selected</b></p>;
      return(
       <Layout>
         <Container style={{marginTop:"4rem"}}>
@@ -335,8 +336,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                 </Row>
   <hr/>
                 <div style={{fontSize: '14px', }}>
-                  {dateToString.toDateString()}
-                  <br/>
+                  {showDateOfActivity}
                   {this.state.activityToBookDetails.start_time} - {this.state.activityToBookDetails.end_time}
                 </div>
                 <hr/>
