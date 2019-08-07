@@ -155,7 +155,7 @@ class ActivityDetail extends Component {
                                         <FontAwesomeIcon
                   icon={faClock}
                   style={{ fontSize: '16px', color: 'white', marginRight:'10px' }}
-                /><b>45 Mins</b> <br/>
+                /><b>{this.state.data.duration}</b> <br/>
                                         
                                     </Col>
                                     <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
