@@ -1,10 +1,10 @@
 #roomsGuestsInput{
-    width:100%;
+    width:85%;
 }
 #roomsGuestsInput .btn-secondary{
     /* width:100%; */
     background-color: rgb(255, 255, 255);
-    border: 1px solid #dbdbdb;
+    border: 1px solid rgb(235,235,235);
     border-radius:2px;
     color: #484848;
     /* height: 24px; */
@@ -97,3 +97,7 @@
     }
 
 }
+.SingleDatePicker__block {
+    display: block;
+    width: 85%;
+    }

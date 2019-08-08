@@ -154,7 +154,7 @@ class GuestsSelector extends React.Component {
           <DropdownItem header>Adults</DropdownItem>
           <div>
             <Row className="roomGuestsSelectorItem">
-              <Col>
+              <Col style={{ marginLeft: '0%',padding:'0' }}>
                 <Pluralize
                   singular={'Adult'}
                   count={this.state.adultCount}
@@ -181,7 +181,7 @@ class GuestsSelector extends React.Component {
           <DropdownItem header>Children</DropdownItem>
           <div>
             <Row className="roomGuestsSelectorItem">
-              <Col>
+              <Col style={{ marginLeft: '0%',padding:'0' }}>
                 <Pluralize
                   singular={'Child'}
                   plural={'Children'}

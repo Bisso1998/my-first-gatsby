@@ -14,6 +14,12 @@ import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import * as moment from 'moment';
+import {
+  faMapMarkerAlt,
+  faClock,
+} from '@fortawesome/free-solid-svg-icons';
+// library.add(fab, faCheckSquare, faCoffee)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 var striptags = require('striptags');
 
 
@@ -169,29 +175,33 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
         <Container style={{marginTop:"4rem"}}>
           <Row>
             <Col sm={{ size: 7}} style={{padding:'0'}} >
-              <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', marginTop: '50px' }}>
+              <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(75,75,75)',  boxSizing: 'border-box', marginTop: '50px' }}>
                 <p style={{fontSize: '28px', marginTop: '-20px'}}><b>Review and pay for {this.state.activityToBookDetails.name}</b></p>
-                <p style={{fontSize: '16px',  marginTop: '-10px'}}> { striptags(this.state.activityToBookDetails.small_description)}</p>
+                <p style={{fontSize: '16px',  marginTop: '-10px'}}> Please select the date of activity and add your contact details below to confirm the reservation </p>
               </div>
-              <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
+              
+              <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(75,75,75)',  boxSizing: 'border-box', }}>
                 <p style={{fontSize: '28px', marginTop: '40px'}}><b>Contact details</b></p>
               </div>
              
                 <Row>
-                  <Col sm={{ size: 6}}  >
+                  <Col sm={{ size: 6}} style={{paddingLeft:'0'}} >
                     <span>Name</span>
-                    <InputGroup>
-                      <Input placeholder="First and last name"
-                             value={this.state.userName}
-                             onChange={e => this.updateUsername(e)}/>
+                    <InputGroup style={{width:'85%'}}>
+                      <Input style={{borderColor:'rgb(235,235,235)',borderRadius:'1px'}}
+                            placeholder="First and last name"
+                            value={this.state.userName}
+                            onChange={e => this.updateUsername(e)}/>
                   </InputGroup>
                   </Col>
-                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white',paddingLeft:'0'}} >
                   <span>Age</span>
-                    <InputGroup>
-                      <Input type="number" placeholder="Age"
-                             value={this.state.userAge}
-                             onChange={e => this.updateAge(e)}/>
+                    <InputGroup style={{width:'85%'}}>
+                      <Input style={{borderColor:'rgb(235,235,235)',borderRadius:'1px'}}
+                      type="number"
+                      placeholder="Age"
+                      value={this.state.userAge}
+                      onChange={e => this.updateAge(e)}/>
                     </InputGroup>
                   </Col>
                   {/* <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white', marginTop:'20px'}} >
@@ -205,28 +215,30 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                 <br/>
                 <Row>
 
-                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white',paddingLeft:'0'}} >
                     <span>Contact Number</span>
-                    <InputGroup>
-                      <Input placeholder="" value={this.state.userPhoneNumber}
+                    <InputGroup style={{width:'85%'}}>
+                      <Input style={{borderColor:'rgb(235,235,235)',borderRadius:'1px'}}
+                      placeholder="" value={this.state.userPhoneNumber}
                              onChange={e => this.updateContactNumber(e)}/>
                     </InputGroup>
                   </Col>
-                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white',paddingLeft:'0'}} >
                     <span>Email</span>
-                    <InputGroup>
-                      <Input placeholder="" value={this.state.userEmailId}
+                    <InputGroup style={{width:'85%'}}>
+                      <Input style={{borderColor:'rgb(235,235,235)',borderRadius:'1px'}}
+                      placeholder="" value={this.state.userEmailId}
                              onChange={e => this.updateEmailId(e)}/>
                     </InputGroup>
                   </Col>
                   
                 </Row>
-                <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)',  boxSizing: 'border-box', }}>
+                <div style={{width: '100%', fontFamily: 'Montserrat',  color: 'rgb(75,75,75)',  boxSizing: 'border-box', }}>
                   <p style={{fontSize: '26px', marginTop: '40px'}}><b>Booking Details</b></p>
                 </div>
                 
                 <Row>
-                <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white', paddingLeft:'0'}} >
                   <span>Date</span>
                     <SingleDatePicker
                       // date={moment()}
@@ -249,7 +261,6 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                       hideKeyboardShortcutsPanel={true}
                       isDayBlocked={this.isBlocked}
                       isOutsideRange={day => !((moment().diff(day) < 0) || (moment().diff(day) >= 0) )}
-
                     />
 
 
@@ -269,9 +280,9 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                     {/*</Input>*/}
 
                   </Col>
-                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white'}} >
+                  <Col sm={{ size: 6}}  style={{borderLeft: '1px solid white', paddingLeft:'0'}} >
                     <span>Number of guests</span>
-                    <GuestsSelector handler={this.guestCountHandler} maxTotalCount={this.state.activityToBookDetails.maxcapacity} />
+                    <GuestsSelector handler={this.guestCountHandler} maxTotalCount={15} />
                     {/* <InputGroup>
                       <Input type="number"
                              placeholder="Adult attending"
@@ -290,15 +301,15 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                 <br/>
               <hr />
               <br/>
-              <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: 'rgb(85, 73, 68)', }}> <b>Additional Services</b> </p>
+              <p style={{fontSize: '26px', ontFamily: 'Montserrat',  color: 'rgb(75,75,75)', }}> <b>Additional Services</b> </p>
               <Row>
                 {
                   [1,2,3].map((eachElement) => (
                     <Col sm={{ size: 4}}  >
-                      <div style={{fontSize: '16px' , color: 'rgb(85, 73, 68)'}}>
+                      <div style={{fontSize: '14px' , color: 'rgb(75,75,75)'}}>
                         AIRPORT PORT BLAIR
                       </div>
-                      <div style={{fontSize: '14px' , color: 'rgb(85, 73, 68)', marginTop: "10px", marginBottom: "10px"}}>
+                      <div style={{fontSize: '14px' , color: 'rgb(75,75,75)', marginTop: "10px", marginBottom: "10px"}}>
                         <b>AIRPORT PICK UP SERVICES</b>
                       </div>
                       <div style={{fontSize: '14px' , color: '#938f8f'}}>
@@ -315,98 +326,104 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
               </Row>
             </Col>
             <Col sm={{ size: 5}}  >
-              <div style={{width: '100%', fontFamily: 'Montserrat', border: '2px solid #d8d2d2' ,  color: '#938f8f',padding: '20px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
-                <p style={{fontSize: '16px',color: 'rgb(85, 73, 68)'}}> <b> {striptags(this.state.activityToBookDetails.description)} </b> </p>
+              <div style={{width: '100%', fontFamily: 'Montserrat', border: '1px solid rgb(228, 228, 228)' ,  color: '#938f8f',padding: '20px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
+                
+              <p style={{fontSize: '20px',color: 'rgb(75,75,75)', textTransform:'uppercase'}}> <b> {striptags(this.state.activityToBookDetails.name)} </b> </p>
 
 
                 <Row>
-                  <Col sm={{ size: 6}}  >
-                    <p style={{fontSize: '14px',color: '#767676'}}> <b>{this.state.activityToBookDetails.location}</b> </p>
-                    <p style={{fontSize: '14px',color: '#767676', marginTop: '10px'}}> <b>3.5 hours</b> </p>
+                  <Col sm={{ size: 6}} style={{paddingLeft:"0"}} >
+                    <p style={{fontSize: '14px',color: 'rgb(72, 72, 72)', textTransform:'uppercase'}}> 
+                      <FontAwesomeIcon
+                  icon={faMapMarkerAlt}
+                  style={{ fontSize: '16px', color: 'rgb(72, 72, 72)', marginRight:'10px' }}
+                />{this.state.activityToBookDetails.location} </p>
+                    <p style={{fontSize: '14px',color: 'rgb(72, 72, 72)', marginTop: '10px', textTransform:'uppercase'}}> <FontAwesomeIcon
+                  icon={faClock}
+                  style={{ fontSize: '16px', color: 'rgb(72, 72, 72)', marginRight:'10px' }}
+                />3.5 hours</p>
                     <i className="fas fa-band-aid"></i>
 
                   </Col>
-                  <Col sm={{ size: 2}}  >
-                    <img alt="" src={"https://travelcheckins.com/apitest/public/activity_images/"+this.state.activityToBookDetails.image} style={{height: "80px", width: "80px", borderRadius: '2px'}}/>
+                  <Col sm={{ size: 6}}  >
+                    <img alt="" src={"https://travelcheckins.com/apitest/public/activity_images/"+this.state.activityToBookDetails.image} style={{width: "112px", borderRadius: '2px'}}/>
                   </Col>
 
-                  <Col sm={{ size: 4}}  >
+                  {/* <Col sm={{ size: 4}}  >
 
-                  </Col>
+                  </Col> */}
                 </Row>
-  <hr/>
-                <div style={{fontSize: '14px', }}>
-                  {showDateOfActivity}
-                  {this.state.activityToBookDetails.start_time} - {this.state.activityToBookDetails.end_time}
-                </div>
                 <hr/>
-                <div style={{fontSize: '14px', }}>
-                 Provided Equipments
-                  <br/>
-                  {this.state.activityToBookDetails.equipment}
+                <Row>
+                  <div style={{fontSize: '14px', color: 'rgb(72, 72, 72)'}}>
+                    {showDateOfActivity}
+                    {this.state.activityToBookDetails.start_time} - {this.state.activityToBookDetails.end_time}
+                  </div>
+                </Row>
+                
+                <hr/>
+                <div style={{fontSize: '14px', color: 'rgb(72, 72, 72)'}}>
+                <p><b> Provided Equipments</b></p>
+                 
+                <span>{this.state.activityToBookDetails.equipment}</span>
                 </div>
 
                 <hr/>
-                <div style={{fontSize: '14px', }}>
+                <div style={{fontSize: '14px',color: 'rgb(72, 72, 72)' }}>
                   <p style={{display: 'inline'}}>
                     {this.state.activityToBookDetails.adult_ticket} X {this.state.numberOfAdultGuest || 0} adult(s)
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    {this.state.activityToBookDetails.adult_ticket * this.state.numberOfAdultGuest}
+                  ₹{this.state.activityToBookDetails.adult_ticket * this.state.numberOfAdultGuest}
                   </p>
                 </div>
                 <br/>
-                <div style={{fontSize: '14px', }}>
+                <div style={{fontSize: '14px', color: 'rgb(72, 72, 72)'}}>
                   <p style={{display: 'inline'}}>
                     {this.state.activityToBookDetails.child_ticket} X {this.state.numberOfChildren || 0} children(s)
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    {this.state.activityToBookDetails.child_ticket * this.state.numberOfChildren}
+                  ₹{this.state.activityToBookDetails.child_ticket * this.state.numberOfChildren}
                   </p>
                 </div>
 
                 <hr/>
-                <div style={{fontSize: '14px', }}>
+                <div style={{fontSize: '14px',color: 'rgb(72, 72, 72)' }}>
                   <p style={{display: 'inline'}}>
                     <b>TOTAL (INR) </b>
                   </p>
                   <p style={{display: 'inline', float: 'right '}}>
-                    {( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket))}
+                  ₹{( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket))}
                   </p>
                 </div>
                 <hr/>
                 <div>
-                  <p style={{color: "#9DC9D8"}}>
+                  <p style={{color: 'rgb(72, 72, 72)'}}>
                     <b>Cancellation Policy</b>
                   </p>
-                  <p>
+                  <p style={{fontSize: '14px',color: 'rgb(72, 72, 72)'}}>
                     Get a full refund if you cancel in 24 hours.
                   </p>
                 </div>
                 <hr/>
-                <p>
-                  <b>Review Guest Requirements</b>
-                  <br/>
-                  {this.state.activityToBookDetails.physical_requirements}
-                </p>
-                <p>
-                  <b>Guidelines</b>
-                </p>
-                <p>
+                
+                  <b style={{color: 'rgb(72, 72, 72)'}}>Guidelines</b>
+                
+                <p style={{fontSize: '14px',color: 'rgb(72, 72, 72)'}}>
                   <b>Pre Activity Guidelines </b> {this.state.activityToBookDetails.pre_activity_guidelines}
                 </p>
-                <p>
+                <p style={{fontSize: '14px',color: 'rgb(72, 72, 72)'}}>
                   <b>Post Activity Guidelines </b> {this.state.activityToBookDetails.post_activity_guidelines}
                 </p>
               </div>
             </Col>
           </Row>
           <br/>
-          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '30px'}}>
+          <div style={{marginTop:'15px'}}>
             <Button
               style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}
               onClick={this.bookActivityTemporarily}
-              disabled={!this.state.userAge || !this.state.userName || !this.state.userEmailId || !this.state.userDate || !this.state.userPhoneNumber || !this.state.numberOfAdultGuest || !this.state.numberOfChildren}
+              disabled={!this.state.userAge || !this.state.userName || !this.state.userEmailId || !this.state.userDate || !this.state.userPhoneNumber || !this.state.numberOfAdultGuest}
               block>Proceed to pay </Button>
           </div>
         </Container>
