@@ -332,7 +332,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
 
 
                 <Row>
-                  <Col sm={{ size: 6}} style={{paddingLeft:"0"}} >
+                  <Col xs={{size:6}} sm={{ size: 6}} style={{paddingLeft:"0"}} >
                     <p style={{fontSize: '14px',color: 'rgb(72, 72, 72)', textTransform:'uppercase'}}> 
                       <FontAwesomeIcon
                   icon={faMapMarkerAlt}
@@ -345,7 +345,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
                     <i className="fas fa-band-aid"></i>
 
                   </Col>
-                  <Col sm={{ size: 6}}  >
+                  <Col xs={{size:6}} sm={{ size: 6}}  >
                     <img alt="" src={"https://travelcheckins.com/apitest/public/activity_images/"+this.state.activityToBookDetails.image} style={{width: "112px", borderRadius: '2px'}}/>
                   </Col>
 
