@@ -305,7 +305,7 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
               <Row>
                 {
                   [1,2,3].map((eachElement) => (
-                    <Col sm={{ size: 4}}  >
+                    <Col sm={{ size: 4}} style={{paddingLeft:0}}  >
                       <div style={{fontSize: '14px' , color: 'rgb(75,75,75)'}}>
                         AIRPORT PORT BLAIR
                       </div>

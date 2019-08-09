@@ -393,7 +393,7 @@ render() {
         ))}
         </Row>
         </BrowserView>
-        <Container fluid={false}>
+        <Container fluid={true}>
         <Row>
         
         
