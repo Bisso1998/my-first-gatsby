@@ -1,11 +1,12 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "ferrybooking-activities-module",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A simplified ferrybooking activity booking system",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build-path-prefix": "gatsby build --path-prefix",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",

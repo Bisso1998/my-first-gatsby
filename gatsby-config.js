@@ -7,8 +7,8 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Bisso is great`,
+    title: `ferrybooking.in - book adventure activities, scuba diving, romantic dinner in Andaman, Havelock Island, Portblair, Niel`
   },
-  pathPrefix: "/my-first-gatsby",
+  pathPrefix: "/activity",
 
 }
