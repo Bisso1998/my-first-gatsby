@@ -9,6 +9,6 @@ module.exports = {
   siteMetadata: {
     title: `ferrybooking.in - book adventure activities, scuba diving, romantic dinner in Andaman, Havelock Island, Portblair, Niel`
   },
-  pathPrefix: "/activity",
+  pathPrefix: "/activity/",
 
 }

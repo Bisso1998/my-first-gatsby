@@ -126,24 +126,16 @@ class ActivityBook extends Component {
   bookActivityTemporarily = () => {
     // console.log("The data we have are: " , this.state.activityToBookDetails);
     let tmpActivityDetails = this.state.activityToBookDetails;
-    let totalBookingCost = ( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket));
-    let data = {"activitydata":{
-        "activitycart": [
-          {
-            "_activityDate": moment(this.state.userDate).format("YYYY-MM-DD"),
-            "_activityid": tmpActivityDetails.id,
-            "_adultquantity": this.state.numberOfAdultGuest,
-            "_childquantity": this.state.numberOfChildren,
-          }],
-        "age": "28",
-        "booking_amount": totalBookingCost,
-        "contact_no": this.state.userPhoneNumber,
-        "email": this.state.userEmailId,
-        "gender": this.state.userGender,
-        "name": this.state.userName
-      },
-      "agent_id":2,
-      "user_id":38
+    // let totalBookingCost = ( ( this.state.numberOfAdultGuest * this.state.activityToBookDetails.adult_ticket) + (this.state.numberOfChildren * this.state.activityToBookDetails.child_ticket));
+    let data = {"activity_id": tmpActivityDetails.id,
+      "purpose": tmpActivityDetails.name,
+      "email": this.state.userEmailId,
+      "phone": this.state.userPhoneNumber,
+      "buyer_name": this.state.userName,
+      "adults": this.state.numberOfAdultGuest,
+      "children": this.state.numberOfChildren,
+      "date":moment(this.state.userDate).format("YYYY-MM-DD"), 
+      "age": this.state.userAge
     }
 
     console.log("Data I am sending is: " , data);
@@ -156,7 +148,7 @@ class ActivityBook extends Component {
 
     this.setState({ loading: true });
     axios
-      .post(`https://travelcheckins.com/apitest/api/booking/book/tempbookactivity`, data,  {headers: headers} )
+      .post(`http://ferrybooking.in/activity-payment-processor/pay-for-activity.php`, data,  {headers: headers} )
       .then(data => {
         console.log(data);
 
@@ -420,11 +412,25 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
           </Row>
           <br/>
           <div style={{marginTop:'15px'}}>
+            <form method="post" action="https://ferrybooking.in/activity-payment-processor/pay-for-activity.php" >
+              <input type="hidden" value = {this.state.activityToBookDetails.id} name = "activity_id" />
+              <input type="hidden" value = {this.state.activityToBookDetails.name} name = "purpose" />
+              <input type="hidden" value = {this.state.userEmailId} name = "email" />
+              <input type="hidden" value = {this.state.userPhoneNumber} name = "phone" />
+              <input type="hidden" value = {this.state.userName} name = "buyer_name" />
+              <input type="hidden" value = {this.state.numberOfAdultGuest} name = "adults" />
+              <input type="hidden" value = {this.state.numberOfChildren} name = "children" />
+              <input type="hidden" value = {this.state.userDate} name = "date" />
+              <input type="hidden" value = {this.state.userAge} name = "age" />
             <Button
               style={{backgroundColor: '#CC4263', padding: '10px', color: 'white' , width: '150px'}}
-              onClick={this.bookActivityTemporarily}
+              // onClick={this.bookActivityTemporarily}
+              type="submit"
               disabled={!this.state.userAge || !this.state.userName || !this.state.userEmailId || !this.state.userDate || !this.state.userPhoneNumber || !this.state.numberOfAdultGuest}
               block>Proceed to pay </Button>
+               <input type="submit" value="Submit" />
+            </form>
+            
           </div>
         </Container>
       </Layout>
