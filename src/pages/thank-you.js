@@ -6,12 +6,24 @@ class Thankyou extends React.Component{
 
     constructor(props){
         super(props);
+        this.state = {
+            url: 'https://ferrybooking.in/thank-you?name=0',
+        }
+    }
+
+    componentDidMount(){
+        // props.location is only available on browser/client
+        // gatsby will build server side.. so if window is undefined, ignore props.location
+        if (typeof window === 'undefined') {
+            return;
+          }
+        this.setState(() => ({ url: this.props.location.href }));
     }
 
     extractUrlValue = (key, url) =>
     {
         if (typeof(url) === 'undefined')
-            url = this.props.location.href;
+            url = this.state.url;
         var match = url.match('[?&]' + key + '=([^&]+)');
         return match ? decodeURIComponent(match[1]) : null;
     }
