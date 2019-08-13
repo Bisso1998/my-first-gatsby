@@ -81,8 +81,9 @@ class ActivityBook extends Component {
       }))
       if (retrievedState == null)
         alert(
-          "Please select an activity from homepage to book the activity. No activity selected"
+          "Please select an activity from homepage to book the activity. No activity selected."
         )
+      window.location = "/"
     }
   }
   updateNumberOfAdults = e => {
