@@ -584,6 +584,10 @@ class ActivityBook extends Component {
           </Row>
           <br />
           <div style={{ marginTop: "15px" }}>
+          {/* <form
+              method="post"
+              action="http://localhost:8001/pay-for-activity.php"
+            > */}
             <form
               method="post"
               action="https://ferrybooking.in/activity-payment-processor/pay-for-activity.php"
@@ -623,7 +627,7 @@ class ActivityBook extends Component {
                 value={this.state.numberOfChildren}
                 name="children"
               />
-              <input type="hidden" value={this.state.userDate} name="date" />
+              <input type="hidden" value={moment(this.state.userDate).format("YYYY-MM-DD")} name="date" />
               <input type="hidden" value={this.state.userAge} name="age" />
               <Button
                 style={{
@@ -646,7 +650,6 @@ class ActivityBook extends Component {
               >
                 Proceed to pay{" "}
               </Button>
-              <input type="submit" value="Submit" />
             </form>
           </div>
         </Container>

@@ -16,23 +16,19 @@ class Thankyou extends React.Component{
         return match ? decodeURIComponent(match[1]) : null;
     }
 
-    getTotalGuests(adult,children){
-        return parseInt(adult)+parseInt(children)
-    }
-
     render(){
         return(
             <Layout>
                 <Container id="activity-info" style={{marginTop:'4rem'}}>
                     
                     <Row>
-                        <h3>Booking Successful 🥳 </h3>
+                        {/* <h3>Booking Failed 😔</h3> */}
                     </Row>
                     <br/>
                     <hr/>
                     <Row>
                         <h1>
-                            Booking Details
+                        Booking Failed 😔
                         </h1>
                     </Row>
                     <hr style={{borderColor:"rgb(31, 105, 176)"}}/>
@@ -45,35 +41,19 @@ class Thankyou extends React.Component{
                         </Col>
                         {/* <Col sm={{size:2}}>
                         </Col> */}
-                        <Col sm={{size:4}}>
+                        {/* <Col sm={{size:4}}>
                         <p style={{fontWeight:"bolder",fontSize: '20px',}}> PNR: {this.extractUrlValue('pnr')}</p>
-                        </Col>
+                        </Col> */}
                     </Row>
+                    {/* <hr/> */}
+                    
                     <hr/>
                     <Row>
                         <Col>
-                        <p>Your booking is confirmed for {this.getTotalGuests(this.extractUrlValue('adult_count'),this.extractUrlValue('child_count'))} Guests ({this.extractUrlValue('adult_count')} Adults and {this.extractUrlValue('child_count')} Children) </p>
+                        <p>Please try rebooking or call us +91 9538740296</p>
                         </Col>
                     </Row>
-                    <hr/>
-                    <Row>
-                        <Col>
-                        <p style={{color:"#999"}}>Contact Details</p>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                        <p>Zeeshan (24)</p>
-                        <p>9538740296</p>
-                        <p>zeeshanm1010@gmail.com</p>
-                        </Col>
-                    </Row>
-                    <br />
-                    <br />
-                    <br />
-                    <Row>
-                    <h3>Thank you for booking with ferrybooking.in</h3>
-                    </Row>
+                    
                 </Container>
                 <Row>
 
