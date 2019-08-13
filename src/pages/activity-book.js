@@ -412,7 +412,8 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
           </Row>
           <br/>
           <div style={{marginTop:'15px'}}>
-            <form method="post" action="https://ferrybooking.in/activity-payment-processor/pay-for-activity.php" >
+          <form method="post" action="http://localhost:8001/pay-for-activity.php" >
+            {/* <form action="http://ferrybooking.in/activity-payment-processor/pay-for-activity.php" method="post"> */}
               <input type="hidden" value = {this.state.activityToBookDetails.id} name = "activity_id" />
               <input type="hidden" value = {this.state.activityToBookDetails.name} name = "purpose" />
               <input type="hidden" value = {this.state.userEmailId} name = "email" />
@@ -428,7 +429,6 @@ let dateToString = new Date(this.state.activityToBookDetails.date);
               type="submit"
               disabled={!this.state.userAge || !this.state.userName || !this.state.userEmailId || !this.state.userDate || !this.state.userPhoneNumber || !this.state.numberOfAdultGuest}
               block>Proceed to pay </Button>
-               <input type="submit" value="Submit" />
             </form>
             
           </div>
