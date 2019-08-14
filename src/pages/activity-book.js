@@ -330,7 +330,7 @@ class ActivityBook extends Component {
                   </InputGroup>
                   {!this.state.isEmailVerified && (
                     <p style={{ color: "red", display: "block" }}>
-                      Enter a valid EmailId
+                      Please enter a valid Email Id
                     </p>
                   )}
                 </Col>
