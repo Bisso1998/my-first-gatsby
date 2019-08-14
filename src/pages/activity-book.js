@@ -307,7 +307,7 @@ class ActivityBook extends Component {
                   </InputGroup>
                   {!this.state.isPhoneNumberVerified && (
                     <p style={{ color: "red", display: "block" }}>
-                      Enter a valid 10 digit number
+                      Please enter a valid 10 digit number
                     </p>
                   )}
                 </Col>
