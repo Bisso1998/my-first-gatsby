@@ -304,13 +304,12 @@ class ActivityBook extends Component {
                       value={this.state.userPhoneNumber}
                       onChange={e => this.updateContactNumber(e)}
                     />
-                    <br />
-                    {!this.state.isPhoneNumberVerified && (
-                      <p style={{ color: "red", display: "block" }}>
-                        Enter a valid 10 digit phone number
-                      </p>
-                    )}
                   </InputGroup>
+                  {!this.state.isPhoneNumberVerified && (
+                    <p style={{ color: "red", display: "block" }}>
+                      Enter a valid 10 digit number
+                    </p>
+                  )}
                 </Col>
                 <Col
                   sm={{ size: 6 }}
