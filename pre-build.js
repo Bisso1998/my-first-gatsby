@@ -17,7 +17,7 @@ let data = {"searchdata":{
 }
 login = () => {
   axios
-  .post(`https://travelcheckins.com/apitest/api/authenticate`, '{"username":"ferrybooking","password":"ferrybooking"}',  {headers: {'Content-Type': 'application/json'}} )
+  .post(`https://travelcheckins.com/api/api/authenticate`, '{"username":"ferrybooking","password":"ferrybooking"}',  {headers: {'Content-Type': 'application/json'}} )
   .then(data => {
     authToken = "Bearer "+data.data.token
     fetchData()
@@ -47,7 +47,7 @@ fetchData= () =>{
     'Authorization': authToken
   }
 axios
-  .post(`https://travelcheckins.com/apitest/api/booking/search/activity`, data,  {headers: headers} )
+  .post(`https://travelcheckins.com/api/api/booking/search/activity`, data,  {headers: headers} )
   .then(data => {
     Object.keys(data.data.data).map((eachPlace)=>{
       Object.keys(data.data.data[eachPlace].data).map((eachDate)=> {

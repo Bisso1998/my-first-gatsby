@@ -30,13 +30,16 @@ class RecommendedActivities extends Component {
             .replace(/^-+/, '') // Trim - from start of text
             .replace(/-+$/, '') // Trim - from end of text
         }
-        let newRecommendation = this.props.listOfRecommendation.map((eachRecommendation) => {
-          eachRecommendation = JSON.parse(eachRecommendation);
-          return {...eachRecommendation, url: slugify(eachRecommendation.small_description)};
-        });
-        this.setState({
-          recommendations: newRecommendation,
-        })
+        if(this.props.listOfRecommendation){
+          let newRecommendation = this.props.listOfRecommendation.map((eachRecommendation) => {
+            eachRecommendation = JSON.parse(eachRecommendation);
+            return {...eachRecommendation, url: slugify(eachRecommendation.small_description)};
+          });
+          this.setState({
+            recommendations: newRecommendation,
+          })
+        }
+        
      }
 
 
@@ -50,7 +53,7 @@ class RecommendedActivities extends Component {
                                       state={{ activityId: eachActivity.id }}
                                 >
 
-                                <div style={{backgroundImage:  'url(https://travelcheckins.com/apitest/public/activity_images/'+eachActivity.image_name+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
+                                <div style={{backgroundImage:  'url(https://travelcheckins.com/api/api/public/activity_images/'+eachActivity.image_name+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
                             </div>
                             </Link>
                         <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>

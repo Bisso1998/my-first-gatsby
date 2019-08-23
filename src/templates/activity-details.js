@@ -13,6 +13,7 @@ import {
 // library.add(fab, faCheckSquare, faCoffee)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Recommendation from '../components/recommended';
+import apiEndPoints from '../apiEndPoints';
 import { Link } from "gatsby";
 var striptags = require('striptags');
 
@@ -43,7 +44,7 @@ class ActivityDetail extends Component {
                     <BrowserView>
                     <Row className="">
                         <Col sm={{ size: 4}}  >
-                            <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/apitest/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
+                            <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url('+apiEndPoints.image+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
 
                             </div>
                             
@@ -101,7 +102,7 @@ class ActivityDetail extends Component {
                             <div style={{padding: '10px' , color: 'rgb(72, 72, 72)',  fontFamily: 'Montserrat', fontSize: '16px' }}>
                                 <p style={{fontSize: '26px', color: '#CC4263'}}> Why you will love this activity? </p>
                                 <ul>
-                                    <li>
+                                    {/* <li>
                                         Scuba diving is a mode of underwater diving where the diver uses a self-contained underwater breathing apparatus (scuba).
                                     </li>
                                     <li>
@@ -115,7 +116,8 @@ class ActivityDetail extends Component {
                                     </li>
                                     <li>
                                     Scuba diving is a mode of underwater diving where the diver uses a self-contained underwater breathing apparatus (scuba).
-                                    </li>
+                                    </li> */}
+                                    {this.state.data.why_to_do}
                                 </ul>
                                 <br/>
                               <Link to="/activity-book"   state={{ activityId: this.state.activityId , activityToBook: this.state.data }} >
@@ -138,7 +140,7 @@ class ActivityDetail extends Component {
 
                           <div style={{width: '100%', color: 'rgb(72, 72, 72)',fontFamily: 'Montserrat', padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
                             <p style={{fontSize: '26px',}}> {this.state.data.name}</p>
-                            <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/apitest/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
+                            <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/api/api/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
 
                             </div>
 

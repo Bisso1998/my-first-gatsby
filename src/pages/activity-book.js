@@ -490,7 +490,7 @@ class ActivityBook extends Component {
                     <img
                       alt=""
                       src={
-                        "https://travelcheckins.com/apitest/public/activity_images/" +
+                        "https://travelcheckins.com/api/api/public/activity_images/" +
                         this.state.activityToBookDetails.image
                       }
                       style={{ width: "112px", borderRadius: "2px" }}

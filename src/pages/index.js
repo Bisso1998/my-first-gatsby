@@ -57,7 +57,7 @@ class FerryActivities extends Component {
   login = () => {
     axios
       .post(
-        `https://travelcheckins.com/apitest/api/authenticate`,
+        `https://travelcheckins.com/api/api/authenticate`,
         '{"username":"ferrybooking","password":"ferrybooking"}',
         { headers: { "Content-Type": "application/json" } }
       )
@@ -231,7 +231,7 @@ class FerryActivities extends Component {
     }
     axios
       .post(
-        `https://travelcheckins.com/apitest/api/booking/search/activity`,
+        `https://travelcheckins.com/api/api/booking/search/activity`,
         data,
         { headers: headers }
       )
@@ -349,7 +349,7 @@ class FerryActivities extends Component {
                   className="activity-select"
                   style={{
                     backgroundImage:
-                      "url(https://travelcheckins.com/apitest/public/activity_images/" +
+                      "url(https://travelcheckins.com/api/api/public/activity_images/" +
                       eachActivity.image +
                       ")",
                     height: "300px",
@@ -371,7 +371,7 @@ class FerryActivities extends Component {
                 <div
                   style={{
                     backgroundImage:
-                      "url(https://travelcheckins.com/apitest/public/activity_images/" +
+                      "url(https://travelcheckins.com/api/api/public/activity_images/" +
                       eachActivity.image +
                       ")",
                     height: "300px",
