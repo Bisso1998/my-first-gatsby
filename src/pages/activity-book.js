@@ -39,6 +39,9 @@ class ActivityBook extends Component {
       userPhoneNumber: "",
       date: "",
       focused: null,
+
+      isPhoneNumberVerified: true,
+      isEmailVerified: true,
     }
     // console.log("activityToBookId  " , this.props.location.state.activityId);
     //   console.log("I am booking for this activity: " , this.state.activityToBookDetails);
@@ -114,10 +117,34 @@ class ActivityBook extends Component {
       userEmailId: e.target.value,
     })
   }
+  validateEmailId = () => {
+    let emailValidator = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if (emailValidator.test(String(this.state.userEmailId).toLowerCase())) {
+      this.setState({
+        isEmailVerified: true,
+      })
+    } else {
+      this.setState({
+        isEmailVerified: false,
+      })
+    }
+  }
   updateContactNumber = e => {
     this.setState({
       userPhoneNumber: e.target.value,
     })
+  }
+
+  validatePhoneNumber = () => {
+    if (this.state.userPhoneNumber.length == 10) {
+      this.setState({
+        isPhoneNumberVerified: true,
+      })
+    } else {
+      this.setState({
+        isPhoneNumberVerified: false,
+      })
+    }
   }
 
   // updateDate = e => {
@@ -271,11 +298,18 @@ class ActivityBook extends Component {
                         borderColor: "rgb(235,235,235)",
                         borderRadius: "1px",
                       }}
+                      type="number"
                       placeholder=""
+                      onBlur={this.validatePhoneNumber}
                       value={this.state.userPhoneNumber}
                       onChange={e => this.updateContactNumber(e)}
                     />
                   </InputGroup>
+                  {!this.state.isPhoneNumberVerified && (
+                    <p style={{ color: "red", display: "block" }}>
+                      Please enter a valid 10 digit number
+                    </p>
+                  )}
                 </Col>
                 <Col
                   sm={{ size: 6 }}
@@ -290,9 +324,15 @@ class ActivityBook extends Component {
                       }}
                       placeholder=""
                       value={this.state.userEmailId}
+                      onBlur={this.validateEmailId}
                       onChange={e => this.updateEmailId(e)}
                     />
                   </InputGroup>
+                  {!this.state.isEmailVerified && (
+                    <p style={{ color: "red", display: "block" }}>
+                      Please enter a valid Email Id
+                    </p>
+                  )}
                 </Col>
               </Row>
               <div
@@ -584,7 +624,7 @@ class ActivityBook extends Component {
           </Row>
           <br />
           <div style={{ marginTop: "15px" }}>
-          {/* <form
+            {/* <form
               method="post"
               action="http://localhost:8001/pay-for-activity.php"
             > */}
@@ -627,7 +667,11 @@ class ActivityBook extends Component {
                 value={this.state.numberOfChildren}
                 name="children"
               />
-              <input type="hidden" value={moment(this.state.userDate).format("YYYY-MM-DD")} name="date" />
+              <input
+                type="hidden"
+                value={moment(this.state.userDate).format("YYYY-MM-DD")}
+                name="date"
+              />
               <input type="hidden" value={this.state.userAge} name="age" />
               <Button
                 style={{
@@ -644,7 +688,9 @@ class ActivityBook extends Component {
                   !this.state.userEmailId ||
                   !this.state.userDate ||
                   !this.state.userPhoneNumber ||
-                  !this.state.numberOfAdultGuest
+                  !this.state.numberOfAdultGuest ||
+                  !this.state.isPhoneNumberVerified ||
+                  !this.state.isEmailVerified
                 }
                 block
               >
