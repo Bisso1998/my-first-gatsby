@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 // import axios from "axios"
 import Layout from "../components/layout"
-
 import GuestsSelector from "../components/guestsSelector/guestsSelector"
 import { Container, Row, Col } from "reactstrap"
 import {
@@ -19,6 +18,8 @@ import * as moment from "moment"
 import { faMapMarkerAlt, faClock } from "@fortawesome/free-solid-svg-icons"
 // library.add(fab, faCheckSquare, faCoffee)
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import apiEndPoints from '../apiEndPoints';
+
 var striptags = require("striptags")
 
 // import { Link } from "gatsby"
@@ -530,7 +531,7 @@ class ActivityBook extends Component {
                     <img
                       alt=""
                       src={
-                        "https://travelcheckins.com/api/api/public/activity_images/" +
+                        apiEndPoints.image+
                         this.state.activityToBookDetails.image
                       }
                       style={{ width: "112px", borderRadius: "2px" }}

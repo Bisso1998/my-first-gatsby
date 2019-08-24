@@ -3,7 +3,10 @@ import axios from "axios"
 // import Layout from "../components/layout"
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from "gatsby";
+import apiEndPoints from '../apiEndPoints';
+
 var striptags = require('striptags');
+
 
 class RecommendedActivities extends Component {
     constructor (props) {
@@ -53,7 +56,7 @@ class RecommendedActivities extends Component {
                                       state={{ activityId: eachActivity.id }}
                                 >
 
-                                <div style={{backgroundImage:  'url(https://travelcheckins.com/api/api/public/activity_images/'+eachActivity.image_name+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
+                                <div style={{backgroundImage:  'url('+apiEndPoints.image+eachActivity.image_name+')' , height: '300px', marginLeft: '19px', marginRight: '19px',  backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '5px'}}>
                             </div>
                             </Link>
                         <div style ={{marginLeft: '19px' , marginTop: '5px' , paddingTop: '5px'}}>

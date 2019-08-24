@@ -140,7 +140,7 @@ class ActivityDetail extends Component {
 
                           <div style={{width: '100%', color: 'rgb(72, 72, 72)',fontFamily: 'Montserrat', padding: '10px' ,  boxSizing: 'border-box',  marginTop : '20px'}}>
                             <p style={{fontSize: '26px',}}> {this.state.data.name}</p>
-                            <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url(https://travelcheckins.com/api/api/public/activity_images/'+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
+                            <div id="activityImage" style={{width: '100%' , height: '600px' ,  backgroundImage:  'url('+apiEndPoints.image+this.state.data.image+')' , backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', }}>
 
                             </div>
 

@@ -23,8 +23,11 @@ import {
 } from "reactstrap"
 import { Link } from "gatsby"
 import "../styles/global.css"
+import apiEndPoints from '../apiEndPoints';
+
 // to strip any html tags that may appear in api response data
 var striptags = require("striptags")
+
 
 class FerryActivities extends Component {
   constructor(props) {
@@ -57,7 +60,7 @@ class FerryActivities extends Component {
   login = () => {
     axios
       .post(
-        `https://travelcheckins.com/api/api/authenticate`,
+        apiEndPoints.authentication,
         '{"username":"ferrybooking","password":"ferrybooking"}',
         { headers: { "Content-Type": "application/json" } }
       )
@@ -231,7 +234,7 @@ class FerryActivities extends Component {
     }
     axios
       .post(
-        `https://travelcheckins.com/api/api/booking/search/activity`,
+        apiEndPoints.search,
         data,
         { headers: headers }
       )
@@ -349,7 +352,7 @@ class FerryActivities extends Component {
                   className="activity-select"
                   style={{
                     backgroundImage:
-                      "url(https://travelcheckins.com/api/api/public/activity_images/" +
+                      "url(" +apiEndPoints.image+
                       eachActivity.image +
                       ")",
                     height: "300px",
@@ -371,7 +374,7 @@ class FerryActivities extends Component {
                 <div
                   style={{
                     backgroundImage:
-                      "url(https://travelcheckins.com/api/api/public/activity_images/" +
+                      "url(" +apiEndPoints.image+
                       eachActivity.image +
                       ")",
                     height: "300px",
