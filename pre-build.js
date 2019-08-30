@@ -1,7 +1,27 @@
 const axios = require('axios')
 var fs = require("fs");
 var striptags = require('striptags');
+var path = require("path");
 
+async function downloadImage (url,name) {  
+  const imgUrl = url
+  
+  const imgPath = path.resolve(__dirname, 'static/images/', name)
+  const writer = fs.createWriteStream(imgPath)
+
+  const response = await axios({
+    url,
+    method: 'GET',
+    responseType: 'stream'
+  })
+
+  response.data.pipe(writer)
+
+  return new Promise((resolve, reject) => {
+    writer.on('finish', resolve)
+    writer.on('error', reject)
+  })
+}
 var allActivities = []
 var listOfActivityDetails = []
 fromDate = "2019-06-22",
@@ -63,6 +83,8 @@ axios
             eachDetail.url = slugify(eachDetail.small_description)
               listOfActivityDetails.push(eachDetail) 
                allActivities.push(eachDetail)
+               downloadImage('https://travelcheckins.com/api/public/activity_images/'+eachDetail.image,eachDetail.image)
+
               //  console.log(eachDetail.duration)
             //   console.log(allActivities,listOfActivityDetails)
           }else{

@@ -18,6 +18,15 @@ class RecommendedActivities extends Component {
         }
       }
 
+     IsJsonString(str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }
+
       componentDidMount() {
         function slugify(string) {
           const a = 'àáäâãåăæąçćčđďèéěėëêęǵḧìíïîįłḿǹńňñòóöôœøṕŕřßśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;'
@@ -33,7 +42,7 @@ class RecommendedActivities extends Component {
             .replace(/^-+/, '') // Trim - from start of text
             .replace(/-+$/, '') // Trim - from end of text
         }
-        if(this.props.listOfRecommendation){
+        if(this.props.listOfRecommendation && this.IsJsonString(this.props.listOfRecommendation)){
           let newRecommendation = this.props.listOfRecommendation.map((eachRecommendation) => {
             eachRecommendation = JSON.parse(eachRecommendation);
             return {...eachRecommendation, url: slugify(eachRecommendation.small_description)};

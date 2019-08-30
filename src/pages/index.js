@@ -24,6 +24,9 @@ import {
 import { Link } from "gatsby"
 import "../styles/global.css"
 import apiEndPoints from '../apiEndPoints';
+import { graphql } from 'gatsby'
+// import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
 const storedActivityData = require('./../../pages.json');
 // to strip any html tags that may appear in api response data
 var striptags = require("striptags")
@@ -190,7 +193,12 @@ class FerryActivities extends Component {
 
   componentDidMount() {
     this.fetchActivitiesList()
-
+    this.props.data.source.edges.map((item,i)=>{
+      if(item.node.childImageSharp.fluid.name == 'activity_28082019120821.jpg'){
+        console.log("found")
+      }
+    })
+    // console.log()
   }
 
   // ? what is this function for?
@@ -259,22 +267,27 @@ class FerryActivities extends Component {
                 to={`/${eachActivity.url}`}
                 state={{ activityId: eachActivity.id }}
               >
-                <div
-                  className="activity-select"
-                  style={{
-                    backgroundImage:
-                      "url(" +apiEndPoints.image+
-                      eachActivity.image +
-                      ")",
-                    height: "300px",
-                    marginLeft: "19px",
-                    marginRight: "19px",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    borderRadius: "5px",
-                  }}
-                />
+                {this.props.data.source.edges.map((item, i) => {
+                        if(item.node.childImageSharp.fluid.name == eachActivity.image){
+                         return <BackgroundImage
+                           fluid={item.node.childImageSharp.fluid}
+                           backgroundColor={`#040e18`}
+                           style={{
+                             overflow:"hidden",
+                            height: "300px",
+                            marginLeft: "19px",
+                            marginRight: "19px",
+                            backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            borderRadius: "5px",
+                          }}
+          ><div
+          className="activity-select"
+          
+        ></div></BackgroundImage>
+                        }
+                })}
               </Link>
             </BrowserView>
             <MobileView>
@@ -553,3 +566,19 @@ class FerryActivities extends Component {
 }
 
 export default FerryActivities
+export const pageQuery = graphql`
+  query imageQuery {
+    source: allFile(filter: { absolutePath: { regex: "/images/" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 600) {
+              name:originalName
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
