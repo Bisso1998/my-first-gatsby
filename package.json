@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "build-with-prefix-path": "gatsby build --prefix-paths",
+    "build-with-prefix-path": "node pre-build.js && gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
@@ -21,6 +21,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "gatsby": "^2.7.1",
+    "gatsby-cli": "^2.7.40",
     "moment": "^2.24.0",
     "rc-slider": "^8.6.13",
     "react": "^16.8.6",
