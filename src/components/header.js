@@ -101,7 +101,7 @@ class Header extends Component {
                   </a>
                 </Col>
                 <Col sm={{ size: 4}}  className="header-selected" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
-                <a href="/">ACTIVITIES 
+                <a href="/activity">ACTIVITIES 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
                    </a>
                 </Col>
