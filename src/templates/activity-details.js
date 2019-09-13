@@ -117,7 +117,7 @@ class ActivityDetail extends Component {
                                     <li>
                                     Scuba diving is a mode of underwater diving where the diver uses a self-contained underwater breathing apparatus (scuba).
                                     </li> */}
-                                    {this.state.data.why_to_do}
+                                    {striptags(this.state.data.why_to_do)}
                                 </ul>
                                 <br/>
                               <Link to="/activity-book"   state={{ activityId: this.state.activityId , activityToBook: this.state.data }} >
