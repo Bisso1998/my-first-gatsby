@@ -49,7 +49,7 @@ class FerryActivities extends Component {
       ],
       authToken:
         "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjM0NTc2NjAsImV4cCI6MTU2MzQ2MTI2MCwibmJmIjoxNTYzNDU3NjYwLCJqdGkiOiI3RlZ2QXdjNUdXTXNlbU1nIn0.Ucnf_zIQvooZyB1IP-IKsxrW9sLAoeAx98-xQvKcL2E",
-      filterPriceValue: [0, 1000],
+      filterPriceValue: [0, 150000],
       filterDateStart: null,
       filterDateEnd: null,
       filterDateFocusedInput: null,
@@ -79,7 +79,7 @@ class FerryActivities extends Component {
   }
   updateValueOfStyleFilter = value => {
     // document.getElementById(value).backgroundColor = "red";
-    ;["underwater", "Water sports", "Romantic", "Tour"].map(
+    ["Water Sports", "Adventure", "Romantic", "Tour"].map(
       eachExperience =>
         (document.getElementById(eachExperience).style.backgroundColor =
           "white")
@@ -97,7 +97,8 @@ class FerryActivities extends Component {
       document.getElementById(value).style.backgroundColor = "#e1e3fa"
 
       var x = this.state.listOfActivityDetails.filter(eachActivity => {
-        return eachActivity.style === value
+        var styles = eachActivity.style.split(',');
+        return styles.includes(value) === true
       })
       this.setState({ allActivities: x })
     }
@@ -124,10 +125,22 @@ class FerryActivities extends Component {
     this.setState({ filterPriceValue: e })
     // filter out activities that are not within price range
     var x = this.state.listOfActivityDetails.filter(eachActivity => {
+      // if( (eachActivity.adult_ticket >= e[0]) && (eachActivity.adult_ticket <= e[1]) ){
+      //   console.log('true')
+      // }else{
+      //   console.log( (parseInt(e[1])> parseInt(eachActivity.adult_ticket)) )
+      //   console.log(eachActivity.adult_ticket)
+      //   console.log(">=")
+      //   console.log(e[0])
+      //   console.log(eachActivity.adult_ticket)
+      //   console.log("<=")
+      //   console.log(e[1])
+      // }
       return (
         eachActivity.adult_ticket >= e[0] && eachActivity.adult_ticket <= e[1]
       )
     })
+    // console.log(x)
     this.setState({ allActivities: x })
     console.log(this.state.allActivities)
     console.log(this.state.filterDateStart)
@@ -441,26 +454,6 @@ class FerryActivities extends Component {
             </PopoverBody>
           </UncontrolledPopover>
 
-          <UncontrolledPopover
-            trigger="legacy"
-            placement="bottom"
-            target="filterByPrice"
-          >
-            <PopoverBody style={{ paddingTop: "18%" }}>
-              <h4 style={{ textAlign: "center" }}>
-                <Badge href="#" color="light">
-                  {this.state.filterPriceValue[0]} to{" "}
-                  {this.state.filterPriceValue[1]} INR
-                </Badge>
-              </h4>
-              <Range
-                min={0}
-                max={1000}
-                defaultValue={this.state.filterPriceValue}
-                onChange={this.updateValueOfPriceFilter}
-              />
-            </PopoverBody>
-          </UncontrolledPopover>
           {/* <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByGuest">
       <PopoverHeader>Filter by Guests</PopoverHeader>
       <PopoverBody>
@@ -507,6 +500,27 @@ class FerryActivities extends Component {
               </div>
             </PopoverBody>
           </UncontrolledPopover>
+
+          <UncontrolledPopover
+            trigger="legacy"
+            placement="bottom"
+            target="filterByPrice"
+          >
+            <PopoverBody style={{ paddingTop: "18%" }}>
+              <h4 style={{ textAlign: "center" }}>
+                <Badge href="#" color="light">
+                  {this.state.filterPriceValue[0]} to{" "}
+                  {this.state.filterPriceValue[1]} INR
+                </Badge>
+              </h4>
+              <Range
+                min={0}
+                max={15000}
+                defaultValue={this.state.filterPriceValue}
+                onChange={this.updateValueOfPriceFilter}
+              />
+            </PopoverBody>
+          </UncontrolledPopover>
         </div>
         <BrowserView>
           <p>
@@ -514,7 +528,7 @@ class FerryActivities extends Component {
           </p>
 
           <Row style={{ marginBottom: "50px" }}>
-            {["underwater", "Water sports", "Romantic", "Tour"].map(
+            {["Water Sports", "Adventure", "Romantic", "Tour"].map(
               eachExperience => (
                 <Col sm={{ size: 3 }}>
                   <div style={{ margin: "10px" }}>

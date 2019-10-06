@@ -198,6 +198,13 @@ class ActivityBook extends Component {
   }
 
   render() {
+    Object.size = function(obj) {
+      var size = 0, key;
+      for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+      }
+      return size;
+  };
     let dateToString = new Date(this.state.activityToBookDetails.date)
     let showDateOfActivity = this.state.userDate ? (
       <p>{moment(this.state.userDate).format("YYYY-MM-DD")} </p>
@@ -206,6 +213,10 @@ class ActivityBook extends Component {
         <b>No Date Selected</b>
       </p>
     )
+    const total_addons_available = Object.size(this.state.activityToBookDetails.related_addons)
+    console.log(total_addons_available);
+    let addons_available = total_addons_available ? 1 : 0;
+    // console.log(this.state.activityToBookDetails.related_addons.length)
     return (
       <Layout>
         <Container style={{ marginTop: "4rem" }}>
@@ -414,9 +425,9 @@ class ActivityBook extends Component {
                     </InputGroup>
                   </Col> */}
               </Row>
-              <br />
-              <hr />
-              <br />
+              {/* <br /> */}
+              {/* <hr /> */}
+              {/* <br /> */}
               <p
                 style={{
                   fontSize: "26px",
@@ -425,13 +436,15 @@ class ActivityBook extends Component {
                 }}
               >
                 {" "}
-                <b>Additional Services</b>{" "}
+                {/* <b>Additional Services</b>{" "} */}
               </p>
               <Row>
-                {[1, 2, 3].map(eachElement => (
+                {/* { 
+                  addons_available ? (
+                  Object.keys(this.state.activityToBookDetails.related_addons).map( (eachElement,s) => (
                   <Col sm={{ size: 4 }} style={{ paddingLeft: 0 }}>
                     <div style={{ fontSize: "14px", color: "rgb(75,75,75)" }}>
-                      AIRPORT PORT BLAIR
+                      {this.state.activityToBookDetails.related_addons[eachElement].name.toUpperCase()}
                     </div>
                     <div
                       style={{
@@ -454,8 +467,85 @@ class ActivityBook extends Component {
                       </Button>
                     </div>
                   </Col>
-                ))}
+                )
+                )):''
+                }  */}
               </Row>
+              <div style={{ marginTop: "20px" }}>
+            {/* <form
+              method="post"
+              action="http://localhost:8001/pay-for-activity.php"
+            > */}
+            <form
+              method="post"
+              action="https://ferrybooking.in/activity-payment-processor/pay-for-activity.php"
+            >
+              <input
+                type="hidden"
+                value={this.state.activityToBookDetails.id}
+                name="activity_id"
+              />
+              <input
+                type="hidden"
+                value={this.state.activityToBookDetails.name}
+                name="purpose"
+              />
+              <input
+                type="hidden"
+                value={this.state.userEmailId}
+                name="email"
+              />
+              <input
+                type="hidden"
+                value={this.state.userPhoneNumber}
+                name="phone"
+              />
+              <input
+                type="hidden"
+                value={this.state.userName}
+                name="buyer_name"
+              />
+              <input
+                type="hidden"
+                value={this.state.numberOfAdultGuest}
+                name="adults"
+              />
+              <input
+                type="hidden"
+                value={this.state.numberOfChildren}
+                name="children"
+              />
+              <input
+                type="hidden"
+                value={moment(this.state.userDate).format("YYYY-MM-DD")}
+                name="date"
+              />
+              <input type="hidden" value={this.state.userAge} name="age" />
+              <Button
+                style={{
+                  backgroundColor: "#CC4263",
+                  padding: "10px",
+                  color: "white",
+                  width: "150px",
+                }}
+                // onClick={this.bookActivityTemporarily}
+                type="submit"
+                disabled={
+                  !this.state.userAge ||
+                  !this.state.userName ||
+                  !this.state.userEmailId ||
+                  !this.state.userDate ||
+                  !this.state.userPhoneNumber ||
+                  !this.state.numberOfAdultGuest ||
+                  !this.state.isPhoneNumberVerified ||
+                  !this.state.isEmailVerified
+                }
+                block
+              >
+                Proceed to pay{" "}
+              </Button>
+            </form>
+          </div>
             </Col>
             <Col sm={{ size: 5 }}>
               <div
@@ -622,83 +712,10 @@ class ActivityBook extends Component {
                 </p>
               </div>
             </Col>
+            
           </Row>
           <br />
-          <div style={{ marginTop: "15px" }}>
-            {/* <form
-              method="post"
-              action="http://localhost:8001/pay-for-activity.php"
-            > */}
-            <form
-              method="post"
-              action="https://ferrybooking.in/activity-payment-processor/pay-for-activity.php"
-            >
-              <input
-                type="hidden"
-                value={this.state.activityToBookDetails.id}
-                name="activity_id"
-              />
-              <input
-                type="hidden"
-                value={this.state.activityToBookDetails.name}
-                name="purpose"
-              />
-              <input
-                type="hidden"
-                value={this.state.userEmailId}
-                name="email"
-              />
-              <input
-                type="hidden"
-                value={this.state.userPhoneNumber}
-                name="phone"
-              />
-              <input
-                type="hidden"
-                value={this.state.userName}
-                name="buyer_name"
-              />
-              <input
-                type="hidden"
-                value={this.state.numberOfAdultGuest}
-                name="adults"
-              />
-              <input
-                type="hidden"
-                value={this.state.numberOfChildren}
-                name="children"
-              />
-              <input
-                type="hidden"
-                value={moment(this.state.userDate).format("YYYY-MM-DD")}
-                name="date"
-              />
-              <input type="hidden" value={this.state.userAge} name="age" />
-              <Button
-                style={{
-                  backgroundColor: "#CC4263",
-                  padding: "10px",
-                  color: "white",
-                  width: "150px",
-                }}
-                // onClick={this.bookActivityTemporarily}
-                type="submit"
-                disabled={
-                  !this.state.userAge ||
-                  !this.state.userName ||
-                  !this.state.userEmailId ||
-                  !this.state.userDate ||
-                  !this.state.userPhoneNumber ||
-                  !this.state.numberOfAdultGuest ||
-                  !this.state.isPhoneNumberVerified ||
-                  !this.state.isEmailVerified
-                }
-                block
-              >
-                Proceed to pay{" "}
-              </Button>
-            </form>
-          </div>
+          
         </Container>
       </Layout>
     )

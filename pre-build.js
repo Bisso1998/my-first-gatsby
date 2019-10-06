@@ -25,13 +25,25 @@ async function downloadImage (url,name) {
 var allActivities = []
 var listOfActivityDetails = []
 fromDate = "2019-06-22",
-toDate = "2020-06-25",
+tmpDate = new Date(fromDate);
+tmpDate = new Date(tmpDate.setMonth(tmpDate.getMonth()+8));
+var year = tmpDate.getFullYear();
+var month = tmpDate.getMonth()+1;
+var day = tmpDate.getDate();
+
+if (day < 10) {
+  day = '0' + day;
+}
+if (month < 10) {
+  month = '0' + month;
+}
+toDate = year+'-'+month+'-'+day
 rawData = null,
 location = [{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}],
 authToken = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjMyNzg4MzEsImV4cCI6MTU2MzI4MjQzMSwibmJmIjoxNTYzMjc4ODMxLCJqdGkiOiJuME9wcVdhYkhRZXp4MmRSIn0.wFbLEDNmgg97UFZ6cEVY68NwyTzBlicwZWEF6IWllfI"
 let data = {"searchdata":{
-    "fromdate":"2019-06-22",
-    "todate":"2020-06-25",
+    "fromdate":fromDate,
+    "todate":toDate,
     "location":[{"id":1,"locationname":"Port Blair","city_id":1},{"id":2,"locationname":"Havelock","city_id":2}]
   }
 }
@@ -107,7 +119,7 @@ axios
             if (err) console.log(err);
             console.log("Successfully Written to File.");
           });
-    })
+    }).catch(e=>{console.log(e)})
     
 
 }
