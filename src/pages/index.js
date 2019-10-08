@@ -10,6 +10,7 @@ import "react-dates/lib/css/_datepicker.css"
 import { Input } from "reactstrap"
 import * as moment from "moment"
 import { BrowserView, MobileView, isMobile } from "react-device-detect"
+import {Helmet} from "react-helmet";
 import Layout from "../components/layout"
 import {
   Container,
@@ -382,6 +383,12 @@ class FerryActivities extends Component {
     }
     return (
       <Layout>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Book underwater adventure activities, scuba diving, romantic dinner in Andaman, Havelock Island, Portblair, Niel</title>
+            <link rel="canonical" href="https://ferrybooking.in/activity/" />
+            <meta name="description" content="Ferrybooking.in let's you book ferry, underwater activities, kayak, scuba, romantic dinner and adventure activities instantly in Andaman - Portblair - Havelock - Niel" />
+        </Helmet>
         <div
           className="filter-container"
           style={{ width: "100", padding: "20px" }}
