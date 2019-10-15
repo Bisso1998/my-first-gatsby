@@ -15,6 +15,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Recommendation from '../components/recommended';
 import apiEndPoints from '../apiEndPoints';
 import { Link } from "gatsby";
+import {Helmet} from "react-helmet";
+
 var striptags = require('striptags');
 
 class ActivityDetail extends Component {
@@ -38,8 +40,14 @@ class ActivityDetail extends Component {
 
     render() {  
         console.log(this.state.data)
+        const description = 'Cheapest and most booked activities in Andaman, Havelock, Neil, Port blair | ' + striptags(this.state.data.small_description)
         return(
             <Layout>
+              <Helmet>
+                  <meta charSet="utf-8" />
+                  <title>Book {this.state.data.name} | {this.state.data.style} activities in {this.state.data.location}, Andaman islands</title>
+                  <meta name="description" content={description} />
+              </Helmet>
                 <Container id="activity-info" style={{marginTop:'4rem'}}>
                     <BrowserView>
                     <Row className="">
