@@ -70,14 +70,14 @@ class Thankyou extends React.Component{
                     <hr/>
                     <Row>
                         <Col>
-                        <p style={{color:"#999"}}>Contact Details</p>
+                        <p style={{color:"#999"}}>Helpline Details</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                        <p>Zeeshan (24)</p>
-                        <p>9538740296</p>
-                        <p>zeeshanm1010@gmail.com</p>
+                        <p>Aditya Mani</p>
+                        <p>+91 9933266608</p>
+                        <p>info@ferrybooking.in</p>
                         </Col>
                     </Row>
                     <br />
