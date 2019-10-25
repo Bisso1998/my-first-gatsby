@@ -38,12 +38,15 @@ class FerryActivities extends Component {
     super(props)
     
     this.state = {
-      allActivities: [],
-      listOfActivityDetails: [],
+      // allActivities: [],
+      // listOfActivityDetails: [],
       loading: false,
       fromDate: "2019-06-22",
       toDate: "2020-06-25",
-      rawData: null,
+      rawData: storedActivityData,
+      listOfActivityDetails:storedActivityData,
+      allActivities:storedActivityData,
+      activities: [1, 2, 3, 4, 5, 6, 7],
       location: [
         { id: 1, locationname: "Port Blair", city_id: 1 },
         { id: 2, locationname: "Havelock", city_id: 2 },
