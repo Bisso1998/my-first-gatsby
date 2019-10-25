@@ -40,7 +40,7 @@ class FerryActivities extends Component {
     this.state = {
       allActivities: [],
       listOfActivityDetails: [],
-      loading: true,
+      loading: false,
       fromDate: "2019-06-22",
       toDate: "2020-06-25",
       rawData: null,
