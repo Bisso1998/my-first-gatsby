@@ -53,3 +53,17 @@ body {
 
   color: #fff !important ;
 } */
+
+.time_picker_preview {
+    height: 34px !important;
+}
+.react_times_button {
+  box-shadow: none !important;
+  border:1px solid #dbdbdb !important;
+}
+.preview_container svg{
+  top:3px !important;
+}
+.preview_container{
+  line-height: 31px !important;
+}

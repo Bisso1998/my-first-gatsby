@@ -20,12 +20,63 @@ import { faMapMarkerAlt, faClock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import apiEndPoints from '../apiEndPoints';
 
+// conversational ui
+import { ConversationalForm } from 'conversational-form';
+
 var striptags = require("striptags")
 
 // import { Link } from "gatsby"
 class ActivityBook extends Component {
   constructor(props) {
     super(props)
+    this.formFields = [
+      {
+        'tag': 'input',
+        'type': 'text',
+        'name': 'firstname',
+        'cf-questions': 'Hello, What is your name?',
+      },
+      {
+        'tag': 'input',
+        'type': 'radio',
+        'name': 'cab-needs',
+        'cf-label':'Yes Please',
+        'cf-questions': 'Need assistance planning your trip through andaman?',
+      },
+       {
+        'tag': 'input',
+        'type': 'radio',
+        'name': 'cab-needs',
+        'cf-label':'No',
+      },
+      {
+        'tag': 'input',
+        'type': 'text',
+        'name': 'date-of-arrival',
+        'cf-questions': 'When do you arrive at Andaman airport?'
+      },
+      {
+        'tag': 'input',
+        'type': 'text',
+        'name': 'date-of-departure',
+        'cf-questions': 'And may I know your date of departure from Andaman Island?'
+      },
+      {
+        'tag': 'input',
+        'type': 'text',
+        'name': 'airport-next-destination',
+        'cf-questions': 'Great! What is your next destination from PortBlair Airport?',
+        'list':'spots'
+      },
+      {
+        'tag': 'input',
+        'cf-conditional-airport-next-destination':'yes',
+        'type': 'text',
+        'name': 'need-cab',
+        'cf-questions': 'Need a cab from airport to '
+      },
+
+    ];
     this.state = {
       loading: true,
       numberOfAdultGuest: 1,
@@ -47,7 +98,11 @@ class ActivityBook extends Component {
     // console.log("activityToBookId  " , this.props.location.state.activityId);
     //   console.log("I am booking for this activity: " , this.state.activityToBookDetails);
   }
-
+submitCallback = ()=> {
+    var formDataSerialized = this.cf.getFormData(true);
+    console.log("Formdata, obj:", formDataSerialized);
+    this.cf.addRobotChatResponse("You are done. Check the dev console for form data output.")
+  }
   guestCountHandler = (adultCount, childCount) => {
     this.setState({
       numberOfAdultGuest: adultCount,
@@ -60,7 +115,7 @@ class ActivityBook extends Component {
     const availableDates = this.state.activityToBookDetails.dates
     return availableDates.includes(day) ? 0 : 1
   }
-  componentDidMount() {
+  componentDidMount = ()=> {
     // props.location is only available on browser/client
     // gatsby will build server side.. so if window is undefined, ignore props.location
     if (typeof window === "undefined") {
@@ -90,10 +145,24 @@ class ActivityBook extends Component {
         // reinstate when done developing
     //   window.location = "/"
     }
+
+    // conversational ui
+    this.cf = ConversationalForm.startTheConversation({
+      options: {
+        submitCallback: this.submitCallback,
+        preventAutoFocus: true,
+        // loadExternalStyleSheet: false
+      },
+      tags: this.formFields
+    });
+    
+    this.elem.appendChild(this.cf.el);
   }
+
   updateNumberOfAdults = e => {
     this.setState({ numberOfAdultGuest: e.target.value })
   }
+
   updateNumberOfChildren = e => {
     this.setState({ numberOfChildren: e.target.value })
   }
@@ -198,7 +267,7 @@ class ActivityBook extends Component {
       })
   }
 
-  render() {
+  render = ()=> {
     Object.size = function(obj) {
       var size = 0, key;
       for (key in obj) {
@@ -243,7 +312,13 @@ class ActivityBook extends Component {
                   details below to confirm the reservation{" "}
                 </p>
               </div>
-
+<datalist id="spots">
+                  <option value="Hotel the north reef" />
+                  <option value="Phoenix Bay Jetty" />
+                  <option value="Hotel driftwood" />
+                  <option value="NSRY Jetty" />
+                  <option value="Fisheries Jetty" />
+              </datalist>
               <div
                 style={{
                   width: "100%",
@@ -252,6 +327,10 @@ class ActivityBook extends Component {
                   boxSizing: "border-box",
                 }}
               >
+              {/* conversational ui */}
+              
+                <div ref={ref => this.elem = ref}/>
+
                 <p style={{ fontSize: "28px", marginTop: "40px" }}>
                   <b>Contact details</b>
                 </p>
@@ -569,8 +648,9 @@ class ActivityBook extends Component {
                 >
                   {" "}
                   <b>
+                    Cab Trip Planner <br />
                     {" "}
-                    {striptags(this.state.activityToBookDetails.name)}{" "}
+                    Day 1
                   </b>{" "}
                 </p>
 
@@ -595,7 +675,7 @@ class ActivityBook extends Component {
                           marginRight: "10px",
                         }}
                       />
-                      {this.state.activityToBookDetails.location}{" "}
+                       Port Blair Airport to Phoenix Bay Jetty{" "}
                     </p>
                     <p
                       style={{
@@ -614,7 +694,7 @@ class ActivityBook extends Component {
                           marginRight: "10px",
                         }}
                       />
-                      3.5 hours
+                      20 Mins
                     </p>
                     <i className="fas fa-band-aid" />
                   </Col>
@@ -633,53 +713,13 @@ class ActivityBook extends Component {
 
                   </Col> */}
                 </Row>
-                <hr />
-                <Row>
-                  <div style={{ fontSize: "14px", color: "rgb(72, 72, 72)" }}>
-                    {showDateOfActivity}
-                    {this.state.activityToBookDetails.start_time} -{" "}
-                    {this.state.activityToBookDetails.end_time}
-                  </div>
-                </Row>
-
-                <hr />
-                <div style={{ fontSize: "14px", color: "rgb(72, 72, 72)" }}>
-                  <p>
-                    <b> Provided Equipments</b>
-                  </p>
-
-                  <span>{this.state.activityToBookDetails.equipment}</span>
-                </div>
+                
+                
 
                 <hr />
                 <div style={{ fontSize: "14px", color: "rgb(72, 72, 72)" }}>
                   <p style={{ display: "inline" }}>
-                    {this.state.activityToBookDetails.adult_ticket} X{" "}
-                    {this.state.numberOfAdultGuest || 0} adult(s)
-                  </p>
-                  <p style={{ display: "inline", float: "right " }}>
-                    ₹
-                    {this.state.activityToBookDetails.adult_ticket *
-                      this.state.numberOfAdultGuest}
-                  </p>
-                </div>
-                <br />
-                <div style={{ fontSize: "14px", color: "rgb(72, 72, 72)" }}>
-                  <p style={{ display: "inline" }}>
-                    {this.state.activityToBookDetails.child_ticket} X{" "}
-                    {this.state.numberOfChildren || 0} children(s)
-                  </p>
-                  <p style={{ display: "inline", float: "right " }}>
-                    ₹
-                    {this.state.activityToBookDetails.child_ticket *
-                      this.state.numberOfChildren}
-                  </p>
-                </div>
-
-                <hr />
-                <div style={{ fontSize: "14px", color: "rgb(72, 72, 72)" }}>
-                  <p style={{ display: "inline" }}>
-                    <b>TOTAL (INR)</b>
+                    <b>Estimated Fare (INR)</b>
                   </p>
                   <p style={{ display: "inline", float: "right " }}>
                     ₹
@@ -690,6 +730,32 @@ class ActivityBook extends Component {
                   </p>
                   <p>(GST Inclusive)</p>
                 </div>
+                <Button
+                style={{
+                  float:"right",
+                  backgroundColor: "#CC4263",
+                  padding: "10px",
+                  color: "white",
+                  width: "200px",
+                }}
+                // onClick={this.bookActivityTemporarily}
+                type="submit"
+                disabled={
+                  !this.state.userAge ||
+                  !this.state.userName ||
+                  !this.state.userEmailId ||
+                  !this.state.userDate ||
+                  !this.state.userPhoneNumber ||
+                  !this.state.numberOfAdultGuest ||
+                  !this.state.isPhoneNumberVerified ||
+                  !this.state.isEmailVerified
+                }
+                block
+              >
+                Request Final Quote{" "}
+              </Button>
+              <br />
+              <br />
                 <hr />
                 <div>
                   <p style={{ color: "rgb(72, 72, 72)" }}>
@@ -701,16 +767,7 @@ class ActivityBook extends Component {
                 </div>
                 <hr />
 
-                <b style={{ color: "rgb(72, 72, 72)" }}>Guidelines</b>
-
-                <p style={{ fontSize: "14px", color: "rgb(72, 72, 72)" }}>
-                  <b>Pre Activity Guidelines </b>{" "}
-                  {this.state.activityToBookDetails.pre_activity_guidelines}
-                </p>
-                <p style={{ fontSize: "14px", color: "rgb(72, 72, 72)" }}>
-                  <b>Post Activity Guidelines </b>{" "}
-                  {this.state.activityToBookDetails.post_activity_guidelines}
-                </p>
+               
               </div>
             </Col>
             
