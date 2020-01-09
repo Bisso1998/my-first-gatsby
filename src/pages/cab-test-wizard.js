@@ -13,7 +13,7 @@ import StepWizard from 'react-step-wizard';
 import Step1 from './cab-wizard-steps/step1';
 import Step2 from './cab-wizard-steps/determine-if-ferry-booked';
 import Step3 from './cab-wizard-steps/ferryJourneyDetails';
-import JourneyDetails from './cab-wizard-steps/JourneyDetails';
+import JourneyDetails from './cab-wizard-steps/journeyDetails';
 import SelectDay1Activities from './cab-wizard-steps/selectDay1Activities'
 import Step99 from './cab-wizard-steps/step99';
 
