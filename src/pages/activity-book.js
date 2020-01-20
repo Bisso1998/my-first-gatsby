@@ -271,6 +271,7 @@ class ActivityBook extends Component {
                     />
                   </InputGroup>
                 </Col>
+                
                 <Col
                   sm={{ size: 6 }}
                   style={{ borderLeft: "1px solid white", paddingLeft: "0" }}

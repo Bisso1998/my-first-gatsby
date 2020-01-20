@@ -17,6 +17,7 @@ import "react-dates/lib/css/_datepicker.css"
 import * as moment from "moment"
 import TimePicker from 'react-times';
 
+
 // use material theme
 // import 'react-times/css/material/default.css';
 // or you can use classic theme
@@ -26,12 +27,15 @@ import { faMapMarkerAlt, faClock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import apiEndPoints from '../../apiEndPoints';
 import StepWizard from 'react-step-wizard';
+import { observer, Provider, inject } from 'mobx-react';
 var striptags = require("striptags");
 // import { Link } from "gatsby"
-class Step1 extends Component {
+
+@observer
+@inject('store')
+class UserDetails extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             loading: true,
             numberOfAdultGuest: 1,
@@ -48,21 +52,21 @@ class Step1 extends Component {
             date: "",
             arrivalDateFocused: null,
             departureDateFocused: null,
-
             isPhoneNumberVerified: true,
             isEmailVerified: true,
         }
-// console.log("activityToBookId  " , this.props.location.state.activityId);
-//   console.log("I am booking for this activity: " , this.state.activityToBookDetails);
 }
 onTimeChange(options) {
-    // do something
-  }
+// do something
+}
 
-  onFocusChange(focusStatue) {
-    // do something
-  }
+onFocusChange(focusStatue) {
+// do something
+}
+
 guestCountHandler = (adultCount, childCount) => {
+    this.props.store.cabWizardStore.setGuestNumberOfChildren(childCount)
+    this.props.store.cabWizardStore.setGuestNumberOfAdults(adultCount)
     this.setState({
         numberOfAdultGuest: adultCount,
         numberOfChildren: childCount,
@@ -72,67 +76,29 @@ guestCountHandler = (adultCount, childCount) => {
 isBlocked = day => {
     return 0
 }
+
 componentDidMount = ()=> {
-// props.location is only available on browser/client
-// gatsby will build server side.. so if window is undefined, ignore props.location
-if (typeof window === "undefined") {
-    return
-}
-// if (this.props.location.state != null) {
-//     this.setState(() => ({
-//         activityToBookDetails: this.props.location.state.activityToBook,
-//     }))
-//     console.log(
-//         "activityToBookDetails ",
-//         this.props.location.state.activityToBook
-//         )
-//     let savedState = JSON.stringify(this.props.location.state)
-//     localStorage.setItem("activityBookingState", savedState)
-// } else {
-//     let retrievedState = JSON.parse(
-//         localStorage.getItem("activityBookingState")
-//         )
-//     this.setState(() => ({
-//         activityToBookDetails: retrievedState.activityToBook,
-//     }))
-//     if (retrievedState == null)
-//         alert(
-//             "Please select an activity from homepage to book the activity. No activity selected."
-//             )
-// // reinstate when done developing
-// //   window.location = "/"
-// }
-}
-
-updateNumberOfAdults = e => {
-    this.setState({ numberOfAdultGuest: e.target.value })
-}
-
-updateNumberOfChildren = e => {
-    this.setState({ numberOfChildren: e.target.value })
+    // props.location is only available on browser/client
+    // gatsby will build server side.. so if window is undefined, ignore props.location
+    if (typeof window === "undefined") {
+        return
+    }
 }
 
 updateUsername = e => {
+    this.props.store.cabWizardStore.setGuestName(e.target.value)
     this.setState({
         userName: e.target.value,
     })
 }
 
-updateGender = e => {
-    this.setState({
-        userGender: e.target.value,
-    })
-}
-updateAge = e => {
-    this.setState({
-        userAge: e.target.value,
-    })
-}
 updateEmailId = e => {
+    this.props.store.cabWizardStore.setGuestEmail(e.target.value)
     this.setState({
         userEmailId: e.target.value,
     })
 }
+
 validateEmailId = () => {
     let emailValidator = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (emailValidator.test(String(this.state.userEmailId).toLowerCase())) {
@@ -145,7 +111,9 @@ validateEmailId = () => {
         })
     }
 }
+
 updateContactNumber = e => {
+    this.props.store.cabWizardStore.setGuestContactNumber(e.target.value)
     this.setState({
         userPhoneNumber: e.target.value,
     })
@@ -246,13 +214,7 @@ render = ()=> {
         {" "}
         </p>
         </div>
-        <datalist id="spots">
-        <option value="Hotel the north reef" />
-        <option value="Phoenix Bay Jetty" />
-        <option value="Hotel driftwood" />
-        <option value="NSRY Jetty" />
-        <option value="Fisheries Jetty" />
-        </datalist>
+        
         <div
         style={{
             width: "100%",
@@ -285,8 +247,12 @@ render = ()=> {
         sm={{ size: 6 }}
         style={{ borderLeft: "1px solid white", paddingLeft: "0" }}
         >
-        <span>Age</span>
-        <InputGroup style={{ width: "85%" }}>
+        <span>Number of travellers</span>
+        <GuestsSelector
+                    handler={this.guestCountHandler}
+                    maxTotalCount={15}
+                  />
+        {/* <InputGroup style={{ width: "85%" }}>
         <Input
         style={{
             borderColor: "rgb(235,235,235)",
@@ -297,7 +263,7 @@ render = ()=> {
         value={this.state.userAge}
         onChange={e => this.updateAge(e)}
         />
-        </InputGroup>
+        </InputGroup> */}
         </Col>
 
         </Row>
@@ -327,6 +293,7 @@ render = ()=> {
             </p>
             )}
         </Col>
+
         <Col
         sm={{ size: 6 }}
         style={{ borderLeft: "1px solid white", paddingLeft: "0" }}
@@ -350,6 +317,7 @@ render = ()=> {
             </p>
             )}
         </Col>
+
         </Row>
      
 
@@ -368,7 +336,16 @@ render = ()=> {
         }}
         >
         {" "}
-        <Button onClick={this.props.nextStep}>
+        <Button 
+            disabled={
+                  !this.state.userName ||
+                  !this.state.userEmailId ||
+                  !this.state.userPhoneNumber ||
+                  !this.state.numberOfAdultGuest ||
+                  !this.state.isPhoneNumberVerified ||
+                  !this.state.isEmailVerified
+                }
+                onClick={()=>{this.props.nextStep()}}>
         Next Step
         </Button>
         </p>
@@ -386,4 +363,4 @@ render = ()=> {
 }
 }
 
-export default Step1
+export default UserDetails

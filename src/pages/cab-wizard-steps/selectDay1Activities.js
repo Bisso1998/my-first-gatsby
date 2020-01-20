@@ -20,9 +20,12 @@ import { faMapMarkerAlt, faClock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import apiEndPoints from '../../apiEndPoints';
 import StepWizard from 'react-step-wizard';
+import {observer, inject} from 'mobx-react'
 var striptags = require("striptags")
 
 // import { Link } from "gatsby"
+@observer
+@inject('store')
 class SelectDay1Activities extends Component {
     constructor(props) {
         super(props)
@@ -54,7 +57,7 @@ render = ()=> {
         >
         <p style={{ fontSize: "28px", marginTop: "-20px" }}>
         <b>
-            Day 1: Port Blair
+            Day 1/{this.props.store.cabWizardStore.guestTotalDaysInAndaman}: Port Blair
         </b>
         </p>
         <p style={{ fontSize: "18px", marginTop: "-20px" }}>

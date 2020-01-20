@@ -20,10 +20,14 @@ import { faMapMarkerAlt, faClock } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import apiEndPoints from '../../apiEndPoints';
 import StepWizard from 'react-step-wizard';
+import { observer, Provider, inject } from 'mobx-react';
+
 var striptags = require("striptags")
 
 // import { Link } from "gatsby"
-class Step2 extends Component {
+@observer
+@inject('store')
+class IsFerryBooked extends Component {
     constructor(props) {
         super(props)
 
@@ -38,6 +42,17 @@ componentDidMount = ()=> {
         return
     }
 }
+
+nextStep = () => {
+    this.props.store.cabWizardStore.setGuestFerryIsBooked()
+    this.props.nextStep()
+}
+
+previousStep = () => {
+    this.props.store.cabWizardStore.setGuestFerryIsNotBooked()
+    this.props.previousStep()
+}
+
 
 render = ()=> {
     return (
@@ -74,7 +89,7 @@ render = ()=> {
         }}
         >
         {" "}
-        <Button onClick={this.props.lastStep}>
+        <Button onClick={()=>{this.previousStep()}}>
         No, I want to book ferry tickets
         </Button>
         </p>
@@ -90,7 +105,7 @@ render = ()=> {
         }}
         >
         {" "}
-        <Button onClick={this.props.nextStep}>
+        <Button onClick={()=>{this.nextStep()}}>
         Yes, I have booked ferry tickets
         </Button>
         </p>
@@ -105,4 +120,4 @@ render = ()=> {
 }
 }
 
-export default Step2
+export default IsFerryBooked
