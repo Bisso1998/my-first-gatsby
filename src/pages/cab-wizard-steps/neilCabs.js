@@ -32,6 +32,30 @@ class NeilCabs extends Component {
         super(props)
 
         this.state = {
+          neilCabsObject:[
+            {
+              name:"Hotel -> Ferry Shuttle (one way) ",
+              durationInMinutes:45,
+              type:"tour"
+              },
+          {
+              name:"Day tour Neil three beach ",
+              durationInMinutes:45,
+              type:"tour"
+              },
+          {
+              name:"Mt.harriet trip",
+              durationInMinutes:45,
+              type:"tour"
+              },
+          {
+              name:"Diglipur (3 days)",
+              durationInMinutes:45,
+              type:"tour"
+              },
+          
+          ],
+            cabsInNeilSelected:[]
         }
 }
 
@@ -43,8 +67,28 @@ componentDidMount = ()=> {
     }
 }
 
+
+onCardClick = (value,object) => {
+  this.toggleCardSelected(document.getElementById(value))
+  this.state.cabsInNeilSelected.push(object)
+  // this.setState({})
+}
+
+toggleCardSelected = (element) => {
+  // console.log(element.style.backgroundColor)
+  if(element.style.backgroundColor == "white"){
+    element.style.backgroundColor = "#eee"
+    return
+  }  
+  if(element.style.backgroundColor == "rgb(238, 238, 238)"){
+    element.style.backgroundColor = "white"
+    return
+  }
+}
+
 nextStep = () => {
     this.props.store.cabWizardStore.setGuestFerryIsBooked()
+    this.props.store.cabWizardStore.setCabsInNeil(this.state.cabsInNeilSelected)
     this.props.nextStep()
 }
 
@@ -84,7 +128,7 @@ render = ()=> {
 
         
         <Row style={{ marginBottom: "50px" }}>
-            {["Cab Transfer from Ferry point to Hotel","Bharathpur Beach","Laxmanpur Beach"].map(
+            {this.state.neilCabsObject.map(
               eachExperience => (
                 <Col sm={{ size: 4 }}>
                   <div style={{ margin: "10px" }}>
@@ -93,11 +137,11 @@ render = ()=> {
                         boxShadow: " 0px 4px 32px rgba(189, 189, 189, 0.24)",
                         border: "1px solid #F2F2F2",
                         cursor: "pointer",
+                        backgroundColor: "white"
                       }}
-                      onClick={() =>
-                        {}
+                      onClick={()=>this.onCardClick(eachExperience.name,eachExperience)
                       }
-                      id={eachExperience}
+                      id={eachExperience.name}
                     >
                       <Col
                         sm={{ size: 3 }}
@@ -117,7 +161,7 @@ render = ()=> {
                             color: "#554944",
                           }}
                         >
-                          <b>{eachExperience}</b>
+                          <b>{eachExperience.name}</b>
                         </p>
                       </Col>
                     </Row>

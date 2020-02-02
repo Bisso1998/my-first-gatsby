@@ -32,6 +32,87 @@ class PortBlairCabs extends Component {
         super(props)
 
         this.state = {
+          portBlairCabs:["Cab Transfer from Airport to Hotel","Cab Transfer from Airport to Ferry Point","Cab Transfer From Hotel To Ferry Point","Cellular Jail Tour Drop & Pickup","Cellular Jail light and sound Show Drop & Pickup","Corbyns Cove beach","Antro Museum","Fisherires Museum ", "Samudrika Museum","Catham Saw Mills","Monrng half day tour- Ross - Northbay  pickup and drop (one way)","Ross Island tour", "Ross trip with light and sound show", "Chidiya tapu", "National Park","Jolly Bouy/RedSkin", "Wandoor Beach","Baratang","Anthropological Museum","National Park"],
+          portBlairCabsObject:[
+            {
+              name:"Airport -> Hotel Shuttle (one way) ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Airport -> Ferry Shuttle (one way)",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Hotel -> Ferry Shuttle (one way) ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Cellular Jail Tour (Drop & Pick Up)",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Cellular Jail light & sound Show (Drop & Pick Up)",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Corbyns Cove Beach",
+              durationInMinutes: 45,
+              },
+          {
+              name:"on arrival Afternoon Tour -Cellular Jail, Corbyns Cove Beach, Cellular Jail Light and Sound show",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Antro Museum ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Fisheries  Museum ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Samudrika Museum",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Catham Saw Mills",
+              durationInMinutes: 45,
+              },
+          {
+              name:"City Tour -Cellular jail, Antro, Fisheries & Samudria Museum, Catham saw mill",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Monrng half day tour -Ross -Northbay ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Ross trip",
+              durationInMinutes:45,
+              },
+          {
+              name:"Ross trip with light and sound show ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Chidiyatapu Half day evening tour ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Baratang Day tour",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Wandoor day tour (jolly bouy/redskin) ",
+              durationInMinutes: 45,
+              },
+          {
+              name:"Wandoor beach morning or afternoon half day tour ",
+              durationInMinutes: 45,
+              },
+          
+                              ],
+          cabsInPortBlairSelected:[]
         }
 }
 
@@ -43,8 +124,27 @@ componentDidMount = ()=> {
     }
 }
 
+onCardClick = (value,object) => {
+  this.toggleCardSelected(document.getElementById(value))
+  this.state.cabsInPortBlairSelected.push(object)
+  // this.setState({})
+}
+
+toggleCardSelected = (element) => {
+  // console.log(element.style.backgroundColor)
+  if(element.style.backgroundColor == "white"){
+    element.style.backgroundColor = "#eee"
+    return
+  }  
+  if(element.style.backgroundColor == "rgb(238, 238, 238)"){
+    element.style.backgroundColor = "white"
+    return
+  }
+}
+
 nextStep = () => {
     this.props.store.cabWizardStore.setGuestFerryIsBooked()
+    this.props.store.cabWizardStore.setCabsInPortBlair(this.state.cabsInPortBlairSelected)
     this.props.nextStep()
 }
 
@@ -84,7 +184,7 @@ render = ()=> {
 
         
         <Row style={{ marginBottom: "50px" }}>
-            {["Cab Transfer from Airport to Hotel","Cab Transfer from Airport to Ferry Point","Cab Transfer From Hotel To Ferry Point","Cellular Jail", "Museum", "Chidiya tapu", "National Park", "Anthropological Museum","National Park"].map(
+            {this.state.portBlairCabsObject.map(
               eachExperience => (
                 <Col sm={{ size: 4 }}>
                   <div style={{ margin: "10px" }}>
@@ -93,11 +193,11 @@ render = ()=> {
                         boxShadow: " 0px 4px 32px rgba(189, 189, 189, 0.24)",
                         border: "1px solid #F2F2F2",
                         cursor: "pointer",
+                        backgroundColor: "white"
                       }}
-                      onClick={() =>
-                        {}
+                      onClick={()=>this.onCardClick(eachExperience.name,eachExperience)
                       }
-                      id={eachExperience}
+                      id={eachExperience.name}
                     >
                       <Col
                         sm={{ size: 3 }}
@@ -117,8 +217,11 @@ render = ()=> {
                             color: "#554944",
                           }}
                         >
-                          <b>{eachExperience}</b>
+                          <b>{eachExperience.name}</b>
+                          <br/>
+                          ({eachExperience.durationInMinutes} Mins)
                         </p>
+                        
                       </Col>
                     </Row>
                   </div>

@@ -32,6 +32,49 @@ class HavelockCabs extends Component {
         super(props)
 
         this.state = {
+          havelockCabsObject:[
+            {
+              name:"Hotel -> Ferry Shuttle (one way) (for hotel in Govindnagar area)",
+              durationInMinutes:45,
+              type:"transfer"
+              },
+          {
+              name:"Hotel -> Ferry Shuttle (one way) (for hotel in Radha Nagar area)",
+              durationInMinutes:45,
+              type:"transfer"
+              },
+          {
+              name:"Hotel -> Ferry Shuttle (one way) (for hotel in Vijay Nagar area)",
+              durationInMinutes:45,
+              type:"transfer"
+              },
+          {
+              name:"Morning or Afternoon Radha Nagar Tour",
+              durationInMinutes:45,
+              type:"Tour"
+              },
+          {
+              name:"Morning or Afternoon Kalapather",
+              durationInMinutes:45,
+              type:"Tour"
+              },
+          {
+              name:"Day Tour - Radhanagar + Kalapathar",
+              durationInMinutes:45,
+              type:"Tour"
+              },
+          {
+              name:"Half Day - drop/pick- scuba dive ",
+              durationInMinutes:45,
+              type:"Tour"
+              },
+          {
+              name:"Half Day Tour-drop/pick up for elephant trip",
+              durationInMinutes:45,
+              type:"Tour"
+              },
+          ],
+            cabsInHavelockSelected:[]
         }
 }
 
@@ -43,8 +86,27 @@ componentDidMount = ()=> {
     }
 }
 
+onCardClick = (value,object) => {
+  this.toggleCardSelected(document.getElementById(value))
+  this.state.cabsInHavelockSelected.push(object)
+  // this.setState({})
+}
+
+toggleCardSelected = (element) => {
+  // console.log(element.style.backgroundColor)
+  if(element.style.backgroundColor == "white"){
+    element.style.backgroundColor = "#eee"
+    return
+  }  
+  if(element.style.backgroundColor == "rgb(238, 238, 238)"){
+    element.style.backgroundColor = "white"
+    return
+  }
+}
+
 nextStep = () => {
     this.props.store.cabWizardStore.setGuestFerryIsBooked()
+    this.props.store.cabWizardStore.setCabsInHavelock(this.state.cabsInHavelockSelected)
     this.props.nextStep()
 }
 
@@ -84,7 +146,7 @@ render = ()=> {
 
         
         <Row style={{ marginBottom: "50px" }}>
-            {["Cab Transfer from Ferry point to Hotel","Elephant Beach Tour","Radhanagar Beach","Kala Pathar Beach", "VijayNagar Beach"].map(
+        {this.state.havelockCabsObject.map(
               eachExperience => (
                 <Col sm={{ size: 4 }}>
                   <div style={{ margin: "10px" }}>
@@ -93,11 +155,11 @@ render = ()=> {
                         boxShadow: " 0px 4px 32px rgba(189, 189, 189, 0.24)",
                         border: "1px solid #F2F2F2",
                         cursor: "pointer",
+                        backgroundColor: "white"
                       }}
-                      onClick={() =>
-                        {}
+                      onClick={()=>this.onCardClick(eachExperience.name,eachExperience)
                       }
-                      id={eachExperience}
+                      id={eachExperience.name}
                     >
                       <Col
                         sm={{ size: 3 }}
@@ -117,7 +179,7 @@ render = ()=> {
                             color: "#554944",
                           }}
                         >
-                          <b>{eachExperience}</b>
+                          <b>{eachExperience.name}</b>
                         </p>
                       </Col>
                     </Row>

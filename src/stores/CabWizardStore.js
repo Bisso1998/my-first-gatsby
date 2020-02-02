@@ -13,30 +13,10 @@ class CabWizardModel{
     @observable guestFerryHavelockToNeilDepartureDateTime = moment();
     @observable guestFerryNeilToPortBlairDepartureDateTime = moment();
     
-    @observable sightsInPortBlair =[
-        {
-            name: "Cellular Jail",
-            coordinates: "",
-            description: "",
-            durationInMinutes:30,
-            opening:"12:00",
-            closing:"04:00",
-            days:"1111111",
-            startBufferInMinutes:20,
-            endBufferInMinutes:20
-        }
-    ]
+    @observable sightsInPortBlair =[]
     // complexity. if other events happen between 2-6 pm, cellular jail will overlap 
 
-    @observable transfersInPortBlair =[
-        {
-            name: "Cellular Jail",
-            coordinates: "",
-            description: "",
-            hours:0.5,
-
-        }
-    ]
+    @observable transfersInPortBlair =[]
 
     @observable sightsInHavelock = []
     
@@ -45,6 +25,12 @@ class CabWizardModel{
     @observable sightsInNeil = []
 
     @observable transfersInNeil = []
+
+    @observable cabsInPortBlair =[]
+
+    @observable cabsInHavelock = []
+    
+    @observable cabsInNeil = []
 
     @action setGuestName(value){
         this.guestName = value
@@ -122,6 +108,18 @@ class CabWizardModel{
 
     @action setGuestFerryNeilToPortBlairDepartureDateTime(hour, minute){
         this.guestFerryNeilToPortBlairDepartureDateTime.set({h: hour, m: minute});
+    }
+
+    @action setCabsInPortBlair(value){
+        this.cabsInPortBlair = value
+    }
+
+    @action setCabsInHavelock(value){
+        this.cabsInHavelock = value
+    }
+
+    @action setCabsInNeil(value){
+        this.cabsInNeil = value
     }
 
     @computed get guestTotalDaysInAndaman(){

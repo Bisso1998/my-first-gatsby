@@ -40,6 +40,33 @@ componentDidMount = ()=> {
     }
 }
 
+listOfPortBlair = () =>{
+    var listString = '';
+    this.props.store.cabWizardStore.cabsInPortBlair.map( (eachCab,index) => (
+        listString = listString + (index ? ', ' : '') + eachCab.name
+    ))
+    console.log(this.listOfPortBlair)
+    return listString
+}
+
+listOfHavelock = () =>{
+    var listString = '';
+    this.props.store.cabWizardStore.cabsInHavelock.map( (eachCab,index) => (
+        listString = listString + (index ? ', ' : '') + eachCab.name
+    ))
+    console.log(this.listOfHavelock)
+    return listString
+}
+
+listOfNeil = () =>{
+    var listString = '';
+    this.props.store.cabWizardStore.cabsInNeil.map( (eachCab,index) => (
+        listString = listString + (index ? ', ' : '') + eachCab.name
+    ))
+    console.log(this.listOfNeil)
+    return listString
+}
+
 nextStep = () => {
     this.props.store.cabWizardStore.setGuestFerryIsBooked()
     this.props.nextStep()
@@ -49,7 +76,9 @@ previousStep = () => {
     this.props.store.cabWizardStore.setGuestFerryIsNotBooked()
     this.props.previousStep()
 }
+
 toggle = () => this.setIsOpen(!this.isOpen);
+
 setIsOpen = (value) => this.setState({isOpen:value})
 
 createItinerary = () => {
@@ -59,17 +88,16 @@ createItinerary = () => {
     // for(var i=0;i<this.props.store.cabWizardStore.guestTotalPreFerryDaysInPortBlair;i++){
         daysInPreFerryPortBlair.push(<VerticalTimelineElement
             className="vertical-timeline-element--work"
-            contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+            contentStyle={{  color: '#000' }}
             contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
             date= "22/01/2020"
-            iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-            icon={<faMapMarkerAlt />}
+           
             position="left"
           >
-            <h3 className="vertical-timeline-element-title">Pre PortBlair</h3>
-            <h4 className="vertical-timeline-element-subtitle">dummy</h4>
+            <h3 className="vertical-timeline-element-title">PortBlair</h3>
+            <h4 className="vertical-timeline-element-subtitle"></h4>
             <p>
-            dummy activity, dummy Experience, dummy SightSeeing, dummy Scube, dummy dummy
+            {this.listOfPortBlair()}
             </p>
         </VerticalTimelineElement>)
     // }
@@ -80,17 +108,14 @@ createItinerary = () => {
         daysInPreFerryPortBlair.push(
             <VerticalTimelineElement
                 className="vertical-timeline-element--work"
-                contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                contentStyle={{color: '#000' }}
                 contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                 date="25/01/2020"
-                iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                icon={<faMapMarkerAlt />}
                 position="right"
               >
                 <h3 className="vertical-timeline-element-title">Havelock</h3>
-                <h4 className="vertical-timeline-element-subtitle">dummy</h4>
                 <p>
-                dummy activity, dummy Experience, dummy SightSeeing, dummy Scube, dummy dummy                
+                {this.listOfHavelock()}               
                 </p>
             </VerticalTimelineElement>
               )
@@ -101,17 +126,14 @@ createItinerary = () => {
     // for(var i=0;i<this.props.store.cabWizardStore.guestTotalDaysInNeil;i++){
         daysInPreFerryPortBlair.push(<VerticalTimelineElement
             className="vertical-timeline-element--work"
-            contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+            contentStyle={{ color: '#000' }}
             contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
             date="30/01/2020"
-            iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-            icon={<faMapMarkerAlt />}
             position= "left"
           >
             <h3 className="vertical-timeline-element-title">Neil</h3>
-            <h4 className="vertical-timeline-element-subtitle">dummy</h4>
             <p>
-            dummy activity, dummy Experience, dummy SightSeeing, dummy Scube, dummy dummy
+            {this.listOfNeil()}
             </p>
         </VerticalTimelineElement>)
     // }
@@ -121,7 +143,7 @@ createItinerary = () => {
     // for(var i=0;i<this.props.store.cabWizardStore.guestTotalPostFerryDaysInPortBlair;i++){
         daysInPostFerryPortBlair.push(<VerticalTimelineElement
             className="vertical-timeline-element--work"
-            contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+            contentStyle={{ color: '#000' }}
             contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
             date="2011 - present"
             iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
@@ -129,9 +151,8 @@ createItinerary = () => {
             position="right"
           >
             <h3 className="vertical-timeline-element-title">Post PortBlair</h3>
-            <h4 className="vertical-timeline-element-subtitle">dummy</h4>
             <p>
-            dummy activity, dummy Experience, dummy SightSeeing, dummy Scube, dummy dummy
+            {this.listOfNeil()}
             </p>
         </VerticalTimelineElement>)
     // }
