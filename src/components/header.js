@@ -2,7 +2,12 @@ import React, { Component } from "react"
 // import { graphql } from "gatsby"
 import { Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import "../styles/global.css"
 
+import {
+  BrowserView,
+  MobileView
+} from "react-device-detect";
 // import axios from "axios"
 import {
     Collapse,
@@ -38,8 +43,8 @@ class Header extends Component {
         render() {
             return(
                 <div>
-                <Navbar color="white" style={{margin:'10px', paddingRight: '150px'}} light expand="md">
-                  <NavbarBrand href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', fontWeight:'bold', paddingLeft: '100px'}}>FerryBooking.in</NavbarBrand>
+                <Navbar color="white" style={{margin:'10px'}} light expand="md">
+                  <NavbarBrand className="navbar-heading-top" href="/" style={{color: '#1E67B4', fontFamily: 'Montserrat', fontSize: '28px', fontWeight:'bold'}}>FerryBooking.in</NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
@@ -52,15 +57,48 @@ class Header extends Component {
                           More in Andaman
                         </DropdownToggle>
                         <DropdownMenu right>
-                          <DropdownItem>
-                            Option 1
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/ferry-cruise-connectivity-in-andaman-nicobar-islands/">Ferry / Cruise Connectivity in Andaman Nicobar Islands</a>
                           </DropdownItem>
-                          <DropdownItem>
-                            Option 2
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/port-blair-to-havelock/">Port Blair To Havelock</a>
                           </DropdownItem>
-                          <DropdownItem divider />
-                          <DropdownItem>
-                            Reset
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/ross-island-ferry-ticket-booking/">Ross Island Ferry and Boat Ticket Booking</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/elephanta-beach-havelock/">Elephanta Beach Havelock</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/boats-connectivity-in-andaman/">Boats Connectivity in Andaman</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/sea-walk-booking-andaman/">Sea Walk Booking Andaman</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/scuba-diving-booking-andaman/">Scuba Diving Booking Andaman</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/hotel-booking-in-port-blair-havelock-neil-andaman/">Hotel Booking in Port Blair – Havelock – Neil – Andaman</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/andaman-tour-packages/">Andaman Tour Packages</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/cab-booking-for-andaman-tour-trip/">Cab Booking For Andaman Tour</a>
+                          </DropdownItem>
+
+                        <DropdownItem>
+                        <a href="https://ferrybooking.in/destinations-in-andaman-nicobar-islands-india/">Destinations in Andaman Nicobar Islands India</a>
                           </DropdownItem>
                         </DropdownMenu>
                       </UncontrolledDropdown>
@@ -82,23 +120,27 @@ class Header extends Component {
                     </Nav>
                   </Collapse>
                 </Navbar>
-                
+                <BrowserView>
                 <Row style={{borderTop: '1px solid #ddd', borderBottom: '1px solid #ddd', marginBottom: '10px', }}>
               
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
-                    FERRY BOOKING  
+                    <a href="https://ferrybooking.in">FERRY BOOKING  
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}> FOR HAVELOCK & NEIL</span>
+                    </a>
                 </Col>
                 <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: '#1F69B0', padding: '10px'}}>
-                    BOAT BOOKING 
+                    <a href="https://ferrybooking.in/book/boat-booking.html">BOAT BOOKING 
                     <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>ROSS,NORTH,ELEPHANTA</span>
+                  </a>
                 </Col>
-                <Col sm={{ size: 4}}  className="header-select" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
-                    ACTIVITIES 
-                    <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR HAVELOCK</span>
+                <Col sm={{ size: 4}}  className="header-selected" style={{fontFamily: 'Montserrat', fontSize: '22px', textAlign: 'center' , color: 'white' , backgroundColor: '#1F69B0' , padding: '10px'}}>
+                <a href="/activity">ACTIVITIES 
+                    <span style={{fontSize: '14px', marginTop: '-10px', display: 'block'}}>FOR PORT BLAIR, HAVELOCK AND NEIL ISLANDS</span>
+                   </a>
                 </Col>
               
                 </Row>
+                </BrowserView>
               </div>
             )
 

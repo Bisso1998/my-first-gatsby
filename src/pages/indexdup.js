@@ -10,7 +10,6 @@ import "react-dates/lib/css/_datepicker.css"
 import { Input } from "reactstrap"
 import * as moment from "moment"
 import { BrowserView, MobileView, isMobile } from "react-device-detect"
-import {Helmet} from "react-helmet";
 import Layout from "../components/layout"
 import {
   Container,
@@ -25,10 +24,7 @@ import {
 import { Link } from "gatsby"
 import "../styles/global.css"
 import apiEndPoints from '../apiEndPoints';
-import { graphql } from 'gatsby'
-// import Img from 'gatsby-image'
-import BackgroundImage from 'gatsby-background-image'
-const storedActivityData = require('./../../pages.json');
+
 // to strip any html tags that may appear in api response data
 var striptags = require("striptags")
 
@@ -36,46 +32,42 @@ var striptags = require("striptags")
 class FerryActivities extends Component {
   constructor(props) {
     super(props)
-    
+    this.login()
     this.state = {
-      // allActivities: [],
-      // listOfActivityDetails: [],
-      loading: false,
+      allActivities: [],
+      listOfActivityDetails: [],
+      loading: true,
       fromDate: "2019-06-22",
       toDate: "2020-06-25",
-      rawData: storedActivityData,
-      listOfActivityDetails:storedActivityData,
-      allActivities:storedActivityData,
-      activities: [1, 2, 3, 4, 5, 6, 7],
+      rawData: null,
       location: [
         { id: 1, locationname: "Port Blair", city_id: 1 },
         { id: 2, locationname: "Havelock", city_id: 2 },
       ],
       authToken:
         "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjM4LCJpc3MiOiJodHRwczovL3RyYXZlbGNoZWNraW5zLmNvbS9hcGl0ZXN0L2FwaS9hdXRoZW50aWNhdGUiLCJpYXQiOjE1NjM0NTc2NjAsImV4cCI6MTU2MzQ2MTI2MCwibmJmIjoxNTYzNDU3NjYwLCJqdGkiOiI3RlZ2QXdjNUdXTXNlbU1nIn0.Ucnf_zIQvooZyB1IP-IKsxrW9sLAoeAx98-xQvKcL2E",
-      filterPriceValue: [0, 150000],
+      filterPriceValue: [0, 1000],
       filterDateStart: null,
       filterDateEnd: null,
       filterDateFocusedInput: null,
       listOfPlacesToFilter: { Havelock: true, "Port Blair": true, Niel: true },
       filterExperienceValue: "",
     }
-    
     // this.setValueOfSearch();
   }
 
   // temporary login function to get the bearer token
   login = () => {
-    // axios
-    //   .post(
-    //     apiEndPoints.authentication,
-    //     '{"username":"ferrybooking","password":"ferrybooking"}',
-    //     { headers: { "Content-Type": "application/json" } }
-    //   )
-    //   .then(data => {
-    //     this.setState({ authToken: "Bearer " + data.data.token })
-    //     this.fetchActivitiesList()
-    //   })
+    axios
+      .post(
+        apiEndPoints.authentication,
+        '{"username":"ferrybooking","password":"ferrybooking"}',
+        { headers: { "Content-Type": "application/json" } }
+      )
+      .then(data => {
+        this.setState({ authToken: "Bearer " + data.data.token })
+        this.fetchActivitiesList()
+      })
   }
   showAllActivities() {
     let allActivity = this.state.listOfActivityDetails
@@ -83,7 +75,7 @@ class FerryActivities extends Component {
   }
   updateValueOfStyleFilter = value => {
     // document.getElementById(value).backgroundColor = "red";
-    ["Water Sports", "Adventure", "Romantic", "Tour"].map(
+    ;["underwater", "Water sports", "Romantic", "Tour"].map(
       eachExperience =>
         (document.getElementById(eachExperience).style.backgroundColor =
           "white")
@@ -101,8 +93,7 @@ class FerryActivities extends Component {
       document.getElementById(value).style.backgroundColor = "#e1e3fa"
 
       var x = this.state.listOfActivityDetails.filter(eachActivity => {
-        var styles = eachActivity.style.split(',');
-        return styles.includes(value) === true
+        return eachActivity.style === value
       })
       this.setState({ allActivities: x })
     }
@@ -129,22 +120,10 @@ class FerryActivities extends Component {
     this.setState({ filterPriceValue: e })
     // filter out activities that are not within price range
     var x = this.state.listOfActivityDetails.filter(eachActivity => {
-      // if( (eachActivity.adult_ticket >= e[0]) && (eachActivity.adult_ticket <= e[1]) ){
-      //   console.log('true')
-      // }else{
-      //   console.log( (parseInt(e[1])> parseInt(eachActivity.adult_ticket)) )
-      //   console.log(eachActivity.adult_ticket)
-      //   console.log(">=")
-      //   console.log(e[0])
-      //   console.log(eachActivity.adult_ticket)
-      //   console.log("<=")
-      //   console.log(e[1])
-      // }
       return (
         eachActivity.adult_ticket >= e[0] && eachActivity.adult_ticket <= e[1]
       )
     })
-    // console.log(x)
     this.setState({ allActivities: x })
     console.log(this.state.allActivities)
     console.log(this.state.filterDateStart)
@@ -208,30 +187,115 @@ class FerryActivities extends Component {
     this.setState({ allActivities: x })
   }
 
-  componentDidMount() {
-    this.fetchActivitiesList()
-    this.props.data.source.edges.map((item,i)=>{
-      if(item.node.childImageSharp.fluid.name == 'activity_28082019120821.jpg'){
-        console.log("found")
-      }
-    })
-    // console.log()
-  }
+  componentDidMount() {}
 
   // ? what is this function for?
   setValueOfSearch() {
     this.fetchActivitiesList()
   }
 
-  fetchActivitiesList = () => {
-    console.log('fetching activities')
-      this.setState({
-              rawData: storedActivityData,
-              listOfActivityDetails:storedActivityData,
-              allActivities:storedActivityData,
-              activities: [1, 2, 3, 4, 5, 6, 7],
-              loading:false
-            })
+  fetchActivitiesList() {
+    let data = {
+      searchdata: {
+        fromdate: "2019-06-22",
+        todate: "2020-06-25",
+        location: [
+          { id: 1, locationname: "Port Blair", city_id: 1 },
+          { id: 2, locationname: "Havelock", city_id: 2 },
+        ],
+      },
+    }
+
+    data = JSON.stringify(data)
+
+    let headers = {
+      "Content-Type": "application/json",
+      Authorization: this.state.authToken,
+    }
+
+    this.setState({ loading: true })
+    function slugify(string) {
+      const a =
+        "àáäâãåăæąçćčđďèéěėëêęǵḧìíïîįłḿǹńňñòóöôœøṕŕřßśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;"
+      const b =
+        "aaaaaaaaacccddeeeeeeeghiiiiilmnnnnooooooprrssssttuuuuuuuuuwxyyzzz------"
+      const p = new RegExp(a.split("").join("|"), "g")
+      string = striptags(string)
+      return string
+        .toString()
+        .toLowerCase()
+        .replace(/\s+/g, "-") // Replace spaces with -
+        .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+        .replace(/&/g, "-and-") // Replace & with 'and'
+        .replace(/[^\w\-]+/g, "") // Remove all non-word characters
+        .replace(/\-\-+/g, "-") // Replace multiple - with single -
+        .replace(/^-+/, "") // Trim - from start of text
+        .replace(/-+$/, "") // Trim - from end of text
+    }
+    axios
+      .post(
+        apiEndPoints.search,
+        data,
+        { headers: headers }
+      )
+      .then(data => {
+        // console.log(Object.keys(data.data.data));
+        Object.keys(data.data.data).map(eachPlace => {
+          Object.keys(data.data.data[eachPlace].data).map(eachDate => {
+            // console.log('Activity date' , eachDate);
+            data.data.data[eachPlace].data[eachDate].map(
+              (eachDetail, index) => {
+                // console.log("eachDetail" , eachDetail.name + " index " + index);
+                // add date to the flat array
+                eachDetail.date = eachDate
+                // make sure activity is not a duplicate.
+                eachDetail.location = data.data.data[eachPlace].name
+
+                eachDetail.url = slugify(eachDetail.small_description)
+
+                if (
+                  !this.state.allActivities.find(x => x.id === eachDetail.id)
+                ) {
+                  this.setState(prevState => ({
+                    listOfActivityDetails: [
+                      ...prevState.listOfActivityDetails,
+                      eachDetail,
+                    ],
+                    loading: false,
+                    allActivities: [
+                      ...prevState.listOfActivityDetails,
+                      eachDetail,
+                    ],
+                  }))
+                } else {
+                  // if duplicate add date to activity available dates
+                  if (
+                    !this.state.allActivities.find(x => x.id === eachDetail.id)
+                      .dates
+                  ) {
+                    this.state.allActivities.find(
+                      x => x.id === eachDetail.id
+                    ).dates = []
+                  }
+                  this.state.allActivities
+                    .find(x => x.id === eachDetail.id)
+                    .dates.push(eachDate)
+                }
+                return eachDetail
+              }
+            )
+            return eachDate
+          })
+          return eachPlace
+        })
+        this.setState({
+          rawData: data.data,
+          activities: [1, 2, 3, 4, 5, 6, 7],
+        })
+      })
+      .catch(error => {
+        this.setState({ loading: false, error })
+      })
   }
 
   render() {
@@ -284,27 +348,22 @@ class FerryActivities extends Component {
                 to={`/${eachActivity.url}`}
                 state={{ activityId: eachActivity.id }}
               >
-                {this.props.data.source.edges.map((item, i) => {
-                        if(item.node.childImageSharp.fluid.name == eachActivity.image){
-                         return <BackgroundImage
-                           fluid={item.node.childImageSharp.fluid}
-                           backgroundColor={`#040e18`}
-                           style={{
-                             overflow:"hidden",
-                            height: "300px",
-                            marginLeft: "19px",
-                            marginRight: "19px",
-                            backgroundRepeat: "no-repeat",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            borderRadius: "5px",
-                          }}
-          ><div
-          className="activity-select"
-          
-        ></div></BackgroundImage>
-                        }
-                })}
+                <div
+                  className="activity-select"
+                  style={{
+                    backgroundImage:
+                      "url(" +apiEndPoints.image+
+                      eachActivity.image +
+                      ")",
+                    height: "300px",
+                    marginLeft: "19px",
+                    marginRight: "19px",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    borderRadius: "5px",
+                  }}
+                />
               </Link>
             </BrowserView>
             <MobileView>
@@ -386,12 +445,6 @@ class FerryActivities extends Component {
     }
     return (
       <Layout>
-        <Helmet>
-            <meta charSet="utf-8" />
-            <title>Book underwater adventure activities, scuba diving, romantic dinner in Andaman, Havelock Island, Portblair, Niel</title>
-            <link rel="canonical" href="https://ferrybooking.in/activity/" />
-            <meta name="description" content="Ferrybooking.in let's you book ferry, underwater activities, kayak, scuba, romantic dinner and adventure activities instantly in Andaman - Portblair - Havelock - Niel" />
-        </Helmet>
         <div
           className="filter-container"
           style={{ width: "100", padding: "20px" }}
@@ -464,6 +517,26 @@ class FerryActivities extends Component {
             </PopoverBody>
           </UncontrolledPopover>
 
+          <UncontrolledPopover
+            trigger="legacy"
+            placement="bottom"
+            target="filterByPrice"
+          >
+            <PopoverBody style={{ paddingTop: "18%" }}>
+              <h4 style={{ textAlign: "center" }}>
+                <Badge href="#" color="light">
+                  {this.state.filterPriceValue[0]} to{" "}
+                  {this.state.filterPriceValue[1]} INR
+                </Badge>
+              </h4>
+              <Range
+                min={0}
+                max={1000}
+                defaultValue={this.state.filterPriceValue}
+                onChange={this.updateValueOfPriceFilter}
+              />
+            </PopoverBody>
+          </UncontrolledPopover>
           {/* <UncontrolledPopover trigger="legacy" placement="bottom" target="filterByGuest">
       <PopoverHeader>Filter by Guests</PopoverHeader>
       <PopoverBody>
@@ -510,27 +583,6 @@ class FerryActivities extends Component {
               </div>
             </PopoverBody>
           </UncontrolledPopover>
-
-          <UncontrolledPopover
-            trigger="legacy"
-            placement="bottom"
-            target="filterByPrice"
-          >
-            <PopoverBody style={{ paddingTop: "18%" }}>
-              <h4 style={{ textAlign: "center" }}>
-                <Badge href="#" color="light">
-                  {this.state.filterPriceValue[0]} to{" "}
-                  {this.state.filterPriceValue[1]} INR
-                </Badge>
-              </h4>
-              <Range
-                min={0}
-                max={15000}
-                defaultValue={this.state.filterPriceValue}
-                onChange={this.updateValueOfPriceFilter}
-              />
-            </PopoverBody>
-          </UncontrolledPopover>
         </div>
         <BrowserView>
           <p>
@@ -538,7 +590,7 @@ class FerryActivities extends Component {
           </p>
 
           <Row style={{ marginBottom: "50px" }}>
-            {["Water Sports", "Adventure", "Romantic", "Tour"].map(
+            {["underwater", "Water sports", "Romantic", "Tour"].map(
               eachExperience => (
                 <Col sm={{ size: 3 }}>
                   <div style={{ margin: "10px" }}>
@@ -590,19 +642,3 @@ class FerryActivities extends Component {
 }
 
 export default FerryActivities
-export const pageQuery = graphql`
-  query imageQuery {
-    source: allFile(filter: { absolutePath: { regex: "/images/" } }) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 600) {
-              name:originalName
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`

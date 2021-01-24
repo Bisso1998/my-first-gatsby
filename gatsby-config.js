@@ -3,12 +3,23 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-
+const path = require('path')
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Bisso is great`,
+    title: `ferrybooking.in - book adventure activities, scuba diving, romantic dinner in Andaman, Havelock Island, Portblair, Niel`
   },
-  pathPrefix: "/my-first-gatsby",
-
+  pathPrefix: "/activity/",
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname,`static`, `images`),
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`
+  ],
 }

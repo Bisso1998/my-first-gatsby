@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0f388088-e938-46e5-8618-ea586fb99f86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/activity-book.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/activity-book.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -71,59 +67,181 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="315232474">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="44" />
+          <entry key="project.open.time.10" value="4" />
+          <entry key="project.open.time.11" value="3" />
+          <entry key="project.open.time.12" value="9" />
+          <entry key="project.open.time.13" value="6" />
+          <entry key="project.open.time.14" value="6" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.open.time.9" value="6" />
+          <entry key="project.opened" value="46" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="ESLintLanguageService" value="46" />
+          <entry key="TypeScriptServerServiceImpl" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="2" />
+          <entry key="html" value="1" />
+          <entry key="js" value="25" />
+          <entry key="json" value="5" />
+          <entry key="map" value="1" />
+          <entry key="md" value="1" />
+          <entry key="ts" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="2" />
+          <entry key="HTML" value="1" />
+          <entry key="JSON" value="5" />
+          <entry key="JavaScript" value="25" />
+          <entry key="Markdown" value="1" />
+          <entry key="SourceMap" value="1" />
+          <entry key="TypeScript" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="58" />
+          <entry key="js" value="6271" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="58" />
+          <entry key="JavaScript" value="6271" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="hello-world" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="219" column="32" lean-forward="true" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
+            <state relative-caret-position="4770">
+              <caret line="318" column="6" selection-start-line="318" selection-start-column="6" selection-end-line="318" selection-end-column="6" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-                <element signature="e#222#262#0" expanded="true" />
+                <element signature="e#105#139#0" expanded="true" />
+                <element signature="e#191#223#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="46" column="60" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="60" />
+              <folding>
+                <element signature="e#77#115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/global.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/activity-details.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2055">
+              <caret line="139" column="59" selection-start-line="139" selection-start-column="59" selection-end-line="139" selection-end-column="59" />
+              <folding>
+                <element signature="e#70#111#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/activities.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="165" column="141" selection-start-line="165" selection-start-column="141" selection-end-line="165" selection-end-column="141" />
+              <folding>
+                <element signature="e#70#111#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/githubInfo.js">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>1800</find>
-      <find>costForAdult</find>
-      <find>adult(s)</find>
-      <find>numberOfAdultGuest</find>
-      <find>totalCost</find>
-      <find>totalcost</find>
-      <find>total</find>
-      <find>.map</find>
-      <find>book no</find>
-      <find>019-06-18</find>
-      <find>Explore experiences</find>
-      <find>Layout-60</find>
-      <find>reactstrap</find>
-      <find>PopoverLegacy</find>
-      <find>input</find>
-      <find>&lt;input</find>
-      <find>updateNumberOfAdults</find>
-      <find>badge</find>
-      <find>listOfActivityDetails</find>
-      <find>activities</find>
       <find>listOfContent</find>
-      <find>priceValue</find>
-      <find>.activities</find>
-      <find>listof</find>
-      <find>eachDetail</find>
-      <find>updateValueOfPriceFilter</find>
-      <find>filterList = () =&gt; {</find>
-      <find>filterList</find>
-      <find>InputRange</find>
-      <find>range</find>
+      <find>explore</find>
+      <find>alert</find>
+      <find>this.state.loading</find>
+      <find>listofcon</find>
+      <find>SingleDatePicker</find>
+      <find>FerryBooking.in</find>
+      <find>.css</find>
+      <find>Filters</find>
+      <find>updateDate</find>
+      <find>single</find>
+      <find>singleDatePicker</find>
+      <find>pay</find>
+      <find>bookActivityTemporarily</find>
+      <find>console.log</find>
+      <find>userName</find>
+      <find>numberOfAdultGuest</find>
+      <find>Provided Equipments</find>
+      <find>Date</find>
+      <find>Date</find>
+      <find>tostr</find>
+      <find>toStr</find>
+      <find>userDate</find>
+      <find>handleDateChange</find>
+      <find>handle</find>
+      <find>moment</find>
+      <find>this.state.userDate</find>
+      <find>format</find>
+      <find>dateToString</find>
+      <find>showDateOfActivity</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -135,14 +253,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/recommended.js" />
         <option value="$PROJECT_DIR$/src/pages/activityBook.js" />
-        <option value="$PROJECT_DIR$/src/styles/global.css" />
-        <option value="$PROJECT_DIR$/src/pages/activity-details.js" />
-        <option value="$PROJECT_DIR$/src/pages/activity-book.js" />
         <option value="$PROJECT_DIR$/src/components/layout.js" />
+        <option value="$PROJECT_DIR$/src/pages/activity-details-template.js" />
+        <option value="$PROJECT_DIR$/src/pages/activity-details.js" />
+        <option value="$PROJECT_DIR$/src/components/recommended.js" />
+        <option value="$PROJECT_DIR$/pre-build.js" />
+        <option value="$PROJECT_DIR$/src/templates/activity-details.js" />
         <option value="$PROJECT_DIR$/src/components/header.js" />
         <option value="$PROJECT_DIR$/src/pages/index.js" />
+        <option value="$PROJECT_DIR$/src/styles/global.css" />
+        <option value="$PROJECT_DIR$/src/pages/activity-book.js" />
       </list>
     </option>
   </component>
@@ -165,7 +286,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="814" />
+    <option name="height" value="839" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -173,50 +294,64 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="hello-world" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hello-world" type="462c0819:PsiDirectoryNode" />
+              <item name="ferrybooking-activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ferrybooking-activities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hello-world" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hello-world" type="462c0819:PsiDirectoryNode" />
+              <item name="ferrybooking-activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ferrybooking-activities" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hello-world" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hello-world" type="462c0819:PsiDirectoryNode" />
+              <item name="ferrybooking-activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ferrybooking-activities" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hello-world" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hello-world" type="462c0819:PsiDirectoryNode" />
+              <item name="ferrybooking-activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ferrybooking-activities" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="hello-world" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hello-world" type="462c0819:PsiDirectoryNode" />
+              <item name="ferrybooking-activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ferrybooking-activities" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ferrybooking-activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ferrybooking-activities" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ferrybooking-activities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ferrybooking-activities" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/node_modules/eslint" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -276,11 +411,57 @@
       <workItem from="1562499403879" duration="1007000" />
       <workItem from="1562501293042" duration="1302000" />
       <workItem from="1562503145439" duration="1254000" />
+      <workItem from="1563260445751" duration="1563000" />
+      <workItem from="1563263093575" duration="983000" />
+      <workItem from="1563266524256" duration="1694000" />
+      <workItem from="1563268927741" duration="989000" />
+      <workItem from="1563271898413" duration="534000" />
+      <workItem from="1563276656798" duration="785000" />
+      <workItem from="1563287111924" duration="1275000" />
+      <workItem from="1563289014505" duration="921000" />
+      <workItem from="1563336720772" duration="383000" />
+      <workItem from="1563340612108" duration="317000" />
+      <workItem from="1563352455824" duration="1548000" />
+      <workItem from="1563354557912" duration="1287000" />
+      <workItem from="1563356795891" duration="579000" />
+      <workItem from="1563359879934" duration="442000" />
+      <workItem from="1563363672840" duration="629000" />
+      <workItem from="1563387184287" duration="1730000" />
+      <workItem from="1563388989804" duration="1209000" />
+      <workItem from="1563390805981" duration="1549000" />
+      <workItem from="1563392619600" duration="1495000" />
+      <workItem from="1563394431450" duration="983000" />
+      <workItem from="1563456899205" duration="1350000" />
+      <workItem from="1563459177075" duration="1483000" />
+      <workItem from="1563460987529" duration="513000" />
+      <workItem from="1563463439377" duration="1207000" />
+      <workItem from="1563510757600" duration="258000" />
+      <workItem from="1563610440327" duration="69000" />
+      <workItem from="1564726770277" duration="1540000" />
+      <workItem from="1564728460122" duration="987000" />
+      <workItem from="1564753561992" duration="978000" />
+      <workItem from="1564755409578" duration="1189000" />
+      <workItem from="1564757343890" duration="1723000" />
+      <workItem from="1564763740001" duration="1580000" />
+      <workItem from="1564765616845" duration="1453000" />
+      <workItem from="1564767446181" duration="1608000" />
+      <workItem from="1564769282731" duration="1388000" />
+      <workItem from="1564816125540" duration="1733000" />
+      <workItem from="1564817932204" duration="1762000" />
+      <workItem from="1564819948036" duration="494000" />
+      <workItem from="1564822924625" duration="903000" />
+      <workItem from="1564825330200" duration="1641000" />
+      <workItem from="1564831333359" duration="1126000" />
+      <workItem from="1564839387434" duration="1478000" />
+      <workItem from="1564841243565" duration="1367000" />
+      <workItem from="1564843226010" duration="1374000" />
+      <workItem from="1564845399537" duration="736000" />
+      <workItem from="1564976751167" duration="1098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41597000" />
+    <option name="totallyTimeSpent" value="94346000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,12 +473,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="814" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="839" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49584487" visible="true" weight="0.17979942" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49263722" visible="true" weight="0.04799427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.5041551" side_tool="true" weight="0.1812321" />
+      <window_info id="Favorites" order="3" sideWeight="0.5073628" side_tool="true" weight="0.2191977" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32920793" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -310,11 +492,35 @@
       <window_info anchor="bottom" id="NativeScript" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Nativescript Palette" order="3" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49263722" visible="true" weight="0.04799427" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.5073628" side_tool="true" weight="0.2191977" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32920793" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32923833" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="NativeScript" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Nativescript Palette" order="3" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -330,40 +536,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/component---src-pages-index-js-d17d5db4a2be465256bc.js">
+    <entry file="file://$PROJECT_DIR$/public/component---src-pages-index-js-d17d5db4a2be465256bc.js" />
+    <entry file="file://$PROJECT_DIR$/../JS_practice/todo-Es6.html" />
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/activity-details.js" />
+    <entry file="file://$PROJECT_DIR$/src/pages/activity-details-template.js" />
+    <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/src/Input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret column="2722" selection-start-column="2722" selection-end-column="2722" />
+        <state relative-caret-position="240">
+          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../JS_practice/todo-Es6.html">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-dates/lib/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-end-line="65" />
+        <state relative-caret-position="240">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/activity-details.js">
+    <entry file="file://$PROJECT_DIR$/public/component---src-pages-activities-js-42f2a33c91714d41b3bb.js.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="93" column="39" lean-forward="true" selection-start-line="93" selection-end-line="94" />
+        <state relative-caret-position="231">
+          <caret column="14556" selection-start-column="14556" selection-end-column="14556" />
+        </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pre-build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/header.js">
+    <entry file="file://$PROJECT_DIR$/pages.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="85" column="106" selection-start-line="85" selection-start-column="106" selection-end-line="85" selection-end-column="106" />
+        <state relative-caret-position="60">
+          <caret column="4130" selection-start-column="4130" selection-end-column="4130" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" selection-start-line="21" selection-end-line="23" selection-end-column="3" />
+    <entry file="file://$PROJECT_DIR$/gatsby-node.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gatsby-config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../JS_practice/todo-Es6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="110" column="31" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/profile.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/layout.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -372,34 +620,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/global.css">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-device-detect/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/recommended.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="49" column="179" selection-start-line="49" selection-start-column="179" selection-end-line="49" selection-end-column="179" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/activities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        <state relative-caret-position="45">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="219" column="32" lean-forward="true" selection-start-line="219" selection-start-column="32" selection-end-line="219" selection-end-column="32" />
+        <state relative-caret-position="4770">
+          <caret line="318" column="6" selection-start-line="318" selection-start-column="6" selection-end-line="318" selection-end-column="6" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <element signature="e#222#262#0" expanded="true" />
+            <element signature="e#105#139#0" expanded="true" />
+            <element signature="e#191#223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="46" column="60" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="60" />
+          <folding>
+            <element signature="e#77#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/activity-details.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="139" column="59" selection-start-line="139" selection-start-column="59" selection-end-line="139" selection-end-column="59" />
+          <folding>
+            <element signature="e#70#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/activities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/githubInfo.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/activity-book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="165" column="141" selection-start-line="165" selection-start-column="141" selection-end-line="165" selection-end-column="141" />
+          <folding>
+            <element signature="e#70#111#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 .header-select {
   font-family: 'Montserrat';
   font-size: '22px';
   text-align: 'center' ;
-  color: '#1F69B0' !important;
+  color: '#1F69B0' ;
 }
 
 body {
@@ -13,4 +14,56 @@ body {
 
 .row {
   margin:0
+}
+
+.popover {
+  max-width: 400px;
+}
+.header-select a { 
+  /* background: #fff; */
+  color: #1F69B0 ;
+}
+.activity-select:hover {
+  opacity: 0.5;
+}
+.header-select:hover { 
+  background: rgb(31, 105, 176);
+  color: #fff !important ;
+}
+.header-select:hover a{ 
+  background: rgb(31, 105, 176);
+  color: #fff !important ;
+}
+.header-selected a{ 
+  background: rgb(31, 105, 176);
+  color: #fff !important ;
+}
+@media screen and (max-width: 375px){
+  .navbar-heading-top{
+    font-size: 22px !important;
+  }
+  .filter-container {
+    padding: 0px !important;
+  }
+  .navbar-light .navbar-toggler{
+    border-color:#fff ;
+  }
+}
+/* .header-select a { 
+
+  color: #fff !important ;
+} */
+
+.time_picker_preview {
+    height: 34px !important;
+}
+.react_times_button {
+  box-shadow: none !important;
+  border:1px solid #dbdbdb !important;
+}
+.preview_container svg{
+  top:3px !important;
+}
+.preview_container{
+  line-height: 31px !important;
 }
